@@ -8657,7 +8657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/home/bunlong/workspace/react-papaparse/docs/pages/_app.js";
+var _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
 
@@ -8795,7 +8795,7 @@ function (_App) {
         __self: this
       }), __jsx("link", {
         rel: "stylesheet",
-        href: "/static/css/tomorrow.highlight.css",
+        href: "/static/css/common.css",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 38
@@ -8803,7 +8803,7 @@ function (_App) {
         __self: this
       }), __jsx("link", {
         rel: "stylesheet",
-        href: "/static/css/common.css",
+        href: "/static/css/prism.css",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -8822,135 +8822,136 @@ function (_App) {
         href: "/static/css/demo.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 42
         },
         __self: this
-      }) : '', __jsx("script", {
-        src: "/static/js/highlight.min.js",
+      }) : ''), __jsx("div", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 45
         },
         __self: this
-      })), __jsx("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
       }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 46
         },
         __self: this
       }))), __jsx("footer", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 48
         },
         __self: this
       }, __jsx("div", {
         className: "footer-main",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 49
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 50
         },
         __self: this
       }, __jsx("div", {
         className: "grid-40 text-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 51
         },
         __self: this
       }, __jsx("div", {
         className: "logo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 52
         },
         __self: this
       }, "P"), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 53
         },
         __self: this
       }), "react-papaparse by ", __jsx("a", {
         href: "https://github.com/bunlong",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 54
         },
         __self: this
       }, "Bunlong"), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 55
         },
         __self: this
       }), "\xA9 2018-2020"), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 59
         },
         __self: this
       }, __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 60
         },
         __self: this
       }, "Learn"), __jsx("a", {
         href: "/demo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 61
         },
         __self: this
       }, "Demo"), __jsx("a", {
         href: "/docs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 62
         },
         __self: this
       }, "Documentation")), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 65
         },
         __self: this
       }, __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 66
         },
         __self: this
       }, "Project"), __jsx("a", {
         href: "https://github.com/themodernjavascript/react-papaparse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 67
         },
         __self: this
-      }, "GitHub"))))));
+      }, "GitHub"))))), __jsx("script", {
+        type: "text/javascript",
+        src: "/static/js/prism.js",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 72
+        },
+        __self: this
+      }));
     }
   }]);
 
