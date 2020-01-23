@@ -4970,7 +4970,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!**************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdocs&absolutePagePath=%2Fhome%2Fbunlong%2Fworkspace%2Fos%2Freact-papaparse%2Fdocs%2Fpages%2Fdocs.js ***!
   \**************************************************************************************************************************************************/
@@ -4993,5 +4993,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=docs.js.map

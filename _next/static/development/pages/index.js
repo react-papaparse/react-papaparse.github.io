@@ -2468,14 +2468,7 @@ function (_Component) {
           lineNumber: 83
         },
         __self: this
-      }, "Now the ", __jsx("a", {
-        href: "http://jsperf.com/javascript-csv-parsers/4",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 83
-        },
-        __self: this
-      }, "fastest"), " JavaScript CSV parser for the browser")), __jsx("div", {
+      }, "Now the fastest React CSV parser for the browser")), __jsx("div", {
         className: "ticker-item",
         __source: {
           fileName: _jsxFileName,
@@ -2712,7 +2705,7 @@ function (_Component) {
         },
         __self: this
       }, __jsx("a", {
-        href: "https://github.com/mholt/PapaParse",
+        href: "https://github.com/themodernjavascript/react-papaparse",
         className: "button",
         __source: {
           fileName: _jsxFileName,
@@ -2839,7 +2832,7 @@ function (_Component) {
           lineNumber: 149
         },
         __self: this
-      }, "\nimport { readString } from 'react-papaparse'\n\nconst results = readString(csvString, config)\n\n/*\n  results = {\n    data: [ ... ],    // parsed data\n    errors: [ ... ],  // errors encountered\n    meta: { ... }     // extra parse info\n  }\n*/"))))), __jsx("section", {
+      }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString, config)\n\n/*\n  results = {\n    data: [ ... ],    // parsed data\n    errors: [ ... ],  // errors encountered\n    meta: { ... }     // extra parse info\n  }\n*/"))))), __jsx("section", {
         id: "delimiter",
         __source: {
           fileName: _jsxFileName,
@@ -2891,7 +2884,7 @@ function (_Component) {
           lineNumber: 174
         },
         __self: this
-      }, "\nimport { readString } from 'react-papaparse'\n\nconst results = readString(csvString)\n\nconsole.log(results.meta.delimiter)\n\n", "// ", __jsx("span", {
+      }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString)\n\nconsole.log(results.meta.delimiter)\n\n", "// ", __jsx("span", {
         dangerouslySetInnerHTML: {
           __html: '&bsol;t'
         },
@@ -2958,7 +2951,7 @@ function (_Component) {
           lineNumber: 197
         },
         __self: this
-      }, "\nimport React, { Component } from 'react';\n\nimport { CSVReader } from 'react-papaparse';\n\nclass App extends Component {\n  constructor(props) {\n    super(props);\n    this.fileInput = React.createRef();\n  }\n\n  handleReadCSV = (data) => {\n    console.log(data);\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err);\n  }\n\n  handleImportOffer = () => {\n    this.fileInput.current.click();\n  }\n\n  render() {\n    return (\n      <div>\n        <CSVReader\n          onFileLoaded={this.handleReadCSV}\n          inputRef={this.fileInput}\n          style={{display: 'none'}}\n          onError={this.handleOnError}\n        />\n        <button onClick={this.handleImportOffer}>Import</button>\n      </div>\n    );\n  }\n}\n\nexport default App;\n"))))), __jsx("section", {
+      }, "\nimport React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nclass App extends Component {\n  constructor(props) {\n    super(props)\n    this.fileInput = React.createRef()\n  }\n\n  handleReadCSV = (data) => {\n    console.log(data)\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  handleImportOffer = () => {\n    this.fileInput.current.click()\n  }\n\n  render() {\n    return (\n      <div>\n        <CSVReader\n          onFileLoaded={this.handleReadCSV}\n          inputRef={this.fileInput}\n          style={{display: 'none'}}\n          onError={this.handleOnError}\n        />\n        <button onClick={this.handleImportOffer}>Import</button>\n      </div>\n    )\n  }\n}\n\nexport default App\n"))))), __jsx("section", {
         id: "stream",
         __source: {
           fileName: _jsxFileName,
