@@ -2494,7 +2494,7 @@ function (_Component) {
           lineNumber: 89
         },
         __self: this
-      }, "Papa can handle files gigabytes in size without crashing")), __jsx("div", {
+      }, "react-papaparse can handle files gigabytes in size without crashing")), __jsx("div", {
         className: "ticker-item",
         __source: {
           fileName: _jsxFileName,
@@ -2507,7 +2507,7 @@ function (_Component) {
           lineNumber: 92
         },
         __self: this
-      }, "Use Papa when performance, privacy, and correctness matter to you")), __jsx("div", {
+      }, "Use react-papaparse when performance, privacy, and correctness matter to you")), __jsx("div", {
         className: "ticker-item",
         __source: {
           fileName: _jsxFileName,
@@ -2520,7 +2520,7 @@ function (_Component) {
           lineNumber: 95
         },
         __self: this
-      }, "Papa alleviates privacy concerns related to uploading files")), __jsx("div", {
+      }, "react-papaparse alleviates privacy concerns related to uploading files")), __jsx("div", {
         className: "ticker-item",
         __source: {
           fileName: _jsxFileName,
@@ -2767,121 +2767,142 @@ function (_Component) {
           lineNumber: 136
         },
         __self: this
-      }), " react-papaparse")))), __jsx("section", {
+      }), " react-papaparse"), __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 137
+        },
+        __self: this
+      }, __jsx("a", {
+        href: "https://www.npmjs.com/package/react-papaparse",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 138
+        },
+        __self: this
+      }, __jsx("img", {
+        src: "https://img.shields.io/npm/dm/react-papaparse.svg",
+        alt: "react-papaparse",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139
+        },
+        __self: this
+      })))))), __jsx("section", {
         id: "parse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 146
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 147
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 148
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 149
         },
         __self: this
       }, "CSV Parsing"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 150
         },
         __self: this
       }, "\"Isn't parsing CSV just ", __jsx("code", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 150
         },
         __self: this
       }, "String.split(',')"), "?\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 152
         },
         __self: this
       }, "react-papaparse does it right. Just pass in the CSV string with an optional ", __jsx("a", {
         href: "/docs#config",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 152
         },
         __self: this
       }, "configuration"), "."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 154
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 154
         },
         __self: this
       }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString, config)\n\n/*\n  results = {\n    data: [ ... ],    // parsed data\n    errors: [ ... ],  // errors encountered\n    meta: { ... }     // extra parse info\n  }\n*/"))))), __jsx("section", {
         id: "delimiter",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166
+          lineNumber: 171
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167
+          lineNumber: 172
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 173
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169
+          lineNumber: 174
         },
         __self: this
       }, "Delimiter Detection"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 170
+          lineNumber: 175
         },
         __self: this
       }, "\"But I don't know the delimiter...\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172
+          lineNumber: 177
         },
         __self: this
       }, "That's okay. react-papaparse will scan the first few rows to find the right delimiter."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 179
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 179
         },
         __self: this
       }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString)\n\nconsole.log(results.meta.delimiter)\n\n", "// ", __jsx("span", {
@@ -2890,501 +2911,501 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 183
+          lineNumber: 188
         },
         __self: this
       })))))), __jsx("section", {
         id: "local-files",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 189
+          lineNumber: 194
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 195
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 191
+          lineNumber: 196
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 192
+          lineNumber: 197
         },
         __self: this
       }, "Local Files"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 193
+          lineNumber: 198
         },
         __self: this
       }, "\"Great, but I have a ", __jsx("i", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 193
+          lineNumber: 198
         },
         __self: this
       }, "file"), " to parse.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195
+          lineNumber: 200
         },
         __self: this
       }, "Then use CSVReader component instead of readString method. Since file parsing is asynchronous, don't forget callback methods."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 197
+          lineNumber: 202
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 197
+          lineNumber: 202
         },
         __self: this
       }, "\nimport React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nclass App extends Component {\n  constructor(props) {\n    super(props)\n    this.fileInput = React.createRef()\n  }\n\n  handleReadCSV = (data) => {\n    console.log(data)\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  handleImportOffer = () => {\n    this.fileInput.current.click()\n  }\n\n  render() {\n    return (\n      <div>\n        <CSVReader\n          onFileLoaded={this.handleReadCSV}\n          inputRef={this.fileInput}\n          style={{display: 'none'}}\n          onError={this.handleOnError}\n        />\n        <button onClick={this.handleImportOffer}>Import</button>\n      </div>\n    )\n  }\n}\n\nexport default App\n"))))), __jsx("section", {
         id: "stream",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 241
+          lineNumber: 246
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 242
+          lineNumber: 247
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 243
+          lineNumber: 248
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 244
+          lineNumber: 249
         },
         __self: this
       }, "Streaming"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 245
+          lineNumber: 250
         },
         __self: this
       }, "\"Did I mention the file is huge?\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 247
+          lineNumber: 252
         },
         __self: this
       }, "That's what streaming is for. Specify a step callback to receive the results row-by-row. This way, you won't load the whole file into memory and crash the browser."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 249
+          lineNumber: 254
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 249
+          lineNumber: 254
         },
         __self: this
       }, "<CSVReader\n  inputRef={this.fileInput}\n  style={{display: 'none'}}\n  onError={this.handleOnError}\n  configOptions={\n    step: function(row) {\n      console.log(\"Row:\", row.data);\n    }\n  }\n/>"))))), __jsx("section", {
         id: "worker",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 263
+          lineNumber: 268
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 264
+          lineNumber: 269
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 265
+          lineNumber: 270
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 266
+          lineNumber: 271
         },
         __self: this
       }, "Multi-Threading"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 267
+          lineNumber: 272
         },
         __self: this
       }, "\"Lovely. Now my web page locked up.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 269
+          lineNumber: 274
         },
         __self: this
       }, "That happens when a long-running script is executing in the same thread as the page. Use a ", __jsx("a", {
         href: "https://developer.mozilla.org/en-US/docs/Web/API/Worker",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 269
+          lineNumber: 274
         },
         __self: this
       }, "Worker"), " thread by specifying ", __jsx("code", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 269
+          lineNumber: 274
         },
         __self: this
       }, "worker: true"), ". It may take slightly longer, but your page will stay reactive."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 271
+          lineNumber: 276
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 271
+          lineNumber: 276
         },
         __self: this
       }, "<CSVReader\n  inputRef={this.fileInput}\n  style={{display: 'none'}}\n  onError={this.handleOnError}\n  configOptions={\n    worker: true,\n    step: function(row) {\n      console.log(\"Row:\", row.data);\n    }\n  }\n/>"))))), __jsx("section", {
         id: "header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 286
+          lineNumber: 291
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 287
+          lineNumber: 292
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 288
+          lineNumber: 293
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 289
+          lineNumber: 294
         },
         __self: this
       }, "Header Row"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 290
+          lineNumber: 295
         },
         __self: this
       }, "\"Great! Now I want data keyed by field name.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 292
+          lineNumber: 297
         },
         __self: this
-      }, "If you tell Papa there is a header row, each row will be organized by field name instead of index."), __jsx("pre", {
+      }, "If you tell react-papaparse there is a header row, each row will be organized by field name instead of index."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 294
+          lineNumber: 299
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 294
+          lineNumber: 299
         },
         __self: this
       }, "// Key data by field name instead of index/position\nvar results = readString(csvString {\n  header: true\n})"))))), __jsx("section", {
         id: "type-conversion",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 302
+          lineNumber: 307
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 303
+          lineNumber: 308
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 304
+          lineNumber: 309
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 305
+          lineNumber: 310
         },
         __self: this
       }, "Type Conversion"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 306
+          lineNumber: 311
         },
         __self: this
       }, "\"Hey, these numbers are parsed as strings.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 308
+          lineNumber: 313
         },
         __self: this
       }, __jsx("i", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 308
+          lineNumber: 313
         },
         __self: this
       }, "Everything"), " is parsed as strings. If you want numbers and booleans, you can enable dynamic typing to do the conversion for you."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 310
+          lineNumber: 315
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 310
+          lineNumber: 315
         },
         __self: this
       }, "// Converts numeric/boolean data\nvar results = readString(csvString {\n  header: true\n})"))))), __jsx("section", {
         id: "comments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 318
+          lineNumber: 323
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 319
+          lineNumber: 324
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 320
+          lineNumber: 325
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 321
+          lineNumber: 326
         },
         __self: this
       }, "Comments"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 322
+          lineNumber: 327
         },
         __self: this
       }, "\"I forgot to mention: my CSV files have comments in them.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 324
+          lineNumber: 329
         },
         __self: this
       }, "Okay, first off: that's really weird. But fortunately, you can skip those lines... just specify the comment string."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 326
+          lineNumber: 331
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 326
+          lineNumber: 331
         },
         __self: this
       }, "// Mostly found in academia, some CSV files\n// may have commented lines in them\nvar results = readString(csvString {\n  comments: \"#\"\n})"))))), __jsx("section", {
         id: "errors",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 335
+          lineNumber: 340
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 336
+          lineNumber: 341
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 337
+          lineNumber: 342
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 338
+          lineNumber: 343
         },
         __self: this
       }, "Error Handling"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 339
+          lineNumber: 344
         },
         __self: this
       }, "\"Aw, shoot. Errors.\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 341
+          lineNumber: 346
         },
         __self: this
-      }, "Papa handles errors pretty well. The ", __jsx("a", {
+      }, "react-papaparse handles errors pretty well. The ", __jsx("a", {
         href: "http://tools.ietf.org/html/rfc4180",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 341
+          lineNumber: 346
         },
         __self: this
       }, "CSV standard"), " is somewhat ", __jsx("strike", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 341
+          lineNumber: 346
         },
         __self: this
       }, "loose"), " ambiguous, so react-papaparse is designed for edge cases. For example, mismatched fields won't break parsing."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 343
+          lineNumber: 348
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 343
+          lineNumber: 348
         },
         __self: this
       }, "// Example error:\n{\n  type: \"FieldMismatch\",\n  code: \"TooManyFields\",\n  message: \"Expected 3 fields, but parsed 4\",\n  row: 1\n}"))))), __jsx("section", {
         id: "unparse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 354
+          lineNumber: 359
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container narrow-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 355
+          lineNumber: 360
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 356
+          lineNumber: 361
         },
         __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 357
+          lineNumber: 362
         },
         __self: this
       }, "JSON to CSV"), __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 358
+          lineNumber: 363
         },
         __self: this
       }, "\"Last thing: what about converting JSON to CSV?\""), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 360
+          lineNumber: 365
         },
         __self: this
       }, "Use ", __jsx("code", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 360
+          lineNumber: 365
         },
         __self: this
       }, "jsonToCSV()"), " function, passing in your array of arrays or array of objects. react-papaparse will figure it out."), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 362
+          lineNumber: 367
         },
         __self: this
       }, __jsx("code", {
         className: "language-javascript",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 362
+          lineNumber: 367
         },
         __self: this
       }, "// Output is a properly-formatted CSV string.\nvar csv = jsonToCSV(jsonData)\n"))))), __jsx("section", {
         id: "download",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 369
+          lineNumber: 374
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 370
+          lineNumber: 375
         },
         __self: this
       }, __jsx("div", {
         className: "grid-100",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 371
+          lineNumber: 376
         },
         __self: this
       }, __jsx("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 372
+          lineNumber: 377
         },
         __self: this
       }, "Install")), __jsx("div", {
         className: "prefix-30 grid-40 suffix-30",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 374
+          lineNumber: 379
         },
         __self: this
       }, __jsx("b", {
@@ -3394,26 +3415,26 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 375
+          lineNumber: 380
         },
         __self: this
       }, "npm"), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 376
+          lineNumber: 381
         },
         __self: this
       }, __jsx("code", {
         className: "language-bash",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 376
+          lineNumber: 381
         },
         __self: this
       }, "$ npm install --save react-papaparse")), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 377
+          lineNumber: 382
         },
         __self: this
       }), __jsx("b", {
@@ -3423,46 +3444,46 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 378
+          lineNumber: 383
         },
         __self: this
       }, "yarn"), __jsx("pre", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 379
+          lineNumber: 384
         },
         __self: this
       }, __jsx("code", {
         className: "language-bash",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 379
+          lineNumber: 384
         },
         __self: this
       }, "$ yarn add react-papaparse"))), __jsx("div", {
         className: "clear",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 382
+          lineNumber: 387
         },
         __self: this
       }), __jsx("div", {
         className: "grid-100 text-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 384
+          lineNumber: 389
         },
         __self: this
       }, __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 385
+          lineNumber: 390
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 385
+          lineNumber: 390
         },
         __self: this
       }), __jsx("a", {
@@ -3470,14 +3491,14 @@ function (_Component) {
         className: "button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 387
+          lineNumber: 392
         },
         __self: this
       }, __jsx("i", {
         className: "fa fa-github",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 388
+          lineNumber: 393
         },
         __self: this
       }), "\xA0 GitHub"), __jsx("a", {
@@ -3485,14 +3506,14 @@ function (_Component) {
         className: "button red",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 390
+          lineNumber: 395
         },
         __self: this
       }, __jsx("i", {
         className: "fa fa-magic",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 391
+          lineNumber: 396
         },
         __self: this
       }), "\xA0 Demo"), __jsx("a", {
@@ -3500,14 +3521,14 @@ function (_Component) {
         className: "button gray",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 393
+          lineNumber: 398
         },
         __self: this
       }, __jsx("i", {
         className: "fa fa-book",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 394
+          lineNumber: 399
         },
         __self: this
       }), "\xA0 Documentation"))))));
