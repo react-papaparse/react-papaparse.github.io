@@ -8693,31 +8693,41 @@ function (_App) {
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       var pageName = this.props.router.route.substr(1);
+      var title = '';
+
+      if (pageName === '') {
+        title = 'react-papaparse';
+      } else if (pageName === 'demo') {
+        title = 'Demo';
+      } else if (pageName === 'docs') {
+        title = 'Documentation';
+      }
+
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 32
         },
         __self: this
       }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_7___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 33
         },
         __self: this
       }, __jsx("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 34
         },
         __self: this
-      }, "react-papaparse - Powerful CSV Parser for React"), __jsx("link", {
+      }, " ", "".concat(title, " - Powerful CSV Parser for React")), __jsx("link", {
         rel: "shortcut icon",
         type: "image/x-icon",
         href: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 35
         },
         __self: this
       }), __jsx("meta", {
@@ -8725,7 +8735,7 @@ function (_App) {
         content: "#ffffff",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 36
         },
         __self: this
       }), __jsx("meta", {
@@ -8733,7 +8743,7 @@ function (_App) {
         content: "yes",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 37
         },
         __self: this
       }), __jsx("meta", {
@@ -8741,7 +8751,7 @@ function (_App) {
         content: "black",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 38
         },
         __self: this
       }), __jsx("meta", {
@@ -8749,7 +8759,7 @@ function (_App) {
         content: "Shopjapan PWA",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 39
         },
         __self: this
       }), __jsx("link", {
@@ -8757,7 +8767,7 @@ function (_App) {
         href: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 40
         },
         __self: this
       }), __jsx("link", {
@@ -8766,7 +8776,7 @@ function (_App) {
         href: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 41
         },
         __self: this
       }), __jsx("link", {
@@ -8774,7 +8784,7 @@ function (_App) {
         href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 43
         },
         __self: this
       }), __jsx("link", {
@@ -8782,7 +8792,7 @@ function (_App) {
         href: "//fonts.googleapis.com/css?family=Arvo|Source+Sans+Pro:400,400italic,700|Lato:300,400",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 44
         },
         __self: this
       }), __jsx("link", {
@@ -8790,7 +8800,7 @@ function (_App) {
         href: "/static/css/unsemantic.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 45
         },
         __self: this
       }), __jsx("link", {
@@ -8798,7 +8808,7 @@ function (_App) {
         href: "/static/css/common.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 46
         },
         __self: this
       }), __jsx("link", {
@@ -8806,7 +8816,7 @@ function (_App) {
         href: "/static/css/prism.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 47
         },
         __self: this
       }), pageName == '' ? __jsx("link", {
@@ -8814,7 +8824,7 @@ function (_App) {
         href: "/static/css/home.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 49
         },
         __self: this
       }) : '', pageName == 'demo' ? __jsx("link", {
@@ -8822,7 +8832,7 @@ function (_App) {
         href: "/static/css/demo.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 50
         },
         __self: this
       }) : '', __jsx("meta", {
@@ -8830,7 +8840,7 @@ function (_App) {
         content: "https://react-papaparse.github.io",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 52
         },
         __self: this
       }), __jsx("meta", {
@@ -8838,7 +8848,7 @@ function (_App) {
         content: "website",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 53
         },
         __self: this
       }), __jsx("meta", {
@@ -8846,7 +8856,7 @@ function (_App) {
         content: "react-papaparse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 54
         },
         __self: this
       }), __jsx("meta", {
@@ -8854,7 +8864,7 @@ function (_App) {
         content: "The fastest in-browser CSV (or delimited text) parser for React.",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 55
         },
         __self: this
       }), __jsx("meta", {
@@ -8862,7 +8872,7 @@ function (_App) {
         content: "/static/images/react-papaparse.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 56
         },
         __self: this
       }), __jsx("meta", {
@@ -8870,7 +8880,7 @@ function (_App) {
         content: "summary_large_image",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 58
         },
         __self: this
       }), __jsx("meta", {
@@ -8878,7 +8888,7 @@ function (_App) {
         content: "@bunlongvan",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 59
         },
         __self: this
       }), __jsx("meta", {
@@ -8886,7 +8896,7 @@ function (_App) {
         content: "@bunlongvan",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 60
         },
         __self: this
       }), __jsx("meta", {
@@ -8894,7 +8904,7 @@ function (_App) {
         content: "react-papaparse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 61
         },
         __self: this
       }), __jsx("meta", {
@@ -8902,7 +8912,7 @@ function (_App) {
         content: "The fastest in-browser CSV (or delimited text) parser for React.",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 62
         },
         __self: this
       }), __jsx("meta", {
@@ -8910,125 +8920,174 @@ function (_App) {
         content: "https://react-papaparse.github.io/static/images/react-papaparse.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 63
+        },
+        __self: this
+      }), __jsx("link", {
+        rel: "shortcut icon",
+        href: "/static/favicon.ico",
+        type: "image/x-icon",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: this
+      }), __jsx("link", {
+        rel: "icon",
+        href: "/static/favicon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        },
+        __self: this
+      }), __jsx("link", {
+        rel: "apple-touch-icon-precomposed",
+        href: "/static/favicon-152.png",
+        type: "image/png",
+        sizes: "152x152",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        },
+        __self: this
+      }), __jsx("link", {
+        rel: "apple-touch-icon-precomposed",
+        href: "/static/favicon-120.png",
+        type: "image/png",
+        sizes: "120x120",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68
+        },
+        __self: this
+      }), __jsx("link", {
+        rel: "icon",
+        href: "/static/favicon-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
         },
         __self: this
       })), __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 71
         },
         __self: this
       }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 72
         },
         __self: this
       }))), __jsx("footer", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 74
         },
         __self: this
       }, __jsx("div", {
         className: "footer-main",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 75
         },
         __self: this
       }, __jsx("div", {
         className: "grid-container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 76
         },
         __self: this
       }, __jsx("div", {
         className: "grid-40 text-center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 77
         },
         __self: this
       }, __jsx("div", {
         className: "logo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 78
         },
         __self: this
       }, "P"), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 79
         },
         __self: this
       }), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 79
         },
         __self: this
       }), "react-papaparse by ", __jsx("a", {
         href: "https://github.com/bunlong",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 80
         },
         __self: this
       }, "Bunlong"), __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 81
         },
         __self: this
       }), "\xA9 2018-2020"), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 85
         },
         __self: this
       }, __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 86
         },
         __self: this
       }, "Learn"), __jsx("a", {
         href: "/demo",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 87
         },
         __self: this
       }, "Demo"), __jsx("a", {
         href: "/docs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 88
         },
         __self: this
       }, "Documentation")), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 91
         },
         __self: this
       }, __jsx("h5", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 92
         },
         __self: this
       }, "Project"), __jsx("a", {
-        href: "https://github.com/themodernjavascript/react-papaparse",
+        href: "https://github.com/Bunlong/react-papaparse",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 93
         },
         __self: this
       }, "GitHub"))))), __jsx("script", {
@@ -9036,7 +9095,7 @@ function (_App) {
         src: "/static/js/prism.js",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 98
         },
         __self: this
       }));
