@@ -2419,7 +2419,7 @@ function (_Component) {
           lineNumber: 81
         },
         __self: this
-      }, "2.0"))), __jsx("section", {
+      }, "2.1"))), __jsx("section", {
         style: {
           paddingTop: 0
         },
