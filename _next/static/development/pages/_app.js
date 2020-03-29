@@ -4511,7 +4511,7 @@ var CustomApp = /*#__PURE__*/function (_App) {
         __self: this
       }), __jsx("meta", {
         name: "apple-mobile-web-app-title",
-        content: "Shopjapan PWA",
+        content: "react-papaparse",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
@@ -4574,7 +4574,7 @@ var CustomApp = /*#__PURE__*/function (_App) {
           lineNumber: 47
         },
         __self: this
-      }), pageName == '' ? __jsx("link", {
+      }), pageName === '' ? __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/home.css",
         __source: {
@@ -4582,7 +4582,7 @@ var CustomApp = /*#__PURE__*/function (_App) {
           lineNumber: 49
         },
         __self: this
-      }) : '', pageName == 'demo' ? __jsx("link", {
+      }) : '', pageName === 'demo' ? __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/demo.css",
         __source: {

@@ -1,192 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
 
-/***/ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _assertThisInitialized; });
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _classCallCheck; });
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _createClass; });
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _getPrototypeOf; });
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/inherits.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/inherits.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _inherits; });
-/* harmony import */ var _setPrototypeOf__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) Object(_setPrototypeOf__WEBPACK_IMPORTED_MODULE_0__["default"])(subClass, superClass);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _possibleConstructorReturn; });
-/* harmony import */ var _helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var _assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (Object(_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return Object(_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(self);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _setPrototypeOf; });
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _typeof; });
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
-    _typeof = function _typeof(obj) {
-      return _typeof2(obj);
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
-    };
-  }
-
-  return _typeof(obj);
-}
-
-/***/ }),
-
 /***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fhome%2Fbunlong%2Fworkspace%2Fos%2Freact-papaparse%2Fdocs%2Fpages%2Findex.js!./":
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2Fhome%2Fbunlong%2Fworkspace%2Fos%2Freact-papaparse%2Fdocs%2Fpages%2Findex.js ***!
@@ -230,1843 +43,2651 @@ module.exports = (__webpack_require__(/*! dll-reference dll_82519ec661270f7f484f
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src_components_screens_indexes_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/components/screens/indexes/Welcome */ "./src/components/screens/indexes/Welcome.js");
+/* harmony import */ var _src_components_screens_indexes_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/screens/indexes/Navbar */ "./src/components/screens/indexes/Navbar.js");
+/* harmony import */ var _src_components_screens_indexes_Feature__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/screens/indexes/Feature */ "./src/components/screens/indexes/Feature.js");
+/* harmony import */ var _src_components_screens_indexes_Framework__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/screens/indexes/Framework */ "./src/components/screens/indexes/Framework.js");
+/* harmony import */ var _src_components_screens_indexes_Love__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/screens/indexes/Love */ "./src/components/screens/indexes/Love.js");
+/* harmony import */ var _src_components_screens_indexes_CSVParsing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/components/screens/indexes/CSVParsing */ "./src/components/screens/indexes/CSVParsing.js");
+/* harmony import */ var _src_components_screens_indexes_Delimiter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../src/components/screens/indexes/Delimiter */ "./src/components/screens/indexes/Delimiter.js");
+/* harmony import */ var _src_components_screens_indexes_LocalFile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/components/screens/indexes/LocalFile */ "./src/components/screens/indexes/LocalFile.js");
+/* harmony import */ var _src_components_screens_indexes_RemoteFile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../src/components/screens/indexes/RemoteFile */ "./src/components/screens/indexes/RemoteFile.js");
+/* harmony import */ var _src_components_screens_indexes_Stream__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../src/components/screens/indexes/Stream */ "./src/components/screens/indexes/Stream.js");
+/* harmony import */ var _src_components_screens_indexes_Worker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../src/components/screens/indexes/Worker */ "./src/components/screens/indexes/Worker.js");
+/* harmony import */ var _src_components_screens_indexes_Header__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../src/components/screens/indexes/Header */ "./src/components/screens/indexes/Header.js");
+/* harmony import */ var _src_components_screens_indexes_TypeConversion__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../src/components/screens/indexes/TypeConversion */ "./src/components/screens/indexes/TypeConversion.js");
+/* harmony import */ var _src_components_screens_indexes_Comment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../src/components/screens/indexes/Comment */ "./src/components/screens/indexes/Comment.js");
+/* harmony import */ var _src_components_screens_indexes_Error__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../src/components/screens/indexes/Error */ "./src/components/screens/indexes/Error.js");
+/* harmony import */ var _src_components_screens_indexes_Unparse__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../src/components/screens/indexes/Unparse */ "./src/components/screens/indexes/Unparse.js");
+/* harmony import */ var _src_components_screens_indexes_Download__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../src/components/screens/indexes/Download */ "./src/components/screens/indexes/Download.js");
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/pages/index.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
 
-var _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/pages/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
 
-var Index = /*#__PURE__*/function (_Component) {
-  Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Index, _Component);
 
-  function Index() {
-    Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Index);
 
-    return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Index).apply(this, arguments));
-  }
 
-  Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Index, [{
-    key: "render",
-    value: function render() {
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_5___default.a.Fragment, null, __jsx("div", {
-        id: "skrollr-body",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        },
-        __self: this
-      }, __jsx("div", {
-        id: "top",
-        "data-top": "bottom: 0px; opacity: 1;",
-        "data-top-bottom": "bottom: -350px; opacity: .3;",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        },
-        __self: this
-      }, __jsx("div", {
-        id: "title-main",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 12
-        },
-        __self: this
-      }, __jsx("h1", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 13
-        },
-        __self: this
-      }, "react-papaparse"), __jsx("h2", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 14
-        },
-        __self: this
-      }, "The powerful, in-browser React CSV parser for big boys and girls"), __jsx("a", {
-        href: "#download",
-        className: "button",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 16
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-download",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17
-        },
-        __self: this
-      }), "\xA0 Install"), __jsx("a", {
-        href: "/demo",
-        className: "button red",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 19
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-magic",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        },
-        __self: this
-      }), "\xA0 Demo"), __jsx("a", {
-        href: "/docs",
-        className: "button gray",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 22
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-book",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23
-        },
-        __self: this
-      }), "\xA0 Documentation")), __jsx("div", {
-        id: "title-code",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26
-        },
-        __self: this
-      }, __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 27
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 27
-        },
-        __self: this
-      }, "// Parse CSV string\nvar data = readString(csvString)\n\n// Convert back to CSV\nvar csv = jsonToCSV(jsonData)\n\n// Parse local CSV file\n<CSVReader \n  onDrop={this.onDrop}\n  onError={this.onError}\n  noDrag\n>\n  <span>Click to upload.</span>\n</CSVReader>\n\n// Stream big file in worker thread\nreadRemoteFile(bigFileURL, {\n  worker: true,\n  step: function(results) {\n    console.log('Row:', results.data)\n  }\n})"))))))), __jsx("main", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 54
-        },
-        __self: this
-      }, __jsx("header", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 55
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 56
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-40 mobile-grid-50",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 57
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "links",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 58
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/demo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 59
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-magic fa-lg",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 60
-        },
-        __self: this
-      }), " Demo"), __jsx("a", {
-        href: "/docs",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 62
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-book fa-lg",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 63
-        },
-        __self: this
-      }), " Docs"))), __jsx("div", {
-        className: "grid-20 hide-on-mobile text-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 67
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/",
-        className: "text-logo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 68
-        },
-        __self: this
-      }, "react-papaparse 3")), __jsx("div", {
-        className: "grid-40 mobile-grid-50 text-right",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 70
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "links",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 71
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "https://github.com/Bunlong/react-papaparse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 72
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-github fa-lg",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 73
-        },
-        __self: this
-      }), " GitHub"))))), __jsx("div", {
-        className: "insignia",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 80
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "firefox-hack",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 81
-        },
-        __self: this
-      }, __jsx("div", {
-        id: "version-intro",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 81
-        },
-        __self: this
-      }, "Version"), __jsx("div", {
-        id: "version",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 81
-        },
-        __self: this
-      }, "3"))), __jsx("section", {
-        style: {
-          paddingTop: 0
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 84
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 85
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 86
-        },
-        __self: this
-      }, __jsx("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 87
-        },
-        __self: this
-      }, "Features"))), __jsx("div", {
-        id: "ticker",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 91
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "ticker-item current",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 92
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        __self: this
-      }, "Now the fastest React CSV parser for the browser")), __jsx("div", {
-        className: "ticker-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 95
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 96
-        },
-        __self: this
-      }, "The world's first multi-threaded CSV parser for the browser")), __jsx("div", {
-        className: "ticker-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 98
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 99
-        },
-        __self: this
-      }, "react-papaparse can handle files gigabytes in size without crashing")), __jsx("div", {
-        className: "ticker-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 101
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        __self: this
-      }, "Use react-papaparse when performance, privacy, and correctness matter to you")), __jsx("div", {
-        className: "ticker-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 104
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 105
-        },
-        __self: this
-      }, "react-papaparse alleviates privacy concerns related to uploading files")), __jsx("div", {
-        className: "ticker-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 107
-        },
-        __self: this
-      }, __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 108
-        },
-        __self: this
-      }, "Malformed CSV is handled gracefully with a detailed error report"))), __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 112
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-33",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 113
-        },
-        __self: this
-      }, __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 114
-        },
-        __self: this
-      }, "CSV\u2192JSON and ", __jsx("a", {
-        href: "#unparse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 114
-        },
-        __self: this
-      }, "JSON\u2192CSV")), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 115
-        },
-        __self: this
-      }, "Auto-detect ", __jsx("a", {
-        href: "#delimiter",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 115
-        },
-        __self: this
-      }, "delimiter")), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 116
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#local-files",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 116
-        },
-        __self: this
-      }, "Open local files")), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 117
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#remote-files",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 117
-        },
-        __self: this
-      }, "Download remote files"))), __jsx("div", {
-        className: "grid-33",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 120
-        },
-        __self: this
-      }, __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 121
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#stream",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 121
-        },
-        __self: this
-      }, "Stream"), " local and remote files"), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 122
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#worker",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 122
-        },
-        __self: this
-      }, "Multi-threaded")), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 123
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#header",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 123
-        },
-        __self: this
-      }, "Header row"), " support"), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 124
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "#type-conversion",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 124
-        },
-        __self: this
-      }, "Type conversion"))), __jsx("div", {
-        className: "grid-33",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 127
-        },
-        __self: this
-      }, __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 128
-        },
-        __self: this
-      }, "Skip ", __jsx("a", {
-        href: "#comments",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 128
-        },
-        __self: this
-      }, "commented lines")), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 129
-        },
-        __self: this
-      }, "Fast mode"), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 130
-        },
-        __self: this
-      }, "Graceful ", __jsx("a", {
-        href: "#errors",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 130
-        },
-        __self: this
-      }, "error"), " handling"), __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 131
-        },
-        __self: this
-      }, "Easy to use")), __jsx("div", {
-        className: "clear",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 134
-        },
-        __self: this
-      }), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 134
-        },
-        __self: this
-      }), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 134
-        },
-        __self: this
-      }), __jsx("div", {
-        className: "grid-100 text-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 135
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "https://github.com/Bunlong/react-papaparse",
-        className: "button",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 136
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-github",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 137
-        },
-        __self: this
-      }), "\xA0 GitHub"), __jsx("a", {
-        href: "/docs",
-        className: "button gray",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 139
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-book",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 140
-        },
-        __self: this
-      }), "\xA0 Documentation")))), __jsx("section", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 146
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 147
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 148
-        },
-        __self: this
-      }, __jsx("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 149
-        },
-        __self: this
-      }, "Frameworks"), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 150
-        },
-        __self: this
-      }, "react-papaparse strongly support ", __jsx("a", {
-        href: "https://nextjs.org",
-        target: "blank",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 151
-        },
-        __self: this
-      }, "Next"), ", ", __jsx("a", {
-        href: "https://create-react-app.dev",
-        target: "blank",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 151
-        },
-        __self: this
-      }, "Create React App"), " and other React frameworks. react-papaparse is the fastest React CSV parser for the browser (only works in the browser), so you need to set the component with no SSR (server-side render) ", __jsx("b", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 151
-        },
-        __self: this
-      }, "in case you use ", __jsx("code", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 151
-        },
-        __self: this
-      }, "readRemoteFile"), " function"), "."), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 153
-        },
-        __self: this
-      }, __jsx("ul", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 154
-        },
-        __self: this
-      }, __jsx("li", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 155
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr",
-        target: "blank",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 155
-        },
-        __self: this
-      }, "Next \u2014 component with no SSR"))))))), __jsx("section", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 162
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 163
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100 text-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 164
-        },
-        __self: this
-      }, __jsx("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 165
-        },
-        __self: this
-      }, "People ", __jsx("i", {
-        className: "fa fa-heart",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 165
-        },
-        __self: this
-      }), " react-papaparse"), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 166
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "https://www.npmjs.com/package/react-papaparse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 167
-        },
-        __self: this
-      }, __jsx("img", {
-        src: "https://img.shields.io/npm/dm/react-papaparse.svg",
-        alt: "react-papaparse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 168
-        },
-        __self: this
-      })))))), __jsx("section", {
-        id: "parse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 175
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 176
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 177
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 178
-        },
-        __self: this
-      }, "CSV Parsing"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 179
-        },
-        __self: this
-      }, "\"Isn't parsing CSV just ", __jsx("code", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 179
-        },
-        __self: this
-      }, "String.split(',')"), "?\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 181
-        },
-        __self: this
-      }, "react-papaparse does it right. Just pass in the CSV string with an optional ", __jsx("a", {
-        href: "/docs#config",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 181
-        },
-        __self: this
-      }, "configuration"), "."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 183
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 183
-        },
-        __self: this
-      }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString, config)\n\n/*\n  results = {\n    data: [ ... ],    // parsed data\n    errors: [ ... ],  // errors encountered\n    meta: { ... }     // extra parse info\n  }\n*/"))))), __jsx("section", {
-        id: "delimiter",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 200
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 201
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 202
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 203
-        },
-        __self: this
-      }, "Delimiter Detection"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 204
-        },
-        __self: this
-      }, "\"But I don't know the delimiter...\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 206
-        },
-        __self: this
-      }, "That's okay. react-papaparse will scan the first few rows to find the right delimiter."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 208
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 208
-        },
-        __self: this
-      }, "\nimport { readString } from 'react-papaparse'\n\nvar results = readString(csvString)\n\nconsole.log(results.meta.delimiter)\n\n", "// ", __jsx("span", {
-        dangerouslySetInnerHTML: {
-          __html: '&bsol;t'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 217
-        },
-        __self: this
-      })))))), __jsx("section", {
-        id: "local-files",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 223
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 224
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 225
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 226
-        },
-        __self: this
-      }, "Local Files"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 227
-        },
-        __self: this
-      }, "\"Great, but I have a ", __jsx("i", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 227
-        },
-        __self: this
-      }, "file"), " to parse.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 229
-        },
-        __self: this
-      }, "Then use CSVReader component instead of readString method. Since file parsing is asynchronous, don't forget callback methods."), __jsx("div", {
-        id: "drag-no-click-upload",
-        style: {
-          fontSize: 20,
-          marginTop: 10
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 231
-        },
-        __self: this
-      }, "Basic Upload"), __jsx("div", {
-        style: {
-          textAlign: 'center',
-          paddingTop: 50,
-          paddingBottom: 50
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 235
-        },
-        __self: this
-      }, __jsx("img", {
-        src: "/static/images/csvreader1.png",
-        alt: "Basic Upload",
-        style: {
-          maxWidth: '100%',
-          height: 'auto'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 236
-        },
-        __self: this
-      })), __jsx("div", {
-        style: {
-          display: 'flex',
-          justifyContent: 'flex-end',
-          marginBottom: 14
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 240
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/docs#basic-upload",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 241
-        },
-        __self: this
-      }, "Properties"), "\xA0 | \xA0", __jsx("a", {
-        href: "/demo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 241
-        },
-        __self: this
-      }, "Demo")), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 244
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 244
-        },
-        __self: this
-      }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nconst buttonRef = React.createRef()\n\nexport default class CSVReader extends Component {\n\n  onFileLoad = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  onError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  openDialog = (e) => {\n    // Note that the ref is set async, so it might be null at some point \n    if (buttonRef.current) {\n      buttonRef.current.open(e)\n    }\n  }\n\n  render() {\n    return (\n      <>\n        <CSVReader\n          ref={buttonRef}\n          onFileLoad={this.onFileLoad}\n          onError={this.onError}\n          noClick\n          noDrag\n        >\n          {({file}) => (\n            <>\n              <aside style={{display: 'flex', flexDirection: 'row', marginBottom: 10}}>\n                <button\n                  type=\"button\"\n                  onClick={this.openDialog}\n                  style={{\n                    width: '40%',\n                    borderRadius: 0,\n                    marginLeft: 0,\n                    marginRight: 0,\n                    paddingLeft: 0,\n                    paddingRight: 0,\n                  }}\n                >\n                  Browe file\n                </button>\n                <div\n                  style={{\n                    width: '60%',\n                    height: 45,\n                    borderWidth: 1,\n                    borderStyle: 'solid',\n                    borderColor: '#ccc',\n                    marginTop: 5,\n                    marginBottom: 5,\n                    paddingLeft: 13,\n                    paddingTop: 3,\n                    lineHeight: 2.2,\n                  }}\n                >\n                  {file.name}\n                </div>\n              </aside>\n            </>\n          )}\n        </CSVReader>\n      </>\n    )\n  }\n}\n")), __jsx("div", {
-        id: "drag-no-click-upload",
-        style: {
-          fontSize: 20,
-          marginTop: 35
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 322
-        },
-        __self: this
-      }, "Click and Drag Upload"), __jsx("div", {
-        style: {
-          textAlign: 'center',
-          paddingTop: 50,
-          paddingBottom: 50
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 326
-        },
-        __self: this
-      }, __jsx("img", {
-        src: "/static/images/csvreader2.png",
-        alt: "Click and Drag Upload",
-        style: {
-          maxWidth: '100%',
-          height: 'auto'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 327
-        },
-        __self: this
-      })), __jsx("div", {
-        style: {
-          display: 'flex',
-          justifyContent: 'flex-end',
-          marginBottom: 14
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 331
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/docs#click-and-drag-upload",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 332
-        },
-        __self: this
-      }, "Properties"), "\xA0 | \xA0", __jsx("a", {
-        href: "/demo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 332
-        },
-        __self: this
-      }, "Demo")), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 335
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 335
-        },
-        __self: this
-      }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n\n  onDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  onError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <>\n        <CSVReader \n          onDrop={this.onDrop}\n          onError={this.onError}\n        >\n          <span>Drop CSV file here or click to upload.</span>\n        </CSVReader>\n      </>\n    )\n  }\n}\n")), __jsx("div", {
-        id: "drag-no-click-upload",
-        style: {
-          fontSize: 20,
-          marginTop: 35
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 366
-        },
-        __self: this
-      }, "Drag ( No Click ) Upload"), __jsx("div", {
-        style: {
-          textAlign: 'center',
-          paddingTop: 50,
-          paddingBottom: 50
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 370
-        },
-        __self: this
-      }, __jsx("img", {
-        src: "/static/images/csvreader3.png",
-        alt: "Drag ( No Click ) Upload",
-        style: {
-          maxWidth: '100%',
-          height: 'auto'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 371
-        },
-        __self: this
-      })), __jsx("div", {
-        style: {
-          display: 'flex',
-          justifyContent: 'flex-end',
-          marginBottom: 14
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 375
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/docs#drag-no-click-upload",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 376
-        },
-        __self: this
-      }, "Properties"), "\xA0 | \xA0", __jsx("a", {
-        href: "/demo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 376
-        },
-        __self: this
-      }, "Demo")), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 379
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 379
-        },
-        __self: this
-      }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n\n  onDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  onError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <>\n        <CSVReader\n          onDrop={this.onDrop}\n          onError={this.onError}\n          noClick\n        >\n          <span>Drop CSV file here to upload.</span>\n        </CSVReader>\n      </>\n    )\n  }\n}\n")), __jsx("div", {
-        id: "drag-no-click-upload",
-        style: {
-          fontSize: 20,
-          marginTop: 35
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 411
-        },
-        __self: this
-      }, "Click ( No Drag ) Upload"), __jsx("div", {
-        style: {
-          textAlign: 'center',
-          paddingTop: 50,
-          paddingBottom: 50
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 415
-        },
-        __self: this
-      }, __jsx("img", {
-        src: "/static/images/csvreader4.png",
-        alt: "Click ( No Drag ) Upload",
-        style: {
-          maxWidth: '100%',
-          height: 'auto'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 416
-        },
-        __self: this
-      })), __jsx("div", {
-        style: {
-          display: 'flex',
-          justifyContent: 'flex-end',
-          marginBottom: 14
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 420
-        },
-        __self: this
-      }, __jsx("a", {
-        href: "/docs#click-no-drag-upload",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 421
-        },
-        __self: this
-      }, "Properties"), "\xA0 | \xA0", __jsx("a", {
-        href: "/demo",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 421
-        },
-        __self: this
-      }, "Demo")), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 424
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 424
-        },
-        __self: this
-      }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n\n  onDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  onError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <>\n        <CSVReader\n          onDrop={this.onDrop}\n          onError={this.onError}\n          noDrag\n        >\n          <span>Click to upload.</span>\n        </CSVReader>\n      </>\n    )\n  }\n}\n"))))), __jsx("section", {
-        id: "remote-files",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 460
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 461
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 462
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 463
-        },
-        __self: this
-      }, "Remote Files"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 464
-        },
-        __self: this
-      }, "\"No \u2014 I mean, the file isn't on my computer.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 465
-        },
-        __self: this
-      }, "Oh, well then just pass in the URL and \u2014 of course \u2014 a callback."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 467
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 467
-        },
-        __self: this
-      }, "readRemoteFile('http://example.com/file.csv', {\n  download: true,\n  complete: function(results) {\n    console.log(results)\n  }\n})"))))), __jsx("section", {
-        id: "stream",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 477
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 478
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 479
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 480
-        },
-        __self: this
-      }, "Streaming"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 481
-        },
-        __self: this
-      }, "\"Did I mention the file is huge?\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 483
-        },
-        __self: this
-      }, "That's what streaming is for. Specify a step callback to receive the results row-by-row. This way, you won't load the whole file into memory and crash the browser."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 485
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 485
-        },
-        __self: this
-      }, "readRemoteFile('http://example.com/big.csv', {\n  step: function(row) {\n    console.log('Row:', row.data)\n  },\n  complete: function() {\n    console.log('All done!')\n  }\n})"))))), __jsx("section", {
-        id: "worker",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 497
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 498
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 499
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 500
-        },
-        __self: this
-      }, "Multi-Threading"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 501
-        },
-        __self: this
-      }, "\"Lovely. Now my web page locked up.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 503
-        },
-        __self: this
-      }, "That happens when a long-running script is executing in the same thread as the page. Use a ", __jsx("a", {
-        href: "https://developer.mozilla.org/en-US/docs/Web/API/Worker",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 503
-        },
-        __self: this
-      }, "Worker"), " thread by specifying ", __jsx("code", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 503
-        },
-        __self: this
-      }, "worker: true"), ". It may take slightly longer, but your page will stay reactive."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 505
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 505
-        },
-        __self: this
-      }, "readRemoteFile(bigFileURL, {\n  worker: true,\n  step: function(row) {\n    console.log('Row:', row.data)\n  },\n  complete: function() {\n    console.log('All done!')\n  }\n})"))))), __jsx("section", {
-        id: "header",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 518
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 519
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 520
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 521
-        },
-        __self: this
-      }, "Header Row"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 522
-        },
-        __self: this
-      }, "\"Great! Now I want data keyed by field name.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 524
-        },
-        __self: this
-      }, "If you tell react-papaparse there is a header row, each row will be organized by field name instead of index."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 526
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 526
-        },
-        __self: this
-      }, "// Key data by field name instead of index/position\nvar results = readString(csvString {\n  header: true\n})"))))), __jsx("section", {
-        id: "type-conversion",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 534
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 535
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 536
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 537
-        },
-        __self: this
-      }, "Type Conversion"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 538
-        },
-        __self: this
-      }, "\"Hey, these numbers are parsed as strings.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 540
-        },
-        __self: this
-      }, __jsx("i", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 540
-        },
-        __self: this
-      }, "Everything"), " is parsed as strings. If you want numbers and booleans, you can enable dynamic typing to do the conversion for you."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 542
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 542
-        },
-        __self: this
-      }, "// Converts numeric/boolean data\nvar results = readString(csvString {\n  dynamicTyping: true\n})"))))), __jsx("section", {
-        id: "comments",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 550
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 551
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 552
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 553
-        },
-        __self: this
-      }, "Comments"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 554
-        },
-        __self: this
-      }, "\"I forgot to mention: my CSV files have comments in them.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 556
-        },
-        __self: this
-      }, "Okay, first off: that's really weird. But fortunately, you can skip those lines... just specify the comment string."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 558
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 558
-        },
-        __self: this
-      }, "// Mostly found in academia, some CSV files\n// may have commented lines in them\nvar results = readString(csvString {\n  comments: \"#\"\n})"))))), __jsx("section", {
-        id: "errors",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 567
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 568
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 569
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 570
-        },
-        __self: this
-      }, "Error Handling"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 571
-        },
-        __self: this
-      }, "\"Aw, shoot. Errors.\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 573
-        },
-        __self: this
-      }, "react-papaparse handles errors pretty well. The ", __jsx("a", {
-        href: "http://tools.ietf.org/html/rfc4180",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 573
-        },
-        __self: this
-      }, "CSV standard"), " is somewhat ", __jsx("strike", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 573
-        },
-        __self: this
-      }, "loose"), " ambiguous, so react-papaparse is designed for edge cases. For example, mismatched fields won't break parsing."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 575
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 575
-        },
-        __self: this
-      }, "// Example error:\n{\n  type: \"FieldMismatch\",\n  code: \"TooManyFields\",\n  message: \"Expected 3 fields, but parsed 4\",\n  row: 1\n}"))))), __jsx("section", {
-        id: "unparse",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 586
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container narrow-grid",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 587
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 588
-        },
-        __self: this
-      }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 589
-        },
-        __self: this
-      }, "JSON to CSV"), __jsx("h5", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 590
-        },
-        __self: this
-      }, "\"Last thing: what about converting JSON to CSV?\""), __jsx("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 592
-        },
-        __self: this
-      }, "Use ", __jsx("code", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 592
-        },
-        __self: this
-      }, "jsonToCSV()"), " function, passing in your array of arrays or array of objects. react-papaparse will figure it out."), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 594
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-javascript",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 594
-        },
-        __self: this
-      }, "// Output is a properly-formatted CSV string.\nvar csv = jsonToCSV(jsonData)\n"))))), __jsx("section", {
-        id: "download",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 601
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-container",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 602
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "grid-100",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 603
-        },
-        __self: this
-      }, __jsx("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 604
-        },
-        __self: this
-      }, "Install")), __jsx("div", {
-        className: "prefix-30 grid-40 suffix-30",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 606
-        },
-        __self: this
-      }, __jsx("b", {
-        style: {
-          display: 'block',
-          textAlign: 'center'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 607
-        },
-        __self: this
-      }, "npm"), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 608
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-bash",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 608
-        },
-        __self: this
-      }, "$ npm install --save react-papaparse")), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 609
-        },
-        __self: this
-      }), __jsx("b", {
-        style: {
-          display: 'block',
-          textAlign: 'center'
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 610
-        },
-        __self: this
-      }, "yarn"), __jsx("pre", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 611
-        },
-        __self: this
-      }, __jsx("code", {
-        className: "language-bash",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 611
-        },
-        __self: this
-      }, "$ yarn add react-papaparse"))), __jsx("div", {
-        className: "clear",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 614
-        },
-        __self: this
-      }), __jsx("div", {
-        className: "grid-100 text-center",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 616
-        },
-        __self: this
-      }, __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 617
-        },
-        __self: this
-      }), __jsx("br", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 617
-        },
-        __self: this
-      }), __jsx("a", {
-        href: "https://github.com/Bunlong/react-papaparse",
-        className: "button",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 619
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-github",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 620
-        },
-        __self: this
-      }), "\xA0 GitHub"), __jsx("a", {
-        href: "/demo",
-        className: "button red",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 622
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-magic",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 623
-        },
-        __self: this
-      }), "\xA0 Demo"), __jsx("a", {
-        href: "/docs",
-        className: "button gray",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 625
-        },
-        __self: this
-      }, __jsx("i", {
-        className: "fa fa-book",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 626
-        },
-        __self: this
-      }), "\xA0 Documentation"))))));
+
+
+
+
+
+
+
+
+
+var Index = function Index() {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_src_components_screens_indexes_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 7
     }
-  }]);
+  }), __jsx("main", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 7
+    }
+  }, __jsx(_src_components_screens_indexes_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Feature__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Framework__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Love__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_CSVParsing__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Delimiter__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_LocalFile__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_RemoteFile__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Stream__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Worker__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Header__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_TypeConversion__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Comment__WEBPACK_IMPORTED_MODULE_14__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Error__WEBPACK_IMPORTED_MODULE_15__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Unparse__WEBPACK_IMPORTED_MODULE_16__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 9
+    }
+  }), __jsx(_src_components_screens_indexes_Download__WEBPACK_IMPORTED_MODULE_17__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 9
+    }
+  })));
+};
 
-  return Index;
-}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
-
-
+/* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 1:
+/***/ "./src/components/screens/indexes/CSVParsing.js":
+/*!******************************************************!*\
+  !*** ./src/components/screens/indexes/CSVParsing.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/CSVParsing.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var CSVParsing = function CSVParsing() {
+  return __jsx("section", {
+    id: "parse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "CSV Parsing"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Isn't parsing CSV just ", __jsx("code", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 39
+    }
+  }, "String.split(',')"), "?\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "react-papaparse does it right. Just pass in the CSV string with an optional ", __jsx("a", {
+    href: "/docs#config",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 90
+    }
+  }, "configuration"), "."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "import { readString } from 'react-papaparse'\n\nconst results = readString(csvString, config)\n\n/*\nresults = {\n  data: [ ... ],    // parsed data\n  errors: [ ... ],  // errors encountered\n  meta: { ... }     // extra parse info\n}\n*/")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CSVParsing);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Comment.js":
+/*!***************************************************!*\
+  !*** ./src/components/screens/indexes/Comment.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Comment.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Comment = function Comment() {
+  return __jsx("section", {
+    id: "comments",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Comments"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"I forgot to mention: my CSV files have comments in them.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "Okay, first off: that's really weird. But fortunately, you can skip those lines... just specify the comment string."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "// Mostly found in academia, some CSV files\n// may have commented lines in them\nconst results = readString(csvString {\n  comments: '#'\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Comment);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Delimiter.js":
+/*!*****************************************************!*\
+  !*** ./src/components/screens/indexes/Delimiter.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Delimiter.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Delimiter = function Delimiter() {
+  return __jsx("section", {
+    id: "delimiter",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Delimiter Detection"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"But I don't know the delimiter...\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "That's okay. react-papaparse will scan the first few rows to find the right delimiter."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "import { readString } from 'react-papaparse'\n\nconst results = readString(csvString)\n\nconsole.log(results.meta.delimiter)\n\n", __jsx("span", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 15
+    }
+  }, String.fromCharCode(47), String.fromCharCode(47), " \"", String.fromCharCode(92), "t\""))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Delimiter);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Download.js":
+/*!****************************************************!*\
+  !*** ./src/components/screens/indexes/Download.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Download.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Download = function Download() {
+  return __jsx("section", {
+    id: "download",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h3", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Install")), __jsx("div", {
+    className: "prefix-30 grid-40 suffix-30",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, __jsx("b", {
+    style: {
+      display: 'block',
+      textAlign: 'center'
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, "npm"), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-bash",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 16
+    }
+  }, "$ npm install --save react-papaparse")), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 11
+    }
+  }), __jsx("b", {
+    style: {
+      display: 'block',
+      textAlign: 'center'
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 11
+    }
+  }, "yarn"), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-bash",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 16
+    }
+  }, "$ yarn add react-papaparse"))), __jsx("div", {
+    className: "clear",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 9
+    }
+  }), __jsx("div", {
+    className: "grid-100 text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 9
+    }
+  }, __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 11
+    }
+  }), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 17
+    }
+  }), __jsx("a", {
+    href: "https://github.com/Bunlong/react-papaparse",
+    className: "button",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    className: "fa fa-github",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 13
+    }
+  }), "\xA0 GitHub"), __jsx("a", {
+    href: "/demo",
+    className: "button red",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    className: "fa fa-magic",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 13
+    }
+  }), "\xA0 Demo"), __jsx("a", {
+    href: "/docs",
+    className: "button gray",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    className: "fa fa-book",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 13
+    }
+  }), "\xA0 Documentation"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Download);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Error.js":
+/*!*************************************************!*\
+  !*** ./src/components/screens/indexes/Error.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Error.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Error = function Error() {
+  return __jsx("section", {
+    id: "errors",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Error Handling"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Aw, shoot. Errors.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "react-papaparse handles errors pretty well. The ", __jsx("a", {
+    href: "http://tools.ietf.org/html/rfc4180",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 62
+    }
+  }, "CSV standard"), " is somewhat ", __jsx("strike", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 136
+    }
+  }, "loose"), " ambiguous, so react-papaparse is designed for edge cases. For example, mismatched fields won't break parsing."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "// Example error:\n{\n  type: 'FieldMismatch',\n  code: 'TooManyFields',\n  message: 'Expected 3 fields, but parsed 4',\n  row: 1\n}")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Error);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Feature.js":
+/*!***************************************************!*\
+  !*** ./src/components/screens/indexes/Feature.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Feature.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Feature = function Feature() {
+  return __jsx("section", {
+    style: {
+      paddingTop: 0
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h3", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Features"))), __jsx("div", {
+    id: "ticker",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "ticker-item current",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 11
+    }
+  }, "Now the fastest React CSV parser for the browser")), __jsx("div", {
+    className: "ticker-item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 11
+    }
+  }, "The world's first multi-threaded CSV parser for the browser")), __jsx("div", {
+    className: "ticker-item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 11
+    }
+  }, "react-papaparse can handle files gigabytes in size without crashing")), __jsx("div", {
+    className: "ticker-item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 11
+    }
+  }, "Use react-papaparse when performance, privacy, and correctness matter to you")), __jsx("div", {
+    className: "ticker-item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 11
+    }
+  }, "react-papaparse alleviates privacy concerns related to uploading files")), __jsx("div", {
+    className: "ticker-item",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 9
+    }
+  }, __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 11
+    }
+  }, "Malformed CSV is handled gracefully with a detailed error report"))), __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-33",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 9
+    }
+  }, __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 11
+    }
+  }, "CSV\u2192JSON and ", __jsx("a", {
+    href: "#unparse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 34
+    }
+  }, "JSON\u2192CSV")), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 11
+    }
+  }, "Auto-detect ", __jsx("a", {
+    href: "#delimiter",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 27
+    }
+  }, "delimiter")), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#local-files",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 15
+    }
+  }, "Open local files")), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#remote-files",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 15
+    }
+  }, "Download remote files"))), __jsx("div", {
+    className: "grid-33",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 9
+    }
+  }, __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#stream",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 15
+    }
+  }, "Stream"), " local and remote files"), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#worker",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 15
+    }
+  }, "Multi-threaded")), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#header",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 15
+    }
+  }, "Header row"), " support"), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "#type-conversion",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 15
+    }
+  }, "Type conversion"))), __jsx("div", {
+    className: "grid-33",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
+      columnNumber: 9
+    }
+  }, __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 11
+    }
+  }, "Skip ", __jsx("a", {
+    href: "#comments",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 20
+    }
+  }, "commented lines")), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 11
+    }
+  }, "Fast mode"), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 11
+    }
+  }, "Graceful ", __jsx("a", {
+    href: "#errors",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 24
+    }
+  }, "error"), " handling"), __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 11
+    }
+  }, "Easy to use")), __jsx("div", {
+    className: "clear",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 9
+    }
+  }), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 34
+    }
+  }), __jsx("br", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 40
+    }
+  }), __jsx("div", {
+    className: "grid-100 text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 9
+    }
+  }, __jsx("a", {
+    href: "https://github.com/Bunlong/react-papaparse",
+    className: "button",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    className: "fa fa-github",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 13
+    }
+  }), "\xA0 GitHub"), __jsx("a", {
+    href: "/docs",
+    className: "button gray",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    className: "fa fa-book",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 13
+    }
+  }), "\xA0 Documentation"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Feature);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Framework.js":
+/*!*****************************************************!*\
+  !*** ./src/components/screens/indexes/Framework.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Framework.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Framework = function Framework() {
+  return __jsx("section", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h3", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Frameworks"), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "react-papaparse strongly support ", __jsx("a", {
+    href: "https://nextjs.org",
+    target: "blank",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 46
+    }
+  }, "Next.js"), ", ", __jsx("a", {
+    href: "https://create-react-app.dev",
+    target: "blank",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 103
+    }
+  }, "Create React App"), " and other React frameworks. react-papaparse is the fastest React CSV parser for the browser (only works in the browser), so you need to set the component with no SSR (server-side render) ", __jsx("b", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 365
+    }
+  }, "in case you use ", __jsx("code", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 384
+    }
+  }, "readRemoteFile"), " function"), "."), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, __jsx("ul", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 13
+    }
+  }, __jsx("li", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 15
+    }
+  }, __jsx("a", {
+    href: "https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr",
+    target: "blank",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 19
+    }
+  }, "Next.js \u2014 component with no SSR")))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Framework);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Header.js":
+/*!**************************************************!*\
+  !*** ./src/components/screens/indexes/Header.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Header.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Header = function Header() {
+  return __jsx("section", {
+    id: "header",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Header Row"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Great! Now I want data keyed by field name.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "If you tell react-papaparse there is a header row, each row will be organized by field name instead of index."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "// Key data by field name instead of index/position\nconst results = readString(csvString {\n  header: true\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/LocalFile.js":
+/*!*****************************************************!*\
+  !*** ./src/components/screens/indexes/LocalFile.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/LocalFile.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var LocalFile = function LocalFile() {
+  return __jsx("section", {
+    id: "local-files",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Local Files"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Great, but I have a ", __jsx("i", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 36
+    }
+  }, "file"), " to parse.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "Then use CSVReader component instead of readString method. Since file parsing is asynchronous, don't forget callback methods."), __jsx("div", {
+    id: "drag-no-click-upload",
+    style: {
+      fontSize: 20,
+      marginTop: 10
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, "Basic Upload"), __jsx("div", {
+    style: {
+      textAlign: 'center',
+      paddingTop: 50,
+      paddingBottom: 50
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 11
+    }
+  }, __jsx("img", {
+    src: "/static/images/csvreader1.png",
+    alt: "Basic Upload",
+    style: {
+      maxWidth: '100%',
+      height: 'auto'
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginBottom: 14
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "/docs#basic-upload",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 13
+    }
+  }, "Properties"), "\xA0 | \xA0", __jsx("a", {
+    href: "/demo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 71
+    }
+  }, "Demo")), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 13
+    }
+  }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nconst buttonRef = React.createRef()\n\nexport default class CSVReader extends Component {\n  handleOnFileLoad = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  handleOpenDialog = (e) => {\n    // Note that the ref is set async, so it might be null at some point \n    if (buttonRef.current) {\n      buttonRef.current.open(e)\n    }\n  }\n\n  render() {\n    return (\n      <CSVReader\n        ref={buttonRef}\n        onFileLoad={this.handleOnFileLoad}\n        onError={this.handleOnError}\n        noClick\n        noDrag\n      >\n        {({file}) => (\n          <aside style={{display: 'flex', flexDirection: 'row', marginBottom: 10}}>\n            <button\n              type='button'\n              onClick={this.handleOpenDialog}\n              style={{\n                width: '40%',\n                borderRadius: 0,\n                marginLeft: 0,\n                marginRight: 0,\n                paddingLeft: 0,\n                paddingRight: 0,\n              }}\n            >\n              Browe file\n            </button>\n            <div\n              style={{\n                width: '60%',\n                height: 45,\n                borderWidth: 1,\n                borderStyle: 'solid',\n                borderColor: '#ccc',\n                marginTop: 5,\n                marginBottom: 5,\n                paddingLeft: 13,\n                paddingTop: 3,\n                lineHeight: 2.2,\n              }}\n            >\n              {file.name}\n            </div>\n          </aside>\n        )}\n      </CSVReader>\n    )\n  }\n}")), __jsx("div", {
+    id: "drag-no-click-upload",
+    style: {
+      fontSize: 20,
+      marginTop: 35
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 104,
+      columnNumber: 11
+    }
+  }, "Click and Drag Upload"), __jsx("div", {
+    style: {
+      textAlign: 'center',
+      paddingTop: 50,
+      paddingBottom: 50
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 110,
+      columnNumber: 11
+    }
+  }, __jsx("img", {
+    src: "/static/images/csvreader2.png",
+    alt: "Click and Drag Upload",
+    style: {
+      maxWidth: '100%',
+      height: 'auto'
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 111,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginBottom: 14
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "/docs#click-and-drag-upload",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 13
+    }
+  }, "Properties"), "\xA0 | \xA0", __jsx("a", {
+    href: "/demo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 80
+    }
+  }, "Demo")), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121,
+      columnNumber: 13
+    }
+  }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n  handleOnDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <CSVReader \n        onDrop={this.handleOnDrop}\n        onError={this.handleOnError}\n      >\n        <span>Drop CSV file here or click to upload.</span>\n      </CSVReader>\n    )\n  }\n}\n")), __jsx("div", {
+    id: "drag-no-click-upload",
+    style: {
+      fontSize: 20,
+      marginTop: 35
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 152,
+      columnNumber: 11
+    }
+  }, "Drag ( No Click ) Upload"), __jsx("div", {
+    style: {
+      textAlign: 'center',
+      paddingTop: 50,
+      paddingBottom: 50
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 158,
+      columnNumber: 11
+    }
+  }, __jsx("img", {
+    src: "/static/images/csvreader3.png",
+    alt: "Drag ( No Click ) Upload",
+    style: {
+      maxWidth: '100%',
+      height: 'auto'
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 159,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginBottom: 14
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 165,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "/docs#drag-no-click-upload",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 13
+    }
+  }, "Properties"), "\xA0 | \xA0", __jsx("a", {
+    href: "/demo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166,
+      columnNumber: 79
+    }
+  }, "Demo")), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 168,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 13
+    }
+  }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n  handleOnDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <CSVReader\n        onDrop={this.handleOnDrop}\n        onError={this.handleOnError}\n        noClick\n      >\n        <span>Drop CSV file here to upload.</span>\n      </CSVReader>\n    )\n  }\n}")), __jsx("div", {
+    id: "drag-no-click-upload",
+    style: {
+      fontSize: 20,
+      marginTop: 35
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 200,
+      columnNumber: 11
+    }
+  }, "Click ( No Drag ) Upload"), __jsx("div", {
+    style: {
+      textAlign: 'center',
+      paddingTop: 50,
+      paddingBottom: 50
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 11
+    }
+  }, __jsx("img", {
+    src: "/static/images/csvreader4.png",
+    alt: "Click ( No Drag ) Upload",
+    style: {
+      maxWidth: '100%',
+      height: 'auto '
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 13
+    }
+  })), __jsx("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginBottom: 14
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "/docs#click-no-drag-upload",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 214,
+      columnNumber: 13
+    }
+  }, "Properties"), "\xA0 | \xA0", __jsx("a", {
+    href: "/demo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 214,
+      columnNumber: 79
+    }
+  }, "Demo")), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 216,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 217,
+      columnNumber: 13
+    }
+  }, "import React, { Component } from 'react'\n\nimport { CSVReader } from 'react-papaparse'\n\nexport default class CSVReader extends Component {\n  handleOnDrop = (data) => {\n    console.log('--------------------------------------------------')\n    console.log(data)\n    console.log('--------------------------------------------------')\n  }\n\n  handleOnError = (err, file, inputElem, reason) => {\n    console.log(err)\n  }\n\n  render() {\n    return (\n      <CSVReader\n        onDrop={this.handleOnDrop}\n        onError={this.handleOnError}\n        noDrag\n      >\n        <span>Click to upload.</span>\n      </CSVReader>\n    )\n  }\n}")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LocalFile);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Love.js":
+/*!************************************************!*\
+  !*** ./src/components/screens/indexes/Love.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Love.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Love = function Love() {
+  return __jsx("section", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100 text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h3", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "People ", __jsx("i", {
+    className: "fa fa-heart",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 22
+    }
+  }), " react-papaparse"), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "https://www.npmjs.com/package/react-papaparse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 13
+    }
+  }, __jsx("img", {
+    src: "https://img.shields.io/npm/dm/react-papaparse.svg",
+    alt: "react-papaparse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 15
+    }
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Love);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Navbar.js":
+/*!**************************************************!*\
+  !*** ./src/components/screens/indexes/Navbar.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Navbar.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Navbar = function Navbar() {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("header", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "grid-40 mobile-grid-50",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "links",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 13
+    }
+  }, __jsx("a", {
+    href: "/demo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-magic fa-lg",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 17
+    }
+  }), " Demo"), __jsx("a", {
+    href: "/docs",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-book fa-lg",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 17
+    }
+  }), " Docs"))), __jsx("div", {
+    className: "grid-20 hide-on-mobile text-center",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "/",
+    className: "text-logo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 13
+    }
+  }, "react-papaparse 3")), __jsx("div", {
+    className: "grid-40 mobile-grid-50 text-right",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "links",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 13
+    }
+  }, __jsx("a", {
+    href: "https://github.com/Bunlong/react-papaparse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-github fa-lg",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 17
+    }
+  }), " GitHub"))))), __jsx("div", {
+    className: "insignia",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "firefox-hack",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    id: "version-intro",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32,
+      columnNumber: 11
+    }
+  }, "Version"), __jsx("div", {
+    id: "version",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33,
+      columnNumber: 11
+    }
+  }, "3"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Navbar);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/RemoteFile.js":
+/*!******************************************************!*\
+  !*** ./src/components/screens/indexes/RemoteFile.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/RemoteFile.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var RemoteFile = function RemoteFile() {
+  return __jsx("section", {
+    id: "remote-files",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Remote Files"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"No \u2014 I mean, the file isn't on my computer.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "Oh, well then just pass in the URL and \u2014 of course \u2014 a callback."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "readRemoteFile('http://example.com/file.csv', {\n  download: true,\n  complete: function(results) {\n    console.log(results)\n  }\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RemoteFile);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Stream.js":
+/*!**************************************************!*\
+  !*** ./src/components/screens/indexes/Stream.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Stream.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Stream = function Stream() {
+  return __jsx("section", {
+    id: "stream",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Streaming"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Did I mention the file is huge?\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "That's what streaming is for. Specify a step callback to receive the results row-by-row. This way, you won't load the whole file into memory and crash the browser."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "readRemoteFile('http://example.com/big.csv', {\n  step: function(row) {\n    console.log('Row:', row.data)\n  },\n  complete: function() {\n    console.log('All done!')\n  }\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Stream);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/TypeConversion.js":
+/*!**********************************************************!*\
+  !*** ./src/components/screens/indexes/TypeConversion.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/TypeConversion.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var TypeConversion = function TypeConversion() {
+  return __jsx("section", {
+    id: "type-conversion",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Type Conversion"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Hey, these numbers are parsed as strings.\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, __jsx("i", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 14
+    }
+  }, "Everything"), " is parsed as strings. If you want numbers and booleans, you can enable dynamic typing to do the conversion for you."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "// Converts numeric/boolean data\nconst results = readString(csvString {\n  dynamicTyping: true\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (TypeConversion);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Unparse.js":
+/*!***************************************************!*\
+  !*** ./src/components/screens/indexes/Unparse.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Unparse.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Unparse = function Unparse() {
+  return __jsx("section", {
+    id: "unparse",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "JSON to CSV"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "\"Last thing: what about converting JSON to CSV?\""), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "Use ", __jsx("code", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 18
+    }
+  }, "jsonToCSV()"), " function, passing in your array of arrays or array of objects. react-papaparse will figure it out."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "// Output is a properly-formatted CSV string.\nconst csv = jsonToCSV(jsonData)\n")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Unparse);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Welcome.js":
+/*!***************************************************!*\
+  !*** ./src/components/screens/indexes/Welcome.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Welcome.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Welcome = function Welcome() {
+  return __jsx("div", {
+    id: "skrollr-body",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    id: "top",
+    "data-top": "bottom: 0px; opacity: 1;",
+    "data-top-bottom": "bottom: -350px; opacity: .3;",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-container",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    id: "title-main",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 13
+    }
+  }, __jsx("h1", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 15
+    }
+  }, "react-papaparse"), __jsx("h2", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 15
+    }
+  }, "The powerful, in-browser React CSV parser for big boys and girls"), __jsx("a", {
+    href: "#download",
+    className: "button",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-download",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 17
+    }
+  }), "\xA0 Install"), __jsx("a", {
+    href: "/demo",
+    className: "button red",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-magic",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 17
+    }
+  }), "\xA0 Demo"), __jsx("a", {
+    href: "/docs",
+    className: "button gray",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 15
+    }
+  }, __jsx("i", {
+    className: "fa fa-book",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 17
+    }
+  }), "\xA0 Documentation")), __jsx("div", {
+    id: "title-code",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 13
+    }
+  }, __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28,
+      columnNumber: 15
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 29,
+      columnNumber: 17
+    }
+  }, "// Parse CSV string\nconst data = readString(csvString)\n\n// Convert back to CSV\nconst csv = jsonToCSV(jsonData)\n\n// Parse local CSV file\n<CSVReader \n  onDrop={this.handleOnDrop}\n  onError={this.handleOnError}\n  noDrag\n>\n  <span>Click to upload.</span>\n</CSVReader>\n\n// Stream big file in worker thread\nreadRemoteFile(bigFileURL, {\n  worker: true,\n  step: function(results) {\n    console.log('Row:', results.data)\n  }\n})")))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Welcome);
+
+/***/ }),
+
+/***/ "./src/components/screens/indexes/Worker.js":
+/*!**************************************************!*\
+  !*** ./src/components/screens/indexes/Worker.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _this = undefined,
+    _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/src/components/screens/indexes/Worker.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+var Worker = function Worker() {
+  return __jsx("section", {
+    id: "worker",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5,
+      columnNumber: 5
+    }
+  }, __jsx("div", {
+    className: "grid-container narrow-grid",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 7
+    }
+  }, __jsx("div", {
+    className: "grid-100",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 9
+    }
+  }, __jsx("h4", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 11
+    }
+  }, "Multi-Threading"), __jsx("h5", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 11
+    }
+  }, "'Lovely. Now my web page locked up.'"), __jsx("p", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }, "That happens when a long-running script is executing in the same thread as the page. Use a ", __jsx("a", {
+    href: "https://developer.mozilla.org/en-US/docs/Web/API/Worker",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 105
+    }
+  }, "Worker"), " thread by specifying ", __jsx("code", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 203
+    }
+  }, "worker: true"), ". It may take slightly longer, but your page will stay reactive."), __jsx("pre", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 11
+    }
+  }, __jsx("code", {
+    className: "language-javascript",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, "readRemoteFile(bigFileURL, {\n  worker: true,\n  step: function(row) {\n    console.log('Row:', row.data)\n  },\n  complete: function() {\n    console.log('All done!')\n  }\n})")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Worker);
+
+/***/ }),
+
+/***/ 2:
 /*!***********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fhome%2Fbunlong%2Fworkspace%2Fos%2Freact-papaparse%2Fdocs%2Fpages%2Findex.js ***!
   \***********************************************************************************************************************************************/
@@ -2089,5 +2710,5 @@ module.exports = dll_82519ec661270f7f484f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
