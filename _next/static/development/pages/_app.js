@@ -1328,7 +1328,7 @@ function unique() {
 }
 /**
  *
- * @param headElement List of multiple <Head> instances
+ * @param headElements List of multiple <Head> instances
  */
 
 
@@ -3343,12 +3343,12 @@ if (true) {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_82519ec661270f7f484f ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_2adc2403d89adc16ead0 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_82519ec661270f7f484f */ "dll-reference dll_82519ec661270f7f484f"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -4417,6 +4417,11 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/home/bunlong/workspace/os/react-papaparse/docs/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 
+function _createSuper(Derived) { return function () { var Super = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
 
 
 
@@ -4424,10 +4429,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement;
 var CustomApp = /*#__PURE__*/function (_App) {
   Object(_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomApp, _App);
 
+  var _super = _createSuper(CustomApp);
+
   function CustomApp() {
     Object(_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, CustomApp);
 
-    return Object(_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(CustomApp).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   Object(_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(CustomApp, [{
@@ -4459,400 +4466,452 @@ var CustomApp = /*#__PURE__*/function (_App) {
       }
 
       return __jsx("div", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
-        },
-        __self: this
+          lineNumber: 32,
+          columnNumber: 7
+        }
       }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_7___default.a, {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
-        },
-        __self: this
+          lineNumber: 33,
+          columnNumber: 9
+        }
       }, __jsx("title", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
-        },
-        __self: this
+          lineNumber: 34,
+          columnNumber: 11
+        }
       }, " ", "".concat(title, " - Powerful CSV Parser for React")), __jsx("link", {
         rel: "shortcut icon",
         type: "image/x-icon",
         href: "",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
-        },
-        __self: this
+          lineNumber: 35,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "theme-color",
         content: "#ffffff",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
-        },
-        __self: this
+          lineNumber: 36,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "apple-mobile-web-app-capable",
         content: "yes",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
+          lineNumber: 37,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "apple-mobile-web-app-status-bar-style",
         content: "black",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
+          lineNumber: 38,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "apple-mobile-web-app-title",
         content: "react-papaparse",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
+          lineNumber: 39,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "apple-touch-icon",
         href: "",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
-        },
-        __self: this
+          lineNumber: 40,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "shortcut icon",
         type: "image/x-icon",
         href: "",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
-        },
-        __self: this
+          lineNumber: 41,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "stylesheet",
         href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
-        },
-        __self: this
+          lineNumber: 43,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "stylesheet",
         href: "//fonts.googleapis.com/css?family=Arvo|Source+Sans+Pro:400,400italic,700|Lato:300,400",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
-        },
-        __self: this
+          lineNumber: 44,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/unsemantic.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
-        },
-        __self: this
+          lineNumber: 45,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/common.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
-        },
-        __self: this
+          lineNumber: 46,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/prism.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
-        },
-        __self: this
+          lineNumber: 47,
+          columnNumber: 11
+        }
       }), pageName === '' ? __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/home.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
-        },
-        __self: this
+          lineNumber: 49,
+          columnNumber: 30
+        }
       }) : '', pageName === 'demo' ? __jsx("link", {
         rel: "stylesheet",
         href: "/static/css/demo.css",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
-        },
-        __self: this
+          lineNumber: 50,
+          columnNumber: 34
+        }
       }) : '', __jsx("meta", {
         property: "og:url",
         content: "https://react-papaparse.github.io",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
-        },
-        __self: this
+          lineNumber: 52,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         property: "og:type",
         content: "website",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
-        },
-        __self: this
+          lineNumber: 53,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         property: "og:title",
         content: "react-papaparse",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
-        },
-        __self: this
+          lineNumber: 54,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         property: "og:description",
         content: "The fastest in-browser CSV (or delimited text) parser for React.",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
-        },
-        __self: this
+          lineNumber: 55,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         property: "og:image",
         content: "/static/images/react-papaparse.png",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
-        },
-        __self: this
+          lineNumber: 56,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:card",
         content: "summary_large_image",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
-        },
-        __self: this
+          lineNumber: 58,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:site",
         content: "@bunlongvan",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
-        },
-        __self: this
+          lineNumber: 59,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:creator",
         content: "@bunlongvan",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
-        },
-        __self: this
+          lineNumber: 60,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:title",
         content: "react-papaparse",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
-        },
-        __self: this
+          lineNumber: 61,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:description",
         content: "The fastest in-browser CSV (or delimited text) parser for React.",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
-        },
-        __self: this
+          lineNumber: 62,
+          columnNumber: 11
+        }
       }), __jsx("meta", {
         name: "twitter:image",
         content: "https://react-papaparse.github.io/static/images/react-papaparse.png",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
-        },
-        __self: this
+          lineNumber: 63,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "shortcut icon",
         href: "/static/favicon.ico",
         type: "image/x-icon",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
-        },
-        __self: this
+          lineNumber: 65,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "icon",
         href: "/static/favicon-32.png",
         sizes: "32x32",
         type: "image/png",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
-        },
-        __self: this
+          lineNumber: 66,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "apple-touch-icon-precomposed",
         href: "/static/favicon-152.png",
         type: "image/png",
         sizes: "152x152",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
-        },
-        __self: this
+          lineNumber: 67,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "apple-touch-icon-precomposed",
         href: "/static/favicon-120.png",
         type: "image/png",
         sizes: "120x120",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
-        },
-        __self: this
+          lineNumber: 68,
+          columnNumber: 11
+        }
       }), __jsx("link", {
         rel: "icon",
         href: "/static/favicon-96.png",
         sizes: "96x96",
         type: "image/png",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
-        },
-        __self: this
+          lineNumber: 69,
+          columnNumber: 11
+        }
       })), __jsx("div", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
-        },
-        __self: this
+          lineNumber: 71,
+          columnNumber: 9
+        }
       }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
-        },
-        __self: this
+          lineNumber: 72,
+          columnNumber: 11
+        }
       }))), __jsx("footer", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
-        },
-        __self: this
+          lineNumber: 74,
+          columnNumber: 9
+        }
       }, __jsx("div", {
         className: "footer-main",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 75
-        },
-        __self: this
+          lineNumber: 75,
+          columnNumber: 11
+        }
       }, __jsx("div", {
         className: "grid-container",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
-        },
-        __self: this
+          lineNumber: 76,
+          columnNumber: 13
+        }
       }, __jsx("div", {
         className: "grid-40 text-center",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
-        },
-        __self: this
+          lineNumber: 77,
+          columnNumber: 15
+        }
       }, __jsx("div", {
         className: "logo",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
-        },
-        __self: this
+          lineNumber: 78,
+          columnNumber: 17
+        }
       }, "P"), __jsx("br", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
-        },
-        __self: this
+          lineNumber: 79,
+          columnNumber: 17
+        }
       }), __jsx("br", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
-        },
-        __self: this
+          lineNumber: 79,
+          columnNumber: 23
+        }
       }), "react-papaparse by ", __jsx("a", {
         href: "https://github.com/bunlong",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
-        },
-        __self: this
+          lineNumber: 80,
+          columnNumber: 36
+        }
       }, "Bunlong"), __jsx("br", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
-        },
-        __self: this
+          lineNumber: 81,
+          columnNumber: 17
+        }
       }), "\xA9 2018-2020"), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
-        },
-        __self: this
+          lineNumber: 85,
+          columnNumber: 15
+        }
       }, __jsx("h5", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
-        },
-        __self: this
+          lineNumber: 86,
+          columnNumber: 17
+        }
       }, "Learn"), __jsx("a", {
         href: "/demo",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
-        },
-        __self: this
+          lineNumber: 87,
+          columnNumber: 17
+        }
       }, "Demo"), __jsx("a", {
         href: "/docs",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
-        },
-        __self: this
+          lineNumber: 88,
+          columnNumber: 17
+        }
       }, "Documentation")), __jsx("div", {
         className: "grid-15 mobile-grid-50 links",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
-        },
-        __self: this
+          lineNumber: 91,
+          columnNumber: 15
+        }
       }, __jsx("h5", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
-        },
-        __self: this
+          lineNumber: 92,
+          columnNumber: 17
+        }
       }, "Project"), __jsx("a", {
         href: "https://github.com/Bunlong/react-papaparse",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        __self: this
+          lineNumber: 93,
+          columnNumber: 17
+        }
       }, "GitHub"))))), __jsx("script", {
         type: "text/javascript",
         src: "/static/js/prism.js",
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
-        },
-        __self: this
+          lineNumber: 98,
+          columnNumber: 9
+        }
       }));
     }
   }]);
@@ -4877,14 +4936,14 @@ module.exports = __webpack_require__(/*! /home/bunlong/workspace/os/react-papapa
 
 /***/ }),
 
-/***/ "dll-reference dll_82519ec661270f7f484f":
+/***/ "dll-reference dll_2adc2403d89adc16ead0":
 /*!*******************************************!*\
-  !*** external "dll_82519ec661270f7f484f" ***!
+  !*** external "dll_2adc2403d89adc16ead0" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_82519ec661270f7f484f;
+module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
