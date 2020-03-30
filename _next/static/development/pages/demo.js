@@ -1157,7 +1157,7 @@ var Demo = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!**************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fdemo&absolutePagePath=%2Fhome%2Fbunlong%2Fworkspace%2Fos%2Freact-papaparse%2Fdocs%2Fpages%2Fdemo.js ***!
   \**************************************************************************************************************************************************/
@@ -1180,5 +1180,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=demo.js.map
