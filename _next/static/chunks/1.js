@@ -3961,2091 +3961,28 @@ if (false) {} else {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BAD_DELIMITERS", function() { return BAD_DELIMITERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSVReader", function() { return CSVReaderRewrite; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultDelimiter", function() { return DefaultDelimiter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalChunkSize", function() { return LocalChunkSize; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECORD_SEP", function() { return RECORD_SEP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNIT_SEP", function() { return UNIT_SEP; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WORKERS_SUPPORTED", function() { return WORKERS_SUPPORTED; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jsonToCSV", function() { return jsonToCSV; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readRemoteFile", function() { return readRemoteFile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readString", function() { return readString; });
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BAD_DELIMITERS", function() { return ce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSVReader", function() { return oe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DefaultDelimiter", function() { return he; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalChunkSize", function() { return pe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECORD_SEP", function() { return fe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UNIT_SEP", function() { return le; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WORKERS_SUPPORTED", function() { return de; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jsonToCSV", function() { return ue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readRemoteFile", function() { return ae; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "readString", function() { return se; });
 /* harmony import */ var stream__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! stream */ "./node_modules/stream-browserify/index.js");
 /* harmony import */ var stream__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(stream__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-var papaparse = createCommonjsModule(function (module, exports) {
+"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;function r(e,t){return e(t={exports:{}},t.exports),t.exports}var n=r((function(t,r){
 /* @license
 Papa Parse
-v5.1.1
+v5.2.0
 https://github.com/mholt/PapaParse
 License: MIT
 */
-
-(function(root, factory)
-{
-	/* globals define */
-	{
-		// Node. Does not work with strict CommonJS, but
-		// only CommonJS-like environments that support module.exports,
-		// like Node.
-		module.exports = factory();
-	}
-	// in strict mode we cannot access arguments.callee, so we need a named reference to
-	// stringify the factory method for the blob worker
-	// eslint-disable-next-line func-name
-}(commonjsGlobal, function moduleFactory()
-{
-
-	var global = (function() {
-		// alternative method, similar to `Function('return this')()`
-		// but without using `eval` (which is disabled when
-		// using Content Security Policy).
-
-		if (typeof self !== 'undefined') { return self; }
-		if (typeof window !== 'undefined') { return window; }
-		if (typeof global !== 'undefined') { return global; }
-
-		// When running tests none of the above have been defined
-		return {};
-	})();
-
-
-	function getWorkerBlob() {
-		var URL = global.URL || global.webkitURL || null;
-		var code = moduleFactory.toString();
-		return Papa.BLOB_URL || (Papa.BLOB_URL = URL.createObjectURL(new Blob(['(', code, ')();'], {type: 'text/javascript'})));
-	}
-
-	var IS_WORKER = !global.document && !!global.postMessage,
-		IS_PAPA_WORKER = IS_WORKER && /blob:/i.test((global.location || {}).protocol);
-	var workers = {}, workerIdCounter = 0;
-
-	var Papa = {};
-
-	Papa.parse = CsvToJson;
-	Papa.unparse = JsonToCsv;
-
-	Papa.RECORD_SEP = String.fromCharCode(30);
-	Papa.UNIT_SEP = String.fromCharCode(31);
-	Papa.BYTE_ORDER_MARK = '\ufeff';
-	Papa.BAD_DELIMITERS = ['\r', '\n', '"', Papa.BYTE_ORDER_MARK];
-	Papa.WORKERS_SUPPORTED = !IS_WORKER && !!global.Worker;
-	Papa.NODE_STREAM_INPUT = 1;
-
-	// Configurable chunk sizes for local and remote files, respectively
-	Papa.LocalChunkSize = 1024 * 1024 * 10;	// 10 MB
-	Papa.RemoteChunkSize = 1024 * 1024 * 5;	// 5 MB
-	Papa.DefaultDelimiter = ',';			// Used if not specified and detection fails
-
-	// Exposed for testing and development only
-	Papa.Parser = Parser;
-	Papa.ParserHandle = ParserHandle;
-	Papa.NetworkStreamer = NetworkStreamer;
-	Papa.FileStreamer = FileStreamer;
-	Papa.StringStreamer = StringStreamer;
-	Papa.ReadableStreamStreamer = ReadableStreamStreamer;
-	if (typeof PAPA_BROWSER_CONTEXT === 'undefined') {
-		Papa.DuplexStreamStreamer = DuplexStreamStreamer;
-	}
-
-	if (global.jQuery)
-	{
-		var $ = global.jQuery;
-		$.fn.parse = function(options)
-		{
-			var config = options.config || {};
-			var queue = [];
-
-			this.each(function(idx)
-			{
-				var supported = $(this).prop('tagName').toUpperCase() === 'INPUT'
-								&& $(this).attr('type').toLowerCase() === 'file'
-								&& global.FileReader;
-
-				if (!supported || !this.files || this.files.length === 0)
-					return true;	// continue to next input element
-
-				for (var i = 0; i < this.files.length; i++)
-				{
-					queue.push({
-						file: this.files[i],
-						inputElem: this,
-						instanceConfig: $.extend({}, config)
-					});
-				}
-			});
-
-			parseNextFile();	// begin parsing
-			return this;		// maintains chainability
-
-
-			function parseNextFile()
-			{
-				if (queue.length === 0)
-				{
-					if (isFunction(options.complete))
-						options.complete();
-					return;
-				}
-
-				var f = queue[0];
-
-				if (isFunction(options.before))
-				{
-					var returned = options.before(f.file, f.inputElem);
-
-					if (typeof returned === 'object')
-					{
-						if (returned.action === 'abort')
-						{
-							error('AbortError', f.file, f.inputElem, returned.reason);
-							return;	// Aborts all queued files immediately
-						}
-						else if (returned.action === 'skip')
-						{
-							fileComplete();	// parse the next file in the queue, if any
-							return;
-						}
-						else if (typeof returned.config === 'object')
-							f.instanceConfig = $.extend(f.instanceConfig, returned.config);
-					}
-					else if (returned === 'skip')
-					{
-						fileComplete();	// parse the next file in the queue, if any
-						return;
-					}
-				}
-
-				// Wrap up the user's complete callback, if any, so that ours also gets executed
-				var userCompleteFunc = f.instanceConfig.complete;
-				f.instanceConfig.complete = function(results)
-				{
-					if (isFunction(userCompleteFunc))
-						userCompleteFunc(results, f.file, f.inputElem);
-					fileComplete();
-				};
-
-				Papa.parse(f.file, f.instanceConfig);
-			}
-
-			function error(name, file, elem, reason)
-			{
-				if (isFunction(options.error))
-					options.error({name: name}, file, elem, reason);
-			}
-
-			function fileComplete()
-			{
-				queue.splice(0, 1);
-				parseNextFile();
-			}
-		};
-	}
-
-
-	if (IS_PAPA_WORKER)
-	{
-		global.onmessage = workerThreadReceivedMessage;
-	}
-
-
-
-
-	function CsvToJson(_input, _config)
-	{
-		_config = _config || {};
-		var dynamicTyping = _config.dynamicTyping || false;
-		if (isFunction(dynamicTyping)) {
-			_config.dynamicTypingFunction = dynamicTyping;
-			// Will be filled on first row call
-			dynamicTyping = {};
-		}
-		_config.dynamicTyping = dynamicTyping;
-
-		_config.transform = isFunction(_config.transform) ? _config.transform : false;
-
-		if (_config.worker && Papa.WORKERS_SUPPORTED)
-		{
-			var w = newWorker();
-
-			w.userStep = _config.step;
-			w.userChunk = _config.chunk;
-			w.userComplete = _config.complete;
-			w.userError = _config.error;
-
-			_config.step = isFunction(_config.step);
-			_config.chunk = isFunction(_config.chunk);
-			_config.complete = isFunction(_config.complete);
-			_config.error = isFunction(_config.error);
-			delete _config.worker;	// prevent infinite loop
-
-			w.postMessage({
-				input: _input,
-				config: _config,
-				workerId: w.id
-			});
-
-			return;
-		}
-
-		var streamer = null;
-		if (_input === Papa.NODE_STREAM_INPUT && typeof PAPA_BROWSER_CONTEXT === 'undefined')
-		{
-			// create a node Duplex stream for use
-			// with .pipe
-			streamer = new DuplexStreamStreamer(_config);
-			return streamer.getStream();
-		}
-		else if (typeof _input === 'string')
-		{
-			if (_config.download)
-				streamer = new NetworkStreamer(_config);
-			else
-				streamer = new StringStreamer(_config);
-		}
-		else if (_input.readable === true && isFunction(_input.read) && isFunction(_input.on))
-		{
-			streamer = new ReadableStreamStreamer(_config);
-		}
-		else if ((global.File && _input instanceof File) || _input instanceof Object)	// ...Safari. (see issue #106)
-			streamer = new FileStreamer(_config);
-
-		return streamer.stream(_input);
-	}
-
-
-
-
-
-
-	function JsonToCsv(_input, _config)
-	{
-		// Default configuration
-
-		/** whether to surround every datum with quotes */
-		var _quotes = false;
-
-		/** whether to write headers */
-		var _writeHeader = true;
-
-		/** delimiting character(s) */
-		var _delimiter = ',';
-
-		/** newline character(s) */
-		var _newline = '\r\n';
-
-		/** quote character */
-		var _quoteChar = '"';
-
-		/** escaped quote character, either "" or <config.escapeChar>" */
-		var _escapedQuote = _quoteChar + _quoteChar;
-
-		/** whether to skip empty lines */
-		var _skipEmptyLines = false;
-
-		/** the columns (keys) we expect when we unparse objects */
-		var _columns = null;
-
-		unpackConfig();
-
-		var quoteCharRegex = new RegExp(escapeRegExp(_quoteChar), 'g');
-
-		if (typeof _input === 'string')
-			_input = JSON.parse(_input);
-
-		if (Array.isArray(_input))
-		{
-			if (!_input.length || Array.isArray(_input[0]))
-				return serialize(null, _input, _skipEmptyLines);
-			else if (typeof _input[0] === 'object')
-				return serialize(_columns || objectKeys(_input[0]), _input, _skipEmptyLines);
-		}
-		else if (typeof _input === 'object')
-		{
-			if (typeof _input.data === 'string')
-				_input.data = JSON.parse(_input.data);
-
-			if (Array.isArray(_input.data))
-			{
-				if (!_input.fields)
-					_input.fields =  _input.meta && _input.meta.fields;
-
-				if (!_input.fields)
-					_input.fields =  Array.isArray(_input.data[0])
-						? _input.fields
-						: objectKeys(_input.data[0]);
-
-				if (!(Array.isArray(_input.data[0])) && typeof _input.data[0] !== 'object')
-					_input.data = [_input.data];	// handles input like [1,2,3] or ['asdf']
-			}
-
-			return serialize(_input.fields || [], _input.data || [], _skipEmptyLines);
-		}
-
-		// Default (any valid paths should return before this)
-		throw new Error('Unable to serialize unrecognized input');
-
-
-		function unpackConfig()
-		{
-			if (typeof _config !== 'object')
-				return;
-
-			if (typeof _config.delimiter === 'string'
-                && !Papa.BAD_DELIMITERS.filter(function(value) { return _config.delimiter.indexOf(value) !== -1; }).length)
-			{
-				_delimiter = _config.delimiter;
-			}
-
-			if (typeof _config.quotes === 'boolean'
-				|| typeof _config.quotes === 'function'
-				|| Array.isArray(_config.quotes))
-				_quotes = _config.quotes;
-
-			if (typeof _config.skipEmptyLines === 'boolean'
-				|| typeof _config.skipEmptyLines === 'string')
-				_skipEmptyLines = _config.skipEmptyLines;
-
-			if (typeof _config.newline === 'string')
-				_newline = _config.newline;
-
-			if (typeof _config.quoteChar === 'string')
-				_quoteChar = _config.quoteChar;
-
-			if (typeof _config.header === 'boolean')
-				_writeHeader = _config.header;
-
-			if (Array.isArray(_config.columns)) {
-
-				if (_config.columns.length === 0) throw new Error('Option columns is empty');
-
-				_columns = _config.columns;
-			}
-
-			if (_config.escapeChar !== undefined) {
-				_escapedQuote = _config.escapeChar + _quoteChar;
-			}
-		}
-
-
-		/** Turns an object's keys into an array */
-		function objectKeys(obj)
-		{
-			if (typeof obj !== 'object')
-				return [];
-			var keys = [];
-			for (var key in obj)
-				keys.push(key);
-			return keys;
-		}
-
-		/** The double for loop that iterates the data and writes out a CSV string including header row */
-		function serialize(fields, data, skipEmptyLines)
-		{
-			var csv = '';
-
-			if (typeof fields === 'string')
-				fields = JSON.parse(fields);
-			if (typeof data === 'string')
-				data = JSON.parse(data);
-
-			var hasHeader = Array.isArray(fields) && fields.length > 0;
-			var dataKeyedByField = !(Array.isArray(data[0]));
-
-			// If there a header row, write it first
-			if (hasHeader && _writeHeader)
-			{
-				for (var i = 0; i < fields.length; i++)
-				{
-					if (i > 0)
-						csv += _delimiter;
-					csv += safe(fields[i], i);
-				}
-				if (data.length > 0)
-					csv += _newline;
-			}
-
-			// Then write out the data
-			for (var row = 0; row < data.length; row++)
-			{
-				var maxCol = hasHeader ? fields.length : data[row].length;
-
-				var emptyLine = false;
-				var nullLine = hasHeader ? Object.keys(data[row]).length === 0 : data[row].length === 0;
-				if (skipEmptyLines && !hasHeader)
-				{
-					emptyLine = skipEmptyLines === 'greedy' ? data[row].join('').trim() === '' : data[row].length === 1 && data[row][0].length === 0;
-				}
-				if (skipEmptyLines === 'greedy' && hasHeader) {
-					var line = [];
-					for (var c = 0; c < maxCol; c++) {
-						var cx = dataKeyedByField ? fields[c] : c;
-						line.push(data[row][cx]);
-					}
-					emptyLine = line.join('').trim() === '';
-				}
-				if (!emptyLine)
-				{
-					for (var col = 0; col < maxCol; col++)
-					{
-						if (col > 0 && !nullLine)
-							csv += _delimiter;
-						var colIdx = hasHeader && dataKeyedByField ? fields[col] : col;
-						csv += safe(data[row][colIdx], col);
-					}
-					if (row < data.length - 1 && (!skipEmptyLines || (maxCol > 0 && !nullLine)))
-					{
-						csv += _newline;
-					}
-				}
-			}
-			return csv;
-		}
-
-		/** Encloses a value around quotes if needed (makes a value safe for CSV insertion) */
-		function safe(str, col)
-		{
-			if (typeof str === 'undefined' || str === null)
-				return '';
-
-			if (str.constructor === Date)
-				return JSON.stringify(str).slice(1, 25);
-
-			var escapedQuoteStr = str.toString().replace(quoteCharRegex, _escapedQuote);
-
-			var needsQuotes = (typeof _quotes === 'boolean' && _quotes)
-							|| (typeof _quotes === 'function' && _quotes(str, col))
-							|| (Array.isArray(_quotes) && _quotes[col])
-							|| hasAny(escapedQuoteStr, Papa.BAD_DELIMITERS)
-							|| escapedQuoteStr.indexOf(_delimiter) > -1
-							|| escapedQuoteStr.charAt(0) === ' '
-							|| escapedQuoteStr.charAt(escapedQuoteStr.length - 1) === ' ';
-
-			return needsQuotes ? _quoteChar + escapedQuoteStr + _quoteChar : escapedQuoteStr;
-		}
-
-		function hasAny(str, substrings)
-		{
-			for (var i = 0; i < substrings.length; i++)
-				if (str.indexOf(substrings[i]) > -1)
-					return true;
-			return false;
-		}
-	}
-
-	/** ChunkStreamer is the base prototype for various streamer implementations. */
-	function ChunkStreamer(config)
-	{
-		this._handle = null;
-		this._finished = false;
-		this._completed = false;
-		this._halted = false;
-		this._input = null;
-		this._baseIndex = 0;
-		this._partialLine = '';
-		this._rowCount = 0;
-		this._start = 0;
-		this._nextChunk = null;
-		this.isFirstChunk = true;
-		this._completeResults = {
-			data: [],
-			errors: [],
-			meta: {}
-		};
-		replaceConfig.call(this, config);
-
-		this.parseChunk = function(chunk, isFakeChunk)
-		{
-			// First chunk pre-processing
-			if (this.isFirstChunk && isFunction(this._config.beforeFirstChunk))
-			{
-				var modifiedChunk = this._config.beforeFirstChunk(chunk);
-				if (modifiedChunk !== undefined)
-					chunk = modifiedChunk;
-			}
-			this.isFirstChunk = false;
-			this._halted = false;
-
-			// Rejoin the line we likely just split in two by chunking the file
-			var aggregate = this._partialLine + chunk;
-			this._partialLine = '';
-
-			var results = this._handle.parse(aggregate, this._baseIndex, !this._finished);
-
-			if (this._handle.paused() || this._handle.aborted()) {
-				this._halted = true;
-				return;
-			}
-
-			var lastIndex = results.meta.cursor;
-
-			if (!this._finished)
-			{
-				this._partialLine = aggregate.substring(lastIndex - this._baseIndex);
-				this._baseIndex = lastIndex;
-			}
-
-			if (results && results.data)
-				this._rowCount += results.data.length;
-
-			var finishedIncludingPreview = this._finished || (this._config.preview && this._rowCount >= this._config.preview);
-
-			if (IS_PAPA_WORKER)
-			{
-				global.postMessage({
-					results: results,
-					workerId: Papa.WORKER_ID,
-					finished: finishedIncludingPreview
-				});
-			}
-			else if (isFunction(this._config.chunk) && !isFakeChunk)
-			{
-				this._config.chunk(results, this._handle);
-				if (this._handle.paused() || this._handle.aborted()) {
-					this._halted = true;
-					return;
-				}
-				results = undefined;
-				this._completeResults = undefined;
-			}
-
-			if (!this._config.step && !this._config.chunk) {
-				this._completeResults.data = this._completeResults.data.concat(results.data);
-				this._completeResults.errors = this._completeResults.errors.concat(results.errors);
-				this._completeResults.meta = results.meta;
-			}
-
-			if (!this._completed && finishedIncludingPreview && isFunction(this._config.complete) && (!results || !results.meta.aborted)) {
-				this._config.complete(this._completeResults, this._input);
-				this._completed = true;
-			}
-
-			if (!finishedIncludingPreview && (!results || !results.meta.paused))
-				this._nextChunk();
-
-			return results;
-		};
-
-		this._sendError = function(error)
-		{
-			if (isFunction(this._config.error))
-				this._config.error(error);
-			else if (IS_PAPA_WORKER && this._config.error)
-			{
-				global.postMessage({
-					workerId: Papa.WORKER_ID,
-					error: error,
-					finished: false
-				});
-			}
-		};
-
-		function replaceConfig(config)
-		{
-			// Deep-copy the config so we can edit it
-			var configCopy = copy(config);
-			configCopy.chunkSize = parseInt(configCopy.chunkSize);	// parseInt VERY important so we don't concatenate strings!
-			if (!config.step && !config.chunk)
-				configCopy.chunkSize = null;  // disable Range header if not streaming; bad values break IIS - see issue #196
-			this._handle = new ParserHandle(configCopy);
-			this._handle.streamer = this;
-			this._config = configCopy;	// persist the copy to the caller
-		}
-	}
-
-
-	function NetworkStreamer(config)
-	{
-		config = config || {};
-		if (!config.chunkSize)
-			config.chunkSize = Papa.RemoteChunkSize;
-		ChunkStreamer.call(this, config);
-
-		var xhr;
-
-		if (IS_WORKER)
-		{
-			this._nextChunk = function()
-			{
-				this._readChunk();
-				this._chunkLoaded();
-			};
-		}
-		else
-		{
-			this._nextChunk = function()
-			{
-				this._readChunk();
-			};
-		}
-
-		this.stream = function(url)
-		{
-			this._input = url;
-			this._nextChunk();	// Starts streaming
-		};
-
-		this._readChunk = function()
-		{
-			if (this._finished)
-			{
-				this._chunkLoaded();
-				return;
-			}
-
-			xhr = new XMLHttpRequest();
-
-			if (this._config.withCredentials)
-			{
-				xhr.withCredentials = this._config.withCredentials;
-			}
-
-			if (!IS_WORKER)
-			{
-				xhr.onload = bindFunction(this._chunkLoaded, this);
-				xhr.onerror = bindFunction(this._chunkError, this);
-			}
-
-			xhr.open('GET', this._input, !IS_WORKER);
-			// Headers can only be set when once the request state is OPENED
-			if (this._config.downloadRequestHeaders)
-			{
-				var headers = this._config.downloadRequestHeaders;
-
-				for (var headerName in headers)
-				{
-					xhr.setRequestHeader(headerName, headers[headerName]);
-				}
-			}
-
-			if (this._config.chunkSize)
-			{
-				var end = this._start + this._config.chunkSize - 1;	// minus one because byte range is inclusive
-				xhr.setRequestHeader('Range', 'bytes=' + this._start + '-' + end);
-			}
-
-			try {
-				xhr.send();
-			}
-			catch (err) {
-				this._chunkError(err.message);
-			}
-
-			if (IS_WORKER && xhr.status === 0)
-				this._chunkError();
-		};
-
-		this._chunkLoaded = function()
-		{
-			if (xhr.readyState !== 4)
-				return;
-
-			if (xhr.status < 200 || xhr.status >= 400)
-			{
-				this._chunkError();
-				return;
-			}
-
-			// Use chunckSize as it may be a diference on reponse lentgh due to characters with more than 1 byte
-			this._start += this._config.chunkSize ? this._config.chunkSize : xhr.responseText.length;
-			this._finished = !this._config.chunkSize || this._start >= getFileSize(xhr);
-			this.parseChunk(xhr.responseText);
-		};
-
-		this._chunkError = function(errorMessage)
-		{
-			var errorText = xhr.statusText || errorMessage;
-			this._sendError(new Error(errorText));
-		};
-
-		function getFileSize(xhr)
-		{
-			var contentRange = xhr.getResponseHeader('Content-Range');
-			if (contentRange === null) { // no content range, then finish!
-				return -1;
-			}
-			return parseInt(contentRange.substring(contentRange.lastIndexOf('/') + 1));
-		}
-	}
-	NetworkStreamer.prototype = Object.create(ChunkStreamer.prototype);
-	NetworkStreamer.prototype.constructor = NetworkStreamer;
-
-
-	function FileStreamer(config)
-	{
-		config = config || {};
-		if (!config.chunkSize)
-			config.chunkSize = Papa.LocalChunkSize;
-		ChunkStreamer.call(this, config);
-
-		var reader, slice;
-
-		// FileReader is better than FileReaderSync (even in worker) - see http://stackoverflow.com/q/24708649/1048862
-		// But Firefox is a pill, too - see issue #76: https://github.com/mholt/PapaParse/issues/76
-		var usingAsyncReader = typeof FileReader !== 'undefined';	// Safari doesn't consider it a function - see issue #105
-
-		this.stream = function(file)
-		{
-			this._input = file;
-			slice = file.slice || file.webkitSlice || file.mozSlice;
-
-			if (usingAsyncReader)
-			{
-				reader = new FileReader();		// Preferred method of reading files, even in workers
-				reader.onload = bindFunction(this._chunkLoaded, this);
-				reader.onerror = bindFunction(this._chunkError, this);
-			}
-			else
-				reader = new FileReaderSync();	// Hack for running in a web worker in Firefox
-
-			this._nextChunk();	// Starts streaming
-		};
-
-		this._nextChunk = function()
-		{
-			if (!this._finished && (!this._config.preview || this._rowCount < this._config.preview))
-				this._readChunk();
-		};
-
-		this._readChunk = function()
-		{
-			var input = this._input;
-			if (this._config.chunkSize)
-			{
-				var end = Math.min(this._start + this._config.chunkSize, this._input.size);
-				input = slice.call(input, this._start, end);
-			}
-			var txt = reader.readAsText(input, this._config.encoding);
-			if (!usingAsyncReader)
-				this._chunkLoaded({ target: { result: txt } });	// mimic the async signature
-		};
-
-		this._chunkLoaded = function(event)
-		{
-			// Very important to increment start each time before handling results
-			this._start += this._config.chunkSize;
-			this._finished = !this._config.chunkSize || this._start >= this._input.size;
-			this.parseChunk(event.target.result);
-		};
-
-		this._chunkError = function()
-		{
-			this._sendError(reader.error);
-		};
-
-	}
-	FileStreamer.prototype = Object.create(ChunkStreamer.prototype);
-	FileStreamer.prototype.constructor = FileStreamer;
-
-
-	function StringStreamer(config)
-	{
-		config = config || {};
-		ChunkStreamer.call(this, config);
-
-		var remaining;
-		this.stream = function(s)
-		{
-			remaining = s;
-			return this._nextChunk();
-		};
-		this._nextChunk = function()
-		{
-			if (this._finished) return;
-			var size = this._config.chunkSize;
-			var chunk;
-			if(size) {
-				chunk = remaining.substring(0, size);
-				remaining = remaining.substring(size);
-			} else {
-				chunk = remaining;
-				remaining = '';
-			}
-			this._finished = !remaining;
-			return this.parseChunk(chunk);
-		};
-	}
-	StringStreamer.prototype = Object.create(StringStreamer.prototype);
-	StringStreamer.prototype.constructor = StringStreamer;
-
-
-	function ReadableStreamStreamer(config)
-	{
-		config = config || {};
-
-		ChunkStreamer.call(this, config);
-
-		var queue = [];
-		var parseOnData = true;
-		var streamHasEnded = false;
-
-		this.pause = function()
-		{
-			ChunkStreamer.prototype.pause.apply(this, arguments);
-			this._input.pause();
-		};
-
-		this.resume = function()
-		{
-			ChunkStreamer.prototype.resume.apply(this, arguments);
-			this._input.resume();
-		};
-
-		this.stream = function(stream)
-		{
-			this._input = stream;
-
-			this._input.on('data', this._streamData);
-			this._input.on('end', this._streamEnd);
-			this._input.on('error', this._streamError);
-		};
-
-		this._checkIsFinished = function()
-		{
-			if (streamHasEnded && queue.length === 1) {
-				this._finished = true;
-			}
-		};
-
-		this._nextChunk = function()
-		{
-			this._checkIsFinished();
-			if (queue.length)
-			{
-				this.parseChunk(queue.shift());
-			}
-			else
-			{
-				parseOnData = true;
-			}
-		};
-
-		this._streamData = bindFunction(function(chunk)
-		{
-			try
-			{
-				queue.push(typeof chunk === 'string' ? chunk : chunk.toString(this._config.encoding));
-
-				if (parseOnData)
-				{
-					parseOnData = false;
-					this._checkIsFinished();
-					this.parseChunk(queue.shift());
-				}
-			}
-			catch (error)
-			{
-				this._streamError(error);
-			}
-		}, this);
-
-		this._streamError = bindFunction(function(error)
-		{
-			this._streamCleanUp();
-			this._sendError(error);
-		}, this);
-
-		this._streamEnd = bindFunction(function()
-		{
-			this._streamCleanUp();
-			streamHasEnded = true;
-			this._streamData('');
-		}, this);
-
-		this._streamCleanUp = bindFunction(function()
-		{
-			this._input.removeListener('data', this._streamData);
-			this._input.removeListener('end', this._streamEnd);
-			this._input.removeListener('error', this._streamError);
-		}, this);
-	}
-	ReadableStreamStreamer.prototype = Object.create(ChunkStreamer.prototype);
-	ReadableStreamStreamer.prototype.constructor = ReadableStreamStreamer;
-
-
-	function DuplexStreamStreamer(_config) {
-		var Duplex = stream__WEBPACK_IMPORTED_MODULE_0___default.a.Duplex;
-		var config = copy(_config);
-		var parseOnWrite = true;
-		var writeStreamHasFinished = false;
-		var parseCallbackQueue = [];
-		var stream$1 = null;
-
-		this._onCsvData = function(results)
-		{
-			var data = results.data;
-			if (!stream$1.push(data) && !this._handle.paused()) {
-				// the writeable consumer buffer has filled up
-				// so we need to pause until more items
-				// can be processed
-				this._handle.pause();
-			}
-		};
-
-		this._onCsvComplete = function()
-		{
-			// node will finish the read stream when
-			// null is pushed
-			stream$1.push(null);
-		};
-
-		config.step = bindFunction(this._onCsvData, this);
-		config.complete = bindFunction(this._onCsvComplete, this);
-		ChunkStreamer.call(this, config);
-
-		this._nextChunk = function()
-		{
-			if (writeStreamHasFinished && parseCallbackQueue.length === 1) {
-				this._finished = true;
-			}
-			if (parseCallbackQueue.length) {
-				parseCallbackQueue.shift()();
-			} else {
-				parseOnWrite = true;
-			}
-		};
-
-		this._addToParseQueue = function(chunk, callback)
-		{
-			// add to queue so that we can indicate
-			// completion via callback
-			// node will automatically pause the incoming stream
-			// when too many items have been added without their
-			// callback being invoked
-			parseCallbackQueue.push(bindFunction(function() {
-				this.parseChunk(typeof chunk === 'string' ? chunk : chunk.toString(config.encoding));
-				if (isFunction(callback)) {
-					return callback();
-				}
-			}, this));
-			if (parseOnWrite) {
-				parseOnWrite = false;
-				this._nextChunk();
-			}
-		};
-
-		this._onRead = function()
-		{
-			if (this._handle.paused()) {
-				// the writeable consumer can handle more data
-				// so resume the chunk parsing
-				this._handle.resume();
-			}
-		};
-
-		this._onWrite = function(chunk, encoding, callback)
-		{
-			this._addToParseQueue(chunk, callback);
-		};
-
-		this._onWriteComplete = function()
-		{
-			writeStreamHasFinished = true;
-			// have to write empty string
-			// so parser knows its done
-			this._addToParseQueue('');
-		};
-
-		this.getStream = function()
-		{
-			return stream$1;
-		};
-		stream$1 = new Duplex({
-			readableObjectMode: true,
-			decodeStrings: false,
-			read: bindFunction(this._onRead, this),
-			write: bindFunction(this._onWrite, this)
-		});
-		stream$1.once('finish', bindFunction(this._onWriteComplete, this));
-	}
-	if (typeof PAPA_BROWSER_CONTEXT === 'undefined') {
-		DuplexStreamStreamer.prototype = Object.create(ChunkStreamer.prototype);
-		DuplexStreamStreamer.prototype.constructor = DuplexStreamStreamer;
-	}
-
-
-	// Use one ParserHandle per entire CSV file or string
-	function ParserHandle(_config)
-	{
-		// One goal is to minimize the use of regular expressions...
-		var MAX_FLOAT = Math.pow(2, 53);
-		var MIN_FLOAT = -MAX_FLOAT;
-		var FLOAT = /^\s*-?(\d*\.?\d+|\d+\.?\d*)(e[-+]?\d+)?\s*$/i;
-		var ISO_DATE = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/;
-		var self = this;
-		var _stepCounter = 0;	// Number of times step was called (number of rows parsed)
-		var _rowCounter = 0;	// Number of rows that have been parsed so far
-		var _input;				// The input being parsed
-		var _parser;			// The core parser being used
-		var _paused = false;	// Whether we are paused or not
-		var _aborted = false;	// Whether the parser has aborted or not
-		var _delimiterError;	// Temporary state between delimiter detection and processing results
-		var _fields = [];		// Fields are from the header row of the input, if there is one
-		var _results = {		// The last results returned from the parser
-			data: [],
-			errors: [],
-			meta: {}
-		};
-
-		if (isFunction(_config.step))
-		{
-			var userStep = _config.step;
-			_config.step = function(results)
-			{
-				_results = results;
-
-				if (needsHeaderRow())
-					processResults();
-				else	// only call user's step function after header row
-				{
-					processResults();
-
-					// It's possbile that this line was empty and there's no row here after all
-					if (_results.data.length === 0)
-						return;
-
-					_stepCounter += results.data.length;
-					if (_config.preview && _stepCounter > _config.preview)
-						_parser.abort();
-					else {
-						_results.data = _results.data[0];
-						userStep(_results, self);
-					}
-				}
-			};
-		}
-
-		/**
-		 * Parses input. Most users won't need, and shouldn't mess with, the baseIndex
-		 * and ignoreLastRow parameters. They are used by streamers (wrapper functions)
-		 * when an input comes in multiple chunks, like from a file.
-		 */
-		this.parse = function(input, baseIndex, ignoreLastRow)
-		{
-			var quoteChar = _config.quoteChar || '"';
-			if (!_config.newline)
-				_config.newline = guessLineEndings(input, quoteChar);
-
-			_delimiterError = false;
-			if (!_config.delimiter)
-			{
-				var delimGuess = guessDelimiter(input, _config.newline, _config.skipEmptyLines, _config.comments, _config.delimitersToGuess);
-				if (delimGuess.successful)
-					_config.delimiter = delimGuess.bestDelimiter;
-				else
-				{
-					_delimiterError = true;	// add error after parsing (otherwise it would be overwritten)
-					_config.delimiter = Papa.DefaultDelimiter;
-				}
-				_results.meta.delimiter = _config.delimiter;
-			}
-			else if(isFunction(_config.delimiter))
-			{
-				_config.delimiter = _config.delimiter(input);
-				_results.meta.delimiter = _config.delimiter;
-			}
-
-			var parserConfig = copy(_config);
-			if (_config.preview && _config.header)
-				parserConfig.preview++;	// to compensate for header row
-
-			_input = input;
-			_parser = new Parser(parserConfig);
-			_results = _parser.parse(_input, baseIndex, ignoreLastRow);
-			processResults();
-			return _paused ? { meta: { paused: true } } : (_results || { meta: { paused: false } });
-		};
-
-		this.paused = function()
-		{
-			return _paused;
-		};
-
-		this.pause = function()
-		{
-			_paused = true;
-			_parser.abort();
-
-			// If it is streaming via "chunking", the reader will start appending correctly already so no need to substring,
-			// otherwise we can get duplicate content within a row
-			_input = isFunction(_config.chunk) ? "" : _input.substring(_parser.getCharIndex());
-		};
-
-		this.resume = function()
-		{
-			if(self.streamer._halted) {
-				_paused = false;
-				self.streamer.parseChunk(_input, true);
-			} else {
-				// Bugfix: #636 In case the processing hasn't halted yet
-				// wait for it to halt in order to resume
-				setTimeout(this.resume, 3);
-			}
-		};
-
-		this.aborted = function()
-		{
-			return _aborted;
-		};
-
-		this.abort = function()
-		{
-			_aborted = true;
-			_parser.abort();
-			_results.meta.aborted = true;
-			if (isFunction(_config.complete))
-				_config.complete(_results);
-			_input = '';
-		};
-
-		function testEmptyLine(s) {
-			return _config.skipEmptyLines === 'greedy' ? s.join('').trim() === '' : s.length === 1 && s[0].length === 0;
-		}
-
-		function testFloat(s) {
-			if (FLOAT.test(s)) {
-				var floatValue = parseFloat(s);
-				if (floatValue > MIN_FLOAT && floatValue < MAX_FLOAT) {
-					return true;
-				}
-			}
-			return false;
-		}
-
-		function processResults()
-		{
-			if (_results && _delimiterError)
-			{
-				addError('Delimiter', 'UndetectableDelimiter', 'Unable to auto-detect delimiting character; defaulted to \'' + Papa.DefaultDelimiter + '\'');
-				_delimiterError = false;
-			}
-
-			if (_config.skipEmptyLines)
-			{
-				for (var i = 0; i < _results.data.length; i++)
-					if (testEmptyLine(_results.data[i]))
-						_results.data.splice(i--, 1);
-			}
-
-			if (needsHeaderRow())
-				fillHeaderFields();
-
-			return applyHeaderAndDynamicTypingAndTransformation();
-		}
-
-		function needsHeaderRow()
-		{
-			return _config.header && _fields.length === 0;
-		}
-
-		function fillHeaderFields()
-		{
-			if (!_results)
-				return;
-
-			function addHeder(header)
-			{
-				if (isFunction(_config.transformHeader))
-					header = _config.transformHeader(header);
-
-				_fields.push(header);
-			}
-
-			if (Array.isArray(_results.data[0]))
-			{
-				for (var i = 0; needsHeaderRow() && i < _results.data.length; i++)
-					_results.data[i].forEach(addHeder);
-
-				_results.data.splice(0, 1);
-			}
-			// if _results.data[0] is not an array, we are in a step where _results.data is the row.
-			else
-				_results.data.forEach(addHeder);
-		}
-
-		function shouldApplyDynamicTyping(field) {
-			// Cache function values to avoid calling it for each row
-			if (_config.dynamicTypingFunction && _config.dynamicTyping[field] === undefined) {
-				_config.dynamicTyping[field] = _config.dynamicTypingFunction(field);
-			}
-			return (_config.dynamicTyping[field] || _config.dynamicTyping) === true;
-		}
-
-		function parseDynamic(field, value)
-		{
-			if (shouldApplyDynamicTyping(field))
-			{
-				if (value === 'true' || value === 'TRUE')
-					return true;
-				else if (value === 'false' || value === 'FALSE')
-					return false;
-				else if (testFloat(value))
-					return parseFloat(value);
-				else if (ISO_DATE.test(value))
-					return new Date(value);
-				else
-					return (value === '' ? null : value);
-			}
-			return value;
-		}
-
-		function applyHeaderAndDynamicTypingAndTransformation()
-		{
-			if (!_results || (!_config.header && !_config.dynamicTyping && !_config.transform))
-				return _results;
-
-			function processRow(rowSource, i)
-			{
-				var row = _config.header ? {} : [];
-
-				var j;
-				for (j = 0; j < rowSource.length; j++)
-				{
-					var field = j;
-					var value = rowSource[j];
-
-					if (_config.header)
-						field = j >= _fields.length ? '__parsed_extra' : _fields[j];
-
-					if (_config.transform)
-						value = _config.transform(value,field);
-
-					value = parseDynamic(field, value);
-
-					if (field === '__parsed_extra')
-					{
-						row[field] = row[field] || [];
-						row[field].push(value);
-					}
-					else
-						row[field] = value;
-				}
-
-
-				if (_config.header)
-				{
-					if (j > _fields.length)
-						addError('FieldMismatch', 'TooManyFields', 'Too many fields: expected ' + _fields.length + ' fields but parsed ' + j, _rowCounter + i);
-					else if (j < _fields.length)
-						addError('FieldMismatch', 'TooFewFields', 'Too few fields: expected ' + _fields.length + ' fields but parsed ' + j, _rowCounter + i);
-				}
-
-				return row;
-			}
-
-			var incrementBy = 1;
-			if (!_results.data.length || Array.isArray(_results.data[0]))
-			{
-				_results.data = _results.data.map(processRow);
-				incrementBy = _results.data.length;
-			}
-			else
-				_results.data = processRow(_results.data, 0);
-
-
-			if (_config.header && _results.meta)
-				_results.meta.fields = _fields;
-
-			_rowCounter += incrementBy;
-			return _results;
-		}
-
-		function guessDelimiter(input, newline, skipEmptyLines, comments, delimitersToGuess) {
-			var bestDelim, bestDelta, fieldCountPrevRow, maxFieldCount;
-
-			delimitersToGuess = delimitersToGuess || [',', '\t', '|', ';', Papa.RECORD_SEP, Papa.UNIT_SEP];
-
-			for (var i = 0; i < delimitersToGuess.length; i++) {
-				var delim = delimitersToGuess[i];
-				var delta = 0, avgFieldCount = 0, emptyLinesCount = 0;
-				fieldCountPrevRow = undefined;
-
-				var preview = new Parser({
-					comments: comments,
-					delimiter: delim,
-					newline: newline,
-					preview: 10
-				}).parse(input);
-
-				for (var j = 0; j < preview.data.length; j++) {
-					if (skipEmptyLines && testEmptyLine(preview.data[j])) {
-						emptyLinesCount++;
-						continue;
-					}
-					var fieldCount = preview.data[j].length;
-					avgFieldCount += fieldCount;
-
-					if (typeof fieldCountPrevRow === 'undefined') {
-						fieldCountPrevRow = fieldCount;
-						continue;
-					}
-					else if (fieldCount > 0) {
-						delta += Math.abs(fieldCount - fieldCountPrevRow);
-						fieldCountPrevRow = fieldCount;
-					}
-				}
-
-				if (preview.data.length > 0)
-					avgFieldCount /= (preview.data.length - emptyLinesCount);
-
-				if ((typeof bestDelta === 'undefined' || delta <= bestDelta)
-					&& (typeof maxFieldCount === 'undefined' || avgFieldCount > maxFieldCount) && avgFieldCount > 1.99) {
-					bestDelta = delta;
-					bestDelim = delim;
-					maxFieldCount = avgFieldCount;
-				}
-			}
-
-			_config.delimiter = bestDelim;
-
-			return {
-				successful: !!bestDelim,
-				bestDelimiter: bestDelim
-			};
-		}
-
-		function guessLineEndings(input, quoteChar)
-		{
-			input = input.substring(0, 1024 * 1024);	// max length 1 MB
-			// Replace all the text inside quotes
-			var re = new RegExp(escapeRegExp(quoteChar) + '([^]*?)' + escapeRegExp(quoteChar), 'gm');
-			input = input.replace(re, '');
-
-			var r = input.split('\r');
-
-			var n = input.split('\n');
-
-			var nAppearsFirst = (n.length > 1 && n[0].length < r[0].length);
-
-			if (r.length === 1 || nAppearsFirst)
-				return '\n';
-
-			var numWithN = 0;
-			for (var i = 0; i < r.length; i++)
-			{
-				if (r[i][0] === '\n')
-					numWithN++;
-			}
-
-			return numWithN >= r.length / 2 ? '\r\n' : '\r';
-		}
-
-		function addError(type, code, msg, row)
-		{
-			var error = {
-				type: type,
-				code: code,
-				message: msg
-			};
-			if(row !== undefined) {
-				error.row = row;
-			}
-			_results.errors.push(error);
-		}
-	}
-
-	/** https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions */
-	function escapeRegExp(string)
-	{
-		return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-	}
-
-	/** The core parser implements speedy and correct CSV parsing */
-	function Parser(config)
-	{
-		// Unpack the config object
-		config = config || {};
-		var delim = config.delimiter;
-		var newline = config.newline;
-		var comments = config.comments;
-		var step = config.step;
-		var preview = config.preview;
-		var fastMode = config.fastMode;
-		var quoteChar;
-		/** Allows for no quoteChar by setting quoteChar to undefined in config */
-		if (config.quoteChar === undefined) {
-			quoteChar = '"';
-		} else {
-			quoteChar = config.quoteChar;
-		}
-		var escapeChar = quoteChar;
-		if (config.escapeChar !== undefined) {
-			escapeChar = config.escapeChar;
-		}
-
-		// Delimiter must be valid
-		if (typeof delim !== 'string'
-			|| Papa.BAD_DELIMITERS.indexOf(delim) > -1)
-			delim = ',';
-
-		// Comment character must be valid
-		if (comments === delim)
-			throw new Error('Comment character same as delimiter');
-		else if (comments === true)
-			comments = '#';
-		else if (typeof comments !== 'string'
-			|| Papa.BAD_DELIMITERS.indexOf(comments) > -1)
-			comments = false;
-
-		// Newline must be valid: \r, \n, or \r\n
-		if (newline !== '\n' && newline !== '\r' && newline !== '\r\n')
-			newline = '\n';
-
-		// We're gonna need these at the Parser scope
-		var cursor = 0;
-		var aborted = false;
-
-		this.parse = function(input, baseIndex, ignoreLastRow)
-		{
-			// For some reason, in Chrome, this speeds things up (!?)
-			if (typeof input !== 'string')
-				throw new Error('Input must be a string');
-
-			// We don't need to compute some of these every time parse() is called,
-			// but having them in a more local scope seems to perform better
-			var inputLen = input.length,
-				delimLen = delim.length,
-				newlineLen = newline.length,
-				commentsLen = comments.length;
-			var stepIsFunction = isFunction(step);
-
-			// Establish starting state
-			cursor = 0;
-			var data = [], errors = [], row = [], lastCursor = 0;
-
-			if (!input)
-				return returnable();
-
-			if (fastMode || (fastMode !== false && input.indexOf(quoteChar) === -1))
-			{
-				var rows = input.split(newline);
-				for (var i = 0; i < rows.length; i++)
-				{
-					row = rows[i];
-					cursor += row.length;
-					if (i !== rows.length - 1)
-						cursor += newline.length;
-					else if (ignoreLastRow)
-						return returnable();
-					if (comments && row.substring(0, commentsLen) === comments)
-						continue;
-					if (stepIsFunction)
-					{
-						data = [];
-						pushRow(row.split(delim));
-						doStep();
-						if (aborted)
-							return returnable();
-					}
-					else
-						pushRow(row.split(delim));
-					if (preview && i >= preview)
-					{
-						data = data.slice(0, preview);
-						return returnable(true);
-					}
-				}
-				return returnable();
-			}
-
-			var nextDelim = input.indexOf(delim, cursor);
-			var nextNewline = input.indexOf(newline, cursor);
-			var quoteCharRegex = new RegExp(escapeRegExp(escapeChar) + escapeRegExp(quoteChar), 'g');
-			var quoteSearch = input.indexOf(quoteChar, cursor);
-
-			// Parser loop
-			for (;;)
-			{
-				// Field has opening quote
-				if (input[cursor] === quoteChar)
-				{
-					// Start our search for the closing quote where the cursor is
-					quoteSearch = cursor;
-
-					// Skip the opening quote
-					cursor++;
-
-					for (;;)
-					{
-						// Find closing quote
-						quoteSearch = input.indexOf(quoteChar, quoteSearch + 1);
-
-						//No other quotes are found - no other delimiters
-						if (quoteSearch === -1)
-						{
-							if (!ignoreLastRow) {
-								// No closing quote... what a pity
-								errors.push({
-									type: 'Quotes',
-									code: 'MissingQuotes',
-									message: 'Quoted field unterminated',
-									row: data.length,	// row has yet to be inserted
-									index: cursor
-								});
-							}
-							return finish();
-						}
-
-						// Closing quote at EOF
-						if (quoteSearch === inputLen - 1)
-						{
-							var value = input.substring(cursor, quoteSearch).replace(quoteCharRegex, quoteChar);
-							return finish(value);
-						}
-
-						// If this quote is escaped, it's part of the data; skip it
-						// If the quote character is the escape character, then check if the next character is the escape character
-						if (quoteChar === escapeChar &&  input[quoteSearch + 1] === escapeChar)
-						{
-							quoteSearch++;
-							continue;
-						}
-
-						// If the quote character is not the escape character, then check if the previous character was the escape character
-						if (quoteChar !== escapeChar && quoteSearch !== 0 && input[quoteSearch - 1] === escapeChar)
-						{
-							continue;
-						}
-
-						if(nextDelim !== -1 && nextDelim < (quoteSearch + 1)) {
-							nextDelim = input.indexOf(delim, (quoteSearch + 1));
-						}
-						if(nextNewline !== -1 && nextNewline < (quoteSearch + 1)) {
-							nextNewline = input.indexOf(newline, (quoteSearch + 1));
-						}
-						// Check up to nextDelim or nextNewline, whichever is closest
-						var checkUpTo = nextNewline === -1 ? nextDelim : Math.min(nextDelim, nextNewline);
-						var spacesBetweenQuoteAndDelimiter = extraSpaces(checkUpTo);
-
-						// Closing quote followed by delimiter or 'unnecessary spaces + delimiter'
-						if (input[quoteSearch + 1 + spacesBetweenQuoteAndDelimiter] === delim)
-						{
-							row.push(input.substring(cursor, quoteSearch).replace(quoteCharRegex, quoteChar));
-							cursor = quoteSearch + 1 + spacesBetweenQuoteAndDelimiter + delimLen;
-
-							// If char after following delimiter is not quoteChar, we find next quote char position
-							if (input[quoteSearch + 1 + spacesBetweenQuoteAndDelimiter + delimLen] !== quoteChar)
-							{
-								quoteSearch = input.indexOf(quoteChar, cursor);
-							}
-							nextDelim = input.indexOf(delim, cursor);
-							nextNewline = input.indexOf(newline, cursor);
-							break;
-						}
-
-						var spacesBetweenQuoteAndNewLine = extraSpaces(nextNewline);
-
-						// Closing quote followed by newline or 'unnecessary spaces + newLine'
-						if (input.substring(quoteSearch + 1 + spacesBetweenQuoteAndNewLine, quoteSearch + 1 + spacesBetweenQuoteAndNewLine + newlineLen) === newline)
-						{
-							row.push(input.substring(cursor, quoteSearch).replace(quoteCharRegex, quoteChar));
-							saveRow(quoteSearch + 1 + spacesBetweenQuoteAndNewLine + newlineLen);
-							nextDelim = input.indexOf(delim, cursor);	// because we may have skipped the nextDelim in the quoted field
-							quoteSearch = input.indexOf(quoteChar, cursor);	// we search for first quote in next line
-
-							if (stepIsFunction)
-							{
-								doStep();
-								if (aborted)
-									return returnable();
-							}
-
-							if (preview && data.length >= preview)
-								return returnable(true);
-
-							break;
-						}
-
-
-						// Checks for valid closing quotes are complete (escaped quotes or quote followed by EOF/delimiter/newline) -- assume these quotes are part of an invalid text string
-						errors.push({
-							type: 'Quotes',
-							code: 'InvalidQuotes',
-							message: 'Trailing quote on quoted field is malformed',
-							row: data.length,	// row has yet to be inserted
-							index: cursor
-						});
-
-						quoteSearch++;
-						continue;
-
-					}
-
-					continue;
-				}
-
-				// Comment found at start of new line
-				if (comments && row.length === 0 && input.substring(cursor, cursor + commentsLen) === comments)
-				{
-					if (nextNewline === -1)	// Comment ends at EOF
-						return returnable();
-					cursor = nextNewline + newlineLen;
-					nextNewline = input.indexOf(newline, cursor);
-					nextDelim = input.indexOf(delim, cursor);
-					continue;
-				}
-
-				// Next delimiter comes before next newline, so we've reached end of field
-				if (nextDelim !== -1 && (nextDelim < nextNewline || nextNewline === -1))
-				{
-					// we check, if we have quotes, because delimiter char may be part of field enclosed in quotes
-					if (quoteSearch > nextDelim) {
-						// we have quotes, so we try to find the next delimiter not enclosed in quotes and also next starting quote char
-						var nextDelimObj = getNextUnquotedDelimiter(nextDelim, quoteSearch, nextNewline);
-
-						// if we have next delimiter char which is not enclosed in quotes
-						if (nextDelimObj && typeof nextDelimObj.nextDelim !== 'undefined') {
-							nextDelim = nextDelimObj.nextDelim;
-							quoteSearch = nextDelimObj.quoteSearch;
-							row.push(input.substring(cursor, nextDelim));
-							cursor = nextDelim + delimLen;
-							// we look for next delimiter char
-							nextDelim = input.indexOf(delim, cursor);
-							continue;
-						}
-					} else {
-						row.push(input.substring(cursor, nextDelim));
-						cursor = nextDelim + delimLen;
-						nextDelim = input.indexOf(delim, cursor);
-						continue;
-					}
-				}
-
-				// End of row
-				if (nextNewline !== -1)
-				{
-					row.push(input.substring(cursor, nextNewline));
-					saveRow(nextNewline + newlineLen);
-
-					if (stepIsFunction)
-					{
-						doStep();
-						if (aborted)
-							return returnable();
-					}
-
-					if (preview && data.length >= preview)
-						return returnable(true);
-
-					continue;
-				}
-
-				break;
-			}
-
-
-			return finish();
-
-
-			function pushRow(row)
-			{
-				data.push(row);
-				lastCursor = cursor;
-			}
-
-			/**
-             * checks if there are extra spaces after closing quote and given index without any text
-             * if Yes, returns the number of spaces
-             */
-			function extraSpaces(index) {
-				var spaceLength = 0;
-				if (index !== -1) {
-					var textBetweenClosingQuoteAndIndex = input.substring(quoteSearch + 1, index);
-					if (textBetweenClosingQuoteAndIndex && textBetweenClosingQuoteAndIndex.trim() === '') {
-						spaceLength = textBetweenClosingQuoteAndIndex.length;
-					}
-				}
-				return spaceLength;
-			}
-
-			/**
-			 * Appends the remaining input from cursor to the end into
-			 * row, saves the row, calls step, and returns the results.
-			 */
-			function finish(value)
-			{
-				if (ignoreLastRow)
-					return returnable();
-				if (typeof value === 'undefined')
-					value = input.substring(cursor);
-				row.push(value);
-				cursor = inputLen;	// important in case parsing is paused
-				pushRow(row);
-				if (stepIsFunction)
-					doStep();
-				return returnable();
-			}
-
-			/**
-			 * Appends the current row to the results. It sets the cursor
-			 * to newCursor and finds the nextNewline. The caller should
-			 * take care to execute user's step function and check for
-			 * preview and end parsing if necessary.
-			 */
-			function saveRow(newCursor)
-			{
-				cursor = newCursor;
-				pushRow(row);
-				row = [];
-				nextNewline = input.indexOf(newline, cursor);
-			}
-
-			/** Returns an object with the results, errors, and meta. */
-			function returnable(stopped)
-			{
-				return {
-					data: data,
-					errors: errors,
-					meta: {
-						delimiter: delim,
-						linebreak: newline,
-						aborted: aborted,
-						truncated: !!stopped,
-						cursor: lastCursor + (baseIndex || 0)
-					}
-				};
-			}
-
-			/** Executes the user's step function and resets data & errors. */
-			function doStep()
-			{
-				step(returnable());
-				data = [];
-				errors = [];
-			}
-
-			/** Gets the delimiter character, which is not inside the quoted field */
-			function getNextUnquotedDelimiter(nextDelim, quoteSearch, newLine) {
-				var result = {
-					nextDelim: undefined,
-					quoteSearch: undefined
-				};
-				// get the next closing quote character
-				var nextQuoteSearch = input.indexOf(quoteChar, quoteSearch + 1);
-
-				// if next delimiter is part of a field enclosed in quotes
-				if (nextDelim > quoteSearch && nextDelim < nextQuoteSearch && (nextQuoteSearch < newLine || newLine === -1)) {
-					// get the next delimiter character after this one
-					var nextNextDelim = input.indexOf(delim, nextQuoteSearch);
-
-					// if there is no next delimiter, return default result
-					if (nextNextDelim === -1) {
-						return result;
-					}
-					// find the next opening quote char position
-					if (nextNextDelim > nextQuoteSearch) {
-						nextQuoteSearch = input.indexOf(quoteChar, nextQuoteSearch + 1);
-					}
-					// try to get the next delimiter position
-					result = getNextUnquotedDelimiter(nextNextDelim, nextQuoteSearch, newLine);
-				} else {
-					result = {
-						nextDelim: nextDelim,
-						quoteSearch: quoteSearch
-					};
-				}
-
-				return result;
-			}
-		};
-
-		/** Sets the abort flag */
-		this.abort = function()
-		{
-			aborted = true;
-		};
-
-		/** Gets the cursor position */
-		this.getCharIndex = function()
-		{
-			return cursor;
-		};
-	}
-
-
-	function newWorker()
-	{
-		if (!Papa.WORKERS_SUPPORTED)
-			return false;
-
-		var workerUrl = getWorkerBlob();
-		var w = new global.Worker(workerUrl);
-		w.onmessage = mainThreadReceivedMessage;
-		w.id = workerIdCounter++;
-		workers[w.id] = w;
-		return w;
-	}
-
-	/** Callback when main thread receives a message */
-	function mainThreadReceivedMessage(e)
-	{
-		var msg = e.data;
-		var worker = workers[msg.workerId];
-		var aborted = false;
-
-		if (msg.error)
-			worker.userError(msg.error, msg.file);
-		else if (msg.results && msg.results.data)
-		{
-			var abort = function() {
-				aborted = true;
-				completeWorker(msg.workerId, { data: [], errors: [], meta: { aborted: true } });
-			};
-
-			var handle = {
-				abort: abort,
-				pause: notImplemented,
-				resume: notImplemented
-			};
-
-			if (isFunction(worker.userStep))
-			{
-				for (var i = 0; i < msg.results.data.length; i++)
-				{
-					worker.userStep({
-						data: msg.results.data[i],
-						errors: msg.results.errors,
-						meta: msg.results.meta
-					}, handle);
-					if (aborted)
-						break;
-				}
-				delete msg.results;	// free memory ASAP
-			}
-			else if (isFunction(worker.userChunk))
-			{
-				worker.userChunk(msg.results, handle, msg.file);
-				delete msg.results;
-			}
-		}
-
-		if (msg.finished && !aborted)
-			completeWorker(msg.workerId, msg.results);
-	}
-
-	function completeWorker(workerId, results) {
-		var worker = workers[workerId];
-		if (isFunction(worker.userComplete))
-			worker.userComplete(results);
-		worker.terminate();
-		delete workers[workerId];
-	}
-
-	function notImplemented() {
-		throw new Error('Not implemented.');
-	}
-
-	/** Callback when worker thread receives a message */
-	function workerThreadReceivedMessage(e)
-	{
-		var msg = e.data;
-
-		if (typeof Papa.WORKER_ID === 'undefined' && msg)
-			Papa.WORKER_ID = msg.workerId;
-
-		if (typeof msg.input === 'string')
-		{
-			global.postMessage({
-				workerId: Papa.WORKER_ID,
-				results: Papa.parse(msg.input, msg.config),
-				finished: true
-			});
-		}
-		else if ((global.File && msg.input instanceof File) || msg.input instanceof Object)	// thank you, Safari (see issue #106)
-		{
-			var results = Papa.parse(msg.input, msg.config);
-			if (results)
-				global.postMessage({
-					workerId: Papa.WORKER_ID,
-					results: results,
-					finished: true
-				});
-		}
-	}
-
-	/** Makes a deep copy of an array or object (mostly) */
-	function copy(obj)
-	{
-		if (typeof obj !== 'object' || obj === null)
-			return obj;
-		var cpy = Array.isArray(obj) ? [] : {};
-		for (var key in obj)
-			cpy[key] = copy(obj[key]);
-		return cpy;
-	}
-
-	function bindFunction(f, self)
-	{
-		return function() { f.apply(self, arguments); };
-	}
-
-	function isFunction(func)
-	{
-		return typeof func === 'function';
-	}
-
-	return Papa;
-}));
-});
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _createSuper(Derived) {
-  return function () {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (_isNativeReflectConstruct()) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
-  return arr2;
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
+t.exports=function t(){var r="undefined"!=typeof self?self:"undefined"!=typeof window?window:void 0!==r?r:{},n=!r.document&&!!r.postMessage,i=n&&/blob:/i.test((r.location||{}).protocol),o={},s=0,a={parse:function(e,n){var i=(n=n||{}).dynamicTyping||!1;if(w(i)&&(n.dynamicTypingFunction=i,i={}),n.dynamicTyping=i,n.transform=!!w(n.transform)&&n.transform,n.worker&&a.WORKERS_SUPPORTED){var u=function(){if(!a.WORKERS_SUPPORTED)return!1;var e,n,i=(e=r.URL||r.webkitURL||null,n=t.toString(),a.BLOB_URL||(a.BLOB_URL=e.createObjectURL(new Blob(["(",n,")();"],{type:"text/javascript"})))),u=new r.Worker(i);return u.onmessage=v,u.id=s++,o[u.id]=u,u}();return u.userStep=n.step,u.userChunk=n.chunk,u.userComplete=n.complete,u.userError=n.error,n.step=w(n.step),n.chunk=w(n.chunk),n.complete=w(n.complete),n.error=w(n.error),delete n.worker,void u.postMessage({input:e,config:n,workerId:u.id})}var c=null;return e===a.NODE_STREAM_INPUT&&"undefined"==typeof PAPA_BROWSER_CONTEXT?(c=new h(n)).getStream():("string"==typeof e?c=n.download?new f(n):new d(n):!0===e.readable&&w(e.read)&&w(e.on)?c=new p(n):(r.File&&e instanceof File||e instanceof Object)&&(c=new l(n)),c.stream(e))},unparse:function(e,t){var r=!1,n=!0,i=",",o="\r\n",s='"',u=s+s,c=!1,f=null;!function(){if("object"==typeof t){if("string"!=typeof t.delimiter||a.BAD_DELIMITERS.filter((function(e){return-1!==t.delimiter.indexOf(e)})).length||(i=t.delimiter),("boolean"==typeof t.quotes||"function"==typeof t.quotes||Array.isArray(t.quotes))&&(r=t.quotes),"boolean"!=typeof t.skipEmptyLines&&"string"!=typeof t.skipEmptyLines||(c=t.skipEmptyLines),"string"==typeof t.newline&&(o=t.newline),"string"==typeof t.quoteChar&&(s=t.quoteChar),"boolean"==typeof t.header&&(n=t.header),Array.isArray(t.columns)){if(0===t.columns.length)throw new Error("Option columns is empty");f=t.columns}void 0!==t.escapeChar&&(u=t.escapeChar+s)}}();var l=new RegExp(m(s),"g");if("string"==typeof e&&(e=JSON.parse(e)),Array.isArray(e)){if(!e.length||Array.isArray(e[0]))return p(null,e,c);if("object"==typeof e[0])return p(f||d(e[0]),e,c)}else if("object"==typeof e)return"string"==typeof e.data&&(e.data=JSON.parse(e.data)),Array.isArray(e.data)&&(e.fields||(e.fields=e.meta&&e.meta.fields),e.fields||(e.fields=Array.isArray(e.data[0])?e.fields:d(e.data[0])),Array.isArray(e.data[0])||"object"==typeof e.data[0]||(e.data=[e.data])),p(e.fields||[],e.data||[],c);throw new Error("Unable to serialize unrecognized input");function d(e){if("object"!=typeof e)return[];var t=[];for(var r in e)t.push(r);return t}function p(e,t,r){var s="";"string"==typeof e&&(e=JSON.parse(e)),"string"==typeof t&&(t=JSON.parse(t));var a=Array.isArray(e)&&e.length>0,u=!Array.isArray(t[0]);if(a&&n){for(var c=0;c<e.length;c++)c>0&&(s+=i),s+=h(e[c],c);t.length>0&&(s+=o)}for(var f=0;f<t.length;f++){var l=a?e.length:t[f].length,d=!1,p=a?0===Object.keys(t[f]).length:0===t[f].length;if(r&&!a&&(d="greedy"===r?""===t[f].join("").trim():1===t[f].length&&0===t[f][0].length),"greedy"===r&&a){for(var y=[],m=0;m<l;m++){var g=u?e[m]:m;y.push(t[f][g])}d=""===y.join("").trim()}if(!d){for(var v=0;v<l;v++){v>0&&!p&&(s+=i);var b=a&&u?e[v]:v;s+=h(t[f][b],v)}f<t.length-1&&(!r||l>0&&!p)&&(s+=o)}}return s}function h(e,t){if(null==e)return"";if(e.constructor===Date)return JSON.stringify(e).slice(1,25);var n=e.toString().replace(l,u);return"boolean"==typeof r&&r||"function"==typeof r&&r(e,t)||Array.isArray(r)&&r[t]||function(e,t){for(var r=0;r<t.length;r++)if(e.indexOf(t[r])>-1)return!0;return!1}(n,a.BAD_DELIMITERS)||n.indexOf(i)>-1||" "===n.charAt(0)||" "===n.charAt(n.length-1)?s+n+s:n}}};if(a.RECORD_SEP=String.fromCharCode(30),a.UNIT_SEP=String.fromCharCode(31),a.BYTE_ORDER_MARK="\ufeff",a.BAD_DELIMITERS=["\r","\n",'"',a.BYTE_ORDER_MARK],a.WORKERS_SUPPORTED=!n&&!!r.Worker,a.NODE_STREAM_INPUT=1,a.LocalChunkSize=10485760,a.RemoteChunkSize=5242880,a.DefaultDelimiter=",",a.Parser=g,a.ParserHandle=y,a.NetworkStreamer=f,a.FileStreamer=l,a.StringStreamer=d,a.ReadableStreamStreamer=p,"undefined"==typeof PAPA_BROWSER_CONTEXT&&(a.DuplexStreamStreamer=h),r.jQuery){var u=r.jQuery;u.fn.parse=function(e){var t=e.config||{},n=[];return this.each((function(e){if("INPUT"!==u(this).prop("tagName").toUpperCase()||"file"!==u(this).attr("type").toLowerCase()||!r.FileReader||!this.files||0===this.files.length)return!0;for(var i=0;i<this.files.length;i++)n.push({file:this.files[i],inputElem:this,instanceConfig:u.extend({},t)})})),i(),this;function i(){if(0!==n.length){var t,r,i,s,c=n[0];if(w(e.before)){var f=e.before(c.file,c.inputElem);if("object"==typeof f){if("abort"===f.action)return t="AbortError",r=c.file,i=c.inputElem,s=f.reason,void(w(e.error)&&e.error({name:t},r,i,s));if("skip"===f.action)return void o();"object"==typeof f.config&&(c.instanceConfig=u.extend(c.instanceConfig,f.config))}else if("skip"===f)return void o()}var l=c.instanceConfig.complete;c.instanceConfig.complete=function(e){w(l)&&l(e,c.file,c.inputElem),o()},a.parse(c.file,c.instanceConfig)}else w(e.complete)&&e.complete()}function o(){n.splice(0,1),i()}}}function c(e){this._handle=null,this._finished=!1,this._completed=!1,this._halted=!1,this._input=null,this._baseIndex=0,this._partialLine="",this._rowCount=0,this._start=0,this._nextChunk=null,this.isFirstChunk=!0,this._completeResults={data:[],errors:[],meta:{}},function(e){var t=S(e);t.chunkSize=parseInt(t.chunkSize),e.step||e.chunk||(t.chunkSize=null),this._handle=new y(t),this._handle.streamer=this,this._config=t}.call(this,e),this.parseChunk=function(e,t){if(this.isFirstChunk&&w(this._config.beforeFirstChunk)){var n=this._config.beforeFirstChunk(e);void 0!==n&&(e=n)}this.isFirstChunk=!1,this._halted=!1;var o=this._partialLine+e;this._partialLine="";var s=this._handle.parse(o,this._baseIndex,!this._finished);if(!this._handle.paused()&&!this._handle.aborted()){var u=s.meta.cursor;this._finished||(this._partialLine=o.substring(u-this._baseIndex),this._baseIndex=u),s&&s.data&&(this._rowCount+=s.data.length);var c=this._finished||this._config.preview&&this._rowCount>=this._config.preview;if(i)r.postMessage({results:s,workerId:a.WORKER_ID,finished:c});else if(w(this._config.chunk)&&!t){if(this._config.chunk(s,this._handle),this._handle.paused()||this._handle.aborted())return void(this._halted=!0);s=void 0,this._completeResults=void 0}return this._config.step||this._config.chunk||(this._completeResults.data=this._completeResults.data.concat(s.data),this._completeResults.errors=this._completeResults.errors.concat(s.errors),this._completeResults.meta=s.meta),this._completed||!c||!w(this._config.complete)||s&&s.meta.aborted||(this._config.complete(this._completeResults,this._input),this._completed=!0),c||s&&s.meta.paused||this._nextChunk(),s}this._halted=!0},this._sendError=function(e){w(this._config.error)?this._config.error(e):i&&this._config.error&&r.postMessage({workerId:a.WORKER_ID,error:e,finished:!1})}}function f(e){var t;(e=e||{}).chunkSize||(e.chunkSize=a.RemoteChunkSize),c.call(this,e),this._nextChunk=n?function(){this._readChunk(),this._chunkLoaded()}:function(){this._readChunk()},this.stream=function(e){this._input=e,this._nextChunk()},this._readChunk=function(){if(this._finished)this._chunkLoaded();else{if(t=new XMLHttpRequest,this._config.withCredentials&&(t.withCredentials=this._config.withCredentials),n||(t.onload=E(this._chunkLoaded,this),t.onerror=E(this._chunkError,this)),t.open(this._config.downloadRequestBody?"POST":"GET",this._input,!n),this._config.downloadRequestHeaders){var e=this._config.downloadRequestHeaders;for(var r in e)t.setRequestHeader(r,e[r])}if(this._config.chunkSize){var i=this._start+this._config.chunkSize-1;t.setRequestHeader("Range","bytes="+this._start+"-"+i)}try{t.send(this._config.downloadRequestBody)}catch(e){this._chunkError(e.message)}n&&0===t.status&&this._chunkError()}},this._chunkLoaded=function(){4===t.readyState&&(t.status<200||t.status>=400?this._chunkError():(this._start+=this._config.chunkSize?this._config.chunkSize:t.responseText.length,this._finished=!this._config.chunkSize||this._start>=function(e){var t=e.getResponseHeader("Content-Range");return null===t?-1:parseInt(t.substring(t.lastIndexOf("/")+1))}(t),this.parseChunk(t.responseText)))},this._chunkError=function(e){var r=t.statusText||e;this._sendError(new Error(r))}}function l(e){var t,r;(e=e||{}).chunkSize||(e.chunkSize=a.LocalChunkSize),c.call(this,e);var n="undefined"!=typeof FileReader;this.stream=function(e){this._input=e,r=e.slice||e.webkitSlice||e.mozSlice,n?((t=new FileReader).onload=E(this._chunkLoaded,this),t.onerror=E(this._chunkError,this)):t=new FileReaderSync,this._nextChunk()},this._nextChunk=function(){this._finished||this._config.preview&&!(this._rowCount<this._config.preview)||this._readChunk()},this._readChunk=function(){var e=this._input;if(this._config.chunkSize){var i=Math.min(this._start+this._config.chunkSize,this._input.size);e=r.call(e,this._start,i)}var o=t.readAsText(e,this._config.encoding);n||this._chunkLoaded({target:{result:o}})},this._chunkLoaded=function(e){this._start+=this._config.chunkSize,this._finished=!this._config.chunkSize||this._start>=this._input.size,this.parseChunk(e.target.result)},this._chunkError=function(){this._sendError(t.error)}}function d(e){var t;e=e||{},c.call(this,e),this.stream=function(e){return t=e,this._nextChunk()},this._nextChunk=function(){if(!this._finished){var e,r=this._config.chunkSize;return r?(e=t.substring(0,r),t=t.substring(r)):(e=t,t=""),this._finished=!t,this.parseChunk(e)}}}function p(e){e=e||{},c.call(this,e);var t=[],r=!0,n=!1;this.pause=function(){c.prototype.pause.apply(this,arguments),this._input.pause()},this.resume=function(){c.prototype.resume.apply(this,arguments),this._input.resume()},this.stream=function(e){this._input=e,this._input.on("data",this._streamData),this._input.on("end",this._streamEnd),this._input.on("error",this._streamError)},this._checkIsFinished=function(){n&&1===t.length&&(this._finished=!0)},this._nextChunk=function(){this._checkIsFinished(),t.length?this.parseChunk(t.shift()):r=!0},this._streamData=E((function(e){try{t.push("string"==typeof e?e:e.toString(this._config.encoding)),r&&(r=!1,this._checkIsFinished(),this.parseChunk(t.shift()))}catch(e){this._streamError(e)}}),this),this._streamError=E((function(e){this._streamCleanUp(),this._sendError(e)}),this),this._streamEnd=E((function(){this._streamCleanUp(),n=!0,this._streamData("")}),this),this._streamCleanUp=E((function(){this._input.removeListener("data",this._streamData),this._input.removeListener("end",this._streamEnd),this._input.removeListener("error",this._streamError)}),this)}function h(t){var r=stream__WEBPACK_IMPORTED_MODULE_0___default.a.Duplex,n=S(t),i=!0,o=!1,s=[],a=null;this._onCsvData=function(e){var t=e.data;a.push(t)||this._handle.paused()||this._handle.pause()},this._onCsvComplete=function(){a.push(null)},n.step=E(this._onCsvData,this),n.complete=E(this._onCsvComplete,this),c.call(this,n),this._nextChunk=function(){o&&1===s.length&&(this._finished=!0),s.length?s.shift()():i=!0},this._addToParseQueue=function(e,t){s.push(E((function(){if(this.parseChunk("string"==typeof e?e:e.toString(n.encoding)),w(t))return t()}),this)),i&&(i=!1,this._nextChunk())},this._onRead=function(){this._handle.paused()&&this._handle.resume()},this._onWrite=function(e,t,r){this._addToParseQueue(e,r)},this._onWriteComplete=function(){o=!0,this._addToParseQueue("")},this.getStream=function(){return a},(a=new r({readableObjectMode:!0,decodeStrings:!1,read:E(this._onRead,this),write:E(this._onWrite,this)})).once("finish",E(this._onWriteComplete,this))}function y(e){var t,r,n,i=Math.pow(2,53),o=-i,s=/^\s*-?(\d+\.?|\.\d+|\d+\.\d+)(e[-+]?\d+)?\s*$/,u=/(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/,c=this,f=0,l=0,d=!1,p=!1,h=[],y={data:[],errors:[],meta:{}};if(w(e.step)){var v=e.step;e.step=function(t){if(y=t,E())_();else{if(_(),0===y.data.length)return;f+=t.data.length,e.preview&&f>e.preview?r.abort():(y.data=y.data[0],v(y,c))}}}function b(t){return"greedy"===e.skipEmptyLines?""===t.join("").trim():1===t.length&&0===t[0].length}function _(){if(y&&n&&(C("Delimiter","UndetectableDelimiter","Unable to auto-detect delimiting character; defaulted to '"+a.DefaultDelimiter+"'"),n=!1),e.skipEmptyLines)for(var t=0;t<y.data.length;t++)b(y.data[t])&&y.data.splice(t--,1);return E()&&function(){if(y)if(Array.isArray(y.data[0])){for(var t=0;E()&&t<y.data.length;t++)y.data[t].forEach(r);y.data.splice(0,1)}else y.data.forEach(r);function r(t){w(e.transformHeader)&&(t=e.transformHeader(t)),h.push(t)}}(),function(){if(!y||!e.header&&!e.dynamicTyping&&!e.transform)return y;function t(t,r){var n,i=e.header?{}:[];for(n=0;n<t.length;n++){var o=n,s=t[n];e.header&&(o=n>=h.length?"__parsed_extra":h[n]),e.transform&&(s=e.transform(s,o)),s=O(o,s),"__parsed_extra"===o?(i[o]=i[o]||[],i[o].push(s)):i[o]=s}return e.header&&(n>h.length?C("FieldMismatch","TooManyFields","Too many fields: expected "+h.length+" fields but parsed "+n,l+r):n<h.length&&C("FieldMismatch","TooFewFields","Too few fields: expected "+h.length+" fields but parsed "+n,l+r)),i}var r=1;return!y.data.length||Array.isArray(y.data[0])?(y.data=y.data.map(t),r=y.data.length):y.data=t(y.data,0),e.header&&y.meta&&(y.meta.fields=h),l+=r,y}()}function E(){return e.header&&0===h.length}function O(t,r){return function(t){return e.dynamicTypingFunction&&void 0===e.dynamicTyping[t]&&(e.dynamicTyping[t]=e.dynamicTypingFunction(t)),!0===(e.dynamicTyping[t]||e.dynamicTyping)}(t)?"true"===r||"TRUE"===r||"false"!==r&&"FALSE"!==r&&(function(e){if(s.test(e)){var t=parseFloat(e);if(t>o&&t<i)return!0}return!1}(r)?parseFloat(r):u.test(r)?new Date(r):""===r?null:r):r}function C(e,t,r,n){var i={type:e,code:t,message:r};void 0!==n&&(i.row=n),y.errors.push(i)}this.parse=function(i,o,s){var u=e.quoteChar||'"';if(e.newline||(e.newline=function(e,t){e=e.substring(0,1048576);var r=new RegExp(m(t)+"([^]*?)"+m(t),"gm"),n=(e=e.replace(r,"")).split("\r"),i=e.split("\n"),o=i.length>1&&i[0].length<n[0].length;if(1===n.length||o)return"\n";for(var s=0,a=0;a<n.length;a++)"\n"===n[a][0]&&s++;return s>=n.length/2?"\r\n":"\r"}(i,u)),n=!1,e.delimiter)w(e.delimiter)&&(e.delimiter=e.delimiter(i),y.meta.delimiter=e.delimiter);else{var c=function(t,r,n,i,o){var s,u,c,f;o=o||[",","\t","|",";",a.RECORD_SEP,a.UNIT_SEP];for(var l=0;l<o.length;l++){var d=o[l],p=0,h=0,y=0;c=void 0;for(var m=new g({comments:i,delimiter:d,newline:r,preview:10}).parse(t),v=0;v<m.data.length;v++)if(n&&b(m.data[v]))y++;else{var _=m.data[v].length;h+=_,void 0!==c?_>0&&(p+=Math.abs(_-c),c=_):c=_}m.data.length>0&&(h/=m.data.length-y),(void 0===u||p<=u)&&(void 0===f||h>f)&&h>1.99&&(u=p,s=d,f=h)}return e.delimiter=s,{successful:!!s,bestDelimiter:s}}(i,e.newline,e.skipEmptyLines,e.comments,e.delimitersToGuess);c.successful?e.delimiter=c.bestDelimiter:(n=!0,e.delimiter=a.DefaultDelimiter),y.meta.delimiter=e.delimiter}var f=S(e);return e.preview&&e.header&&f.preview++,t=i,r=new g(f),y=r.parse(t,o,s),_(),d?{meta:{paused:!0}}:y||{meta:{paused:!1}}},this.paused=function(){return d},this.pause=function(){d=!0,r.abort(),t=w(e.chunk)?"":t.substring(r.getCharIndex())},this.resume=function(){c.streamer._halted?(d=!1,c.streamer.parseChunk(t,!0)):setTimeout(c.resume,3)},this.aborted=function(){return p},this.abort=function(){p=!0,r.abort(),y.meta.aborted=!0,w(e.complete)&&e.complete(y),t=""}}function m(e){return e.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}function g(e){var t,r=(e=e||{}).delimiter,n=e.newline,i=e.comments,o=e.step,s=e.preview,u=e.fastMode,c=t=void 0===e.quoteChar?'"':e.quoteChar;if(void 0!==e.escapeChar&&(c=e.escapeChar),("string"!=typeof r||a.BAD_DELIMITERS.indexOf(r)>-1)&&(r=","),i===r)throw new Error("Comment character same as delimiter");!0===i?i="#":("string"!=typeof i||a.BAD_DELIMITERS.indexOf(i)>-1)&&(i=!1),"\n"!==n&&"\r"!==n&&"\r\n"!==n&&(n="\n");var f=0,l=!1;this.parse=function(e,a,d){if("string"!=typeof e)throw new Error("Input must be a string");var p=e.length,h=r.length,y=n.length,g=i.length,v=w(o);f=0;var b=[],_=[],S=[],E=0;if(!e)return L();if(u||!1!==u&&-1===e.indexOf(t)){for(var O=e.split(n),C=0;C<O.length;C++){if(S=O[C],f+=S.length,C!==O.length-1)f+=n.length;else if(d)return L();if(!i||S.substring(0,g)!==i){if(v){if(b=[],A(S.split(r)),N(),l)return L()}else A(S.split(r));if(s&&C>=s)return b=b.slice(0,s),L(!0)}}return L()}for(var k=e.indexOf(r,f),R=e.indexOf(n,f),x=new RegExp(m(c)+m(t),"g"),T=e.indexOf(t,f);;)if(e[f]!==t)if(i&&0===S.length&&e.substring(f,f+g)===i){if(-1===R)return L();f=R+y,R=e.indexOf(n,f),k=e.indexOf(r,f)}else{if(-1!==k&&(k<R||-1===R)){if(!(T>k)){S.push(e.substring(f,k)),f=k+h,k=e.indexOf(r,f);continue}var I=B(k,T,R);if(I&&void 0!==I.nextDelim){k=I.nextDelim,T=I.quoteSearch,S.push(e.substring(f,k)),f=k+h,k=e.indexOf(r,f);continue}}if(-1===R)break;if(S.push(e.substring(f,R)),M(R+y),v&&(N(),l))return L();if(s&&b.length>=s)return L(!0)}else for(T=f,f++;;){if(-1===(T=e.indexOf(t,T+1)))return d||_.push({type:"Quotes",code:"MissingQuotes",message:"Quoted field unterminated",row:b.length,index:f}),F();if(T===p-1)return F(e.substring(f,T).replace(x,t));if(t!==c||e[T+1]!==c){if(t===c||0===T||e[T-1]!==c){-1!==k&&k<T+1&&(k=e.indexOf(r,T+1)),-1!==R&&R<T+1&&(R=e.indexOf(n,T+1));var j=D(-1===R?k:Math.min(k,R));if(e[T+1+j]===r){S.push(e.substring(f,T).replace(x,t)),f=T+1+j+h,e[T+1+j+h]!==t&&(T=e.indexOf(t,f)),k=e.indexOf(r,f),R=e.indexOf(n,f);break}var P=D(R);if(e.substring(T+1+P,T+1+P+y)===n){if(S.push(e.substring(f,T).replace(x,t)),M(T+1+P+y),k=e.indexOf(r,f),T=e.indexOf(t,f),v&&(N(),l))return L();if(s&&b.length>=s)return L(!0);break}_.push({type:"Quotes",code:"InvalidQuotes",message:"Trailing quote on quoted field is malformed",row:b.length,index:f}),T++}}else T++}return F();function A(e){b.push(e),E=f}function D(t){var r=0;if(-1!==t){var n=e.substring(T+1,t);n&&""===n.trim()&&(r=n.length)}return r}function F(t){return d||(void 0===t&&(t=e.substring(f)),S.push(t),f=p,A(S),v&&N()),L()}function M(t){f=t,A(S),S=[],R=e.indexOf(n,f)}function L(e){return{data:b,errors:_,meta:{delimiter:r,linebreak:n,aborted:l,truncated:!!e,cursor:E+(a||0)}}}function N(){o(L()),b=[],_=[]}function B(n,i,o){var s={nextDelim:void 0,quoteSearch:void 0},a=e.indexOf(t,i+1);if(n>i&&n<a&&(a<o||-1===o)){var u=e.indexOf(r,a);if(-1===u)return s;u>a&&(a=e.indexOf(t,a+1)),s=B(u,a,o)}else s={nextDelim:n,quoteSearch:i};return s}},this.abort=function(){l=!0},this.getCharIndex=function(){return f}}function v(e){var t=e.data,r=o[t.workerId],n=!1;if(t.error)r.userError(t.error,t.file);else if(t.results&&t.results.data){var i={abort:function(){n=!0,b(t.workerId,{data:[],errors:[],meta:{aborted:!0}})},pause:_,resume:_};if(w(r.userStep)){for(var s=0;s<t.results.data.length&&(r.userStep({data:t.results.data[s],errors:t.results.errors,meta:t.results.meta},i),!n);s++);delete t.results}else w(r.userChunk)&&(r.userChunk(t.results,i,t.file),delete t.results)}t.finished&&!n&&b(t.workerId,t.results)}function b(e,t){var r=o[e];w(r.userComplete)&&r.userComplete(t),r.terminate(),delete o[e]}function _(){throw new Error("Not implemented.")}function S(e){if("object"!=typeof e||null===e)return e;var t=Array.isArray(e)?[]:{};for(var r in e)t[r]=S(e[r]);return t}function E(e,t){return function(){e.apply(t,arguments)}}function w(e){return"function"==typeof e}return i&&(r.onmessage=function(e){var t=e.data;if(void 0===a.WORKER_ID&&t&&(a.WORKER_ID=t.workerId),"string"==typeof t.input)r.postMessage({workerId:a.WORKER_ID,results:a.parse(t.input,t.config),finished:!0});else if(r.File&&t.input instanceof File||t.input instanceof Object){var n=a.parse(t.input,t.config);n&&r.postMessage({workerId:a.WORKER_ID,results:n,finished:!0})}}),f.prototype=Object.create(c.prototype),f.prototype.constructor=f,l.prototype=Object.create(c.prototype),l.prototype.constructor=l,d.prototype=Object.create(d.prototype),d.prototype.constructor=d,p.prototype=Object.create(c.prototype),p.prototype.constructor=p,"undefined"==typeof PAPA_BROWSER_CONTEXT&&(h.prototype=Object.create(c.prototype),h.prototype.constructor=h),a}()}));function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function s(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function a(e){return(a=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function u(e,t){return(u=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function c(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}function f(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function l(e,t){return!t||"object"!=typeof t&&"function"!=typeof t?f(e):t}function d(e){return function(e){if(Array.isArray(e))return p(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(!e)return;if("string"==typeof e)return p(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);"Object"===r&&e.constructor&&(r=e.constructor.name);if("Map"===r||"Set"===r)return Array.from(r);if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return p(e,t)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}
 /** @license React v16.13.1
  * react-is.production.min.js
  *
@@ -6053,1526 +3990,7 @@ function _nonIterableSpread() {
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */
-var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?
-Symbol.for("react.suspense_list"):60120,r=b?Symbol.for("react.memo"):60115,t=b?Symbol.for("react.lazy"):60116,v=b?Symbol.for("react.block"):60121,w=b?Symbol.for("react.fundamental"):60117,x=b?Symbol.for("react.responder"):60118,y=b?Symbol.for("react.scope"):60119;
-function z(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case t:case r:case h:return a;default:return u}}case d:return u}}}function A(a){return z(a)===m}var AsyncMode=l;var ConcurrentMode=m;var ContextConsumer=k;var ContextProvider=h;var Element=c;var ForwardRef=n;var Fragment=e;var Lazy=t;var Memo=r;var Portal=d;
-var Profiler=g;var StrictMode=f;var Suspense=p;var isAsyncMode=function(a){return A(a)||z(a)===l};var isConcurrentMode=A;var isContextConsumer=function(a){return z(a)===k};var isContextProvider=function(a){return z(a)===h};var isElement=function(a){return "object"===typeof a&&null!==a&&a.$$typeof===c};var isForwardRef=function(a){return z(a)===n};var isFragment=function(a){return z(a)===e};var isLazy=function(a){return z(a)===t};
-var isMemo=function(a){return z(a)===r};var isPortal=function(a){return z(a)===d};var isProfiler=function(a){return z(a)===g};var isStrictMode=function(a){return z(a)===f};var isSuspense=function(a){return z(a)===p};
-var isValidElementType=function(a){return "string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};var typeOf=z;
-
-var reactIs_production_min = {
-	AsyncMode: AsyncMode,
-	ConcurrentMode: ConcurrentMode,
-	ContextConsumer: ContextConsumer,
-	ContextProvider: ContextProvider,
-	Element: Element,
-	ForwardRef: ForwardRef,
-	Fragment: Fragment,
-	Lazy: Lazy,
-	Memo: Memo,
-	Portal: Portal,
-	Profiler: Profiler,
-	StrictMode: StrictMode,
-	Suspense: Suspense,
-	isAsyncMode: isAsyncMode,
-	isConcurrentMode: isConcurrentMode,
-	isContextConsumer: isContextConsumer,
-	isContextProvider: isContextProvider,
-	isElement: isElement,
-	isForwardRef: isForwardRef,
-	isFragment: isFragment,
-	isLazy: isLazy,
-	isMemo: isMemo,
-	isPortal: isPortal,
-	isProfiler: isProfiler,
-	isStrictMode: isStrictMode,
-	isSuspense: isSuspense,
-	isValidElementType: isValidElementType,
-	typeOf: typeOf
-};
-
-var reactIs_development = createCommonjsModule(function (module, exports) {
-
-
-
-if (true) {
-  (function() {
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-}
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-
-              default:
-                return $$typeof;
-            }
-
-        }
-
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
-
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
-  })();
-}
-});
-var reactIs_development_1 = reactIs_development.AsyncMode;
-var reactIs_development_2 = reactIs_development.ConcurrentMode;
-var reactIs_development_3 = reactIs_development.ContextConsumer;
-var reactIs_development_4 = reactIs_development.ContextProvider;
-var reactIs_development_5 = reactIs_development.Element;
-var reactIs_development_6 = reactIs_development.ForwardRef;
-var reactIs_development_7 = reactIs_development.Fragment;
-var reactIs_development_8 = reactIs_development.Lazy;
-var reactIs_development_9 = reactIs_development.Memo;
-var reactIs_development_10 = reactIs_development.Portal;
-var reactIs_development_11 = reactIs_development.Profiler;
-var reactIs_development_12 = reactIs_development.StrictMode;
-var reactIs_development_13 = reactIs_development.Suspense;
-var reactIs_development_14 = reactIs_development.isAsyncMode;
-var reactIs_development_15 = reactIs_development.isConcurrentMode;
-var reactIs_development_16 = reactIs_development.isContextConsumer;
-var reactIs_development_17 = reactIs_development.isContextProvider;
-var reactIs_development_18 = reactIs_development.isElement;
-var reactIs_development_19 = reactIs_development.isForwardRef;
-var reactIs_development_20 = reactIs_development.isFragment;
-var reactIs_development_21 = reactIs_development.isLazy;
-var reactIs_development_22 = reactIs_development.isMemo;
-var reactIs_development_23 = reactIs_development.isPortal;
-var reactIs_development_24 = reactIs_development.isProfiler;
-var reactIs_development_25 = reactIs_development.isStrictMode;
-var reactIs_development_26 = reactIs_development.isSuspense;
-var reactIs_development_27 = reactIs_development.isValidElementType;
-var reactIs_development_28 = reactIs_development.typeOf;
-
-var reactIs = createCommonjsModule(function (module) {
-
-if (false) {} else {
-  module.exports = reactIs_development;
-}
-});
-
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-var ReactPropTypesSecret_1 = ReactPropTypesSecret;
-
-var printWarning = function() {};
-
-if (true) {
-  var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
-  var loggedTypeFailures = {};
-  var has = Function.call.bind(Object.prototype.hasOwnProperty);
-
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-/**
- * Assert that the values match with the type specs.
- * Error messages are memorized and will only be shown once.
- *
- * @param {object} typeSpecs Map of name to a ReactPropType
- * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
- * @private
- */
-function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if (true) {
-    for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
-        var error;
-        // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          if (typeof typeSpecs[typeSpecName] !== 'function') {
-            var err = Error(
-              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
-              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
-            );
-            err.name = 'Invariant Violation';
-            throw err;
-          }
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$1);
-        } catch (ex) {
-          error = ex;
-        }
-        if (error && !(error instanceof Error)) {
-          printWarning(
-            (componentName || 'React class') + ': type specification of ' +
-            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
-            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
-            'You may have forgotten to pass an argument to the type checker ' +
-            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
-            'shape all require an argument).'
-          );
-        }
-        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error.message] = true;
-
-          var stack = getStack ? getStack() : '';
-
-          printWarning(
-            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
-          );
-        }
-      }
-    }
-  }
-}
-
-/**
- * Resets warning cache when testing.
- *
- * @private
- */
-checkPropTypes.resetWarningCache = function() {
-  if (true) {
-    loggedTypeFailures = {};
-  }
-};
-
-var checkPropTypes_1 = checkPropTypes;
-
-var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
-var printWarning$1 = function() {};
-
-if (true) {
-  printWarning$1 = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-function emptyFunctionThatReturnsNull() {
-  return null;
-}
-
-var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
-  /* global Symbol */
-  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-  /**
-   * Returns the iterator method function contained on the iterable object.
-   *
-   * Be sure to invoke the function with the iterable as context:
-   *
-   *     var iteratorFn = getIteratorFn(myIterable);
-   *     if (iteratorFn) {
-   *       var iterator = iteratorFn.call(myIterable);
-   *       ...
-   *     }
-   *
-   * @param {?object} maybeIterable
-   * @return {?function}
-   */
-  function getIteratorFn(maybeIterable) {
-    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-    if (typeof iteratorFn === 'function') {
-      return iteratorFn;
-    }
-  }
-
-  /**
-   * Collection of methods that allow declaration and validation of props that are
-   * supplied to React components. Example usage:
-   *
-   *   var Props = require('ReactPropTypes');
-   *   var MyArticle = React.createClass({
-   *     propTypes: {
-   *       // An optional string prop named "description".
-   *       description: Props.string,
-   *
-   *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
-   *
-   *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
-   *     },
-   *     render: function() { ... }
-   *   });
-   *
-   * A more formal specification of how these methods are used:
-   *
-   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-   *   decl := ReactPropTypes.{type}(.isRequired)?
-   *
-   * Each and every declaration produces a function with the same signature. This
-   * allows the creation of custom validation functions. For example:
-   *
-   *  var MyLink = React.createClass({
-   *    propTypes: {
-   *      // An optional string or URI prop named "href".
-   *      href: function(props, propName, componentName) {
-   *        var propValue = props[propName];
-   *        if (propValue != null && typeof propValue !== 'string' &&
-   *            !(propValue instanceof URI)) {
-   *          return new Error(
-   *            'Expected a string or an URI for ' + propName + ' in ' +
-   *            componentName
-   *          );
-   *        }
-   *      }
-   *    },
-   *    render: function() {...}
-   *  });
-   *
-   * @internal
-   */
-
-  var ANONYMOUS = '<<anonymous>>';
-
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-  var ReactPropTypes = {
-    array: createPrimitiveTypeChecker('array'),
-    bool: createPrimitiveTypeChecker('boolean'),
-    func: createPrimitiveTypeChecker('function'),
-    number: createPrimitiveTypeChecker('number'),
-    object: createPrimitiveTypeChecker('object'),
-    string: createPrimitiveTypeChecker('string'),
-    symbol: createPrimitiveTypeChecker('symbol'),
-
-    any: createAnyTypeChecker(),
-    arrayOf: createArrayOfTypeChecker,
-    element: createElementTypeChecker(),
-    elementType: createElementTypeTypeChecker(),
-    instanceOf: createInstanceTypeChecker,
-    node: createNodeChecker(),
-    objectOf: createObjectOfTypeChecker,
-    oneOf: createEnumTypeChecker,
-    oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker,
-    exact: createStrictShapeTypeChecker,
-  };
-
-  /**
-   * inlined Object.is polyfill to avoid requiring consumers ship their own
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-   */
-  /*eslint-disable no-self-compare*/
-  function is(x, y) {
-    // SameValue algorithm
-    if (x === y) {
-      // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      // Step 6.a: NaN == NaN
-      return x !== x && y !== y;
-    }
-  }
-  /*eslint-enable no-self-compare*/
-
-  /**
-   * We use an Error-like object for backward compatibility as people may call
-   * PropTypes directly and inspect their output. However, we don't use real
-   * Errors anymore. We don't inspect their stack anyway, and creating them
-   * is prohibitively expensive if they are created too often, such as what
-   * happens in oneOfType() for any type before the one that matched.
-   */
-  function PropTypeError(message) {
-    this.message = message;
-    this.stack = '';
-  }
-  // Make `instanceof Error` still work for returned errors.
-  PropTypeError.prototype = Error.prototype;
-
-  function createChainableTypeChecker(validate) {
-    if (true) {
-      var manualPropTypeCallCache = {};
-      var manualPropTypeWarningCount = 0;
-    }
-    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-      componentName = componentName || ANONYMOUS;
-      propFullName = propFullName || propName;
-
-      if (secret !== ReactPropTypesSecret_1) {
-        if (throwOnDirectAccess) {
-          // New behavior only for users of `prop-types` package
-          var err = new Error(
-            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-            'Use `PropTypes.checkPropTypes()` to call them. ' +
-            'Read more at http://fb.me/use-check-prop-types'
-          );
-          err.name = 'Invariant Violation';
-          throw err;
-        } else if ( true && typeof console !== 'undefined') {
-          // Old behavior for people using React.PropTypes
-          var cacheKey = componentName + ':' + propName;
-          if (
-            !manualPropTypeCallCache[cacheKey] &&
-            // Avoid spamming the console because they are often not actionable except for lib authors
-            manualPropTypeWarningCount < 3
-          ) {
-            printWarning$1(
-              'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
-              'and will throw in the standalone `prop-types` package. ' +
-              'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
-            );
-            manualPropTypeCallCache[cacheKey] = true;
-            manualPropTypeWarningCount++;
-          }
-        }
-      }
-      if (props[propName] == null) {
-        if (isRequired) {
-          if (props[propName] === null) {
-            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-          }
-          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-        }
-        return null;
-      } else {
-        return validate(props, propName, componentName, location, propFullName);
-      }
-    }
-
-    var chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
-
-    return chainedCheckType;
-  }
-
-  function createPrimitiveTypeChecker(expectedType) {
-    function validate(props, propName, componentName, location, propFullName, secret) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== expectedType) {
-        // `propValue` being instance of, say, date/regexp, pass the 'object'
-        // check, but we can offer a more precise error message here rather than
-        // 'of type `object`'.
-        var preciseType = getPreciseType(propValue);
-
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-  }
-
-  function createArrayOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-      }
-      var propValue = props[propName];
-      if (!Array.isArray(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-      }
-      for (var i = 0; i < propValue.length; i++) {
-        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret_1);
-        if (error instanceof Error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!isValidElement(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!reactIs.isValidElementType(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createInstanceTypeChecker(expectedClass) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!(props[propName] instanceof expectedClass)) {
-        var expectedClassName = expectedClass.name || ANONYMOUS;
-        var actualClassName = getClassName(props[propName]);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createEnumTypeChecker(expectedValues) {
-    if (!Array.isArray(expectedValues)) {
-      if (true) {
-        if (arguments.length > 1) {
-          printWarning$1(
-            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
-            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
-          );
-        } else {
-          printWarning$1('Invalid argument supplied to oneOf, expected an array.');
-        }
-      }
-      return emptyFunctionThatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      for (var i = 0; i < expectedValues.length; i++) {
-        if (is(propValue, expectedValues[i])) {
-          return null;
-        }
-      }
-
-      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-        var type = getPreciseType(value);
-        if (type === 'symbol') {
-          return String(value);
-        }
-        return value;
-      });
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createObjectOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-      }
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-      }
-      for (var key in propValue) {
-        if (has$1(propValue, key)) {
-          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
-          if (error instanceof Error) {
-            return error;
-          }
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createUnionTypeChecker(arrayOfTypeCheckers) {
-    if (!Array.isArray(arrayOfTypeCheckers)) {
-       true ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : undefined;
-      return emptyFunctionThatReturnsNull;
-    }
-
-    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-      var checker = arrayOfTypeCheckers[i];
-      if (typeof checker !== 'function') {
-        printWarning$1(
-          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
-        );
-        return emptyFunctionThatReturnsNull;
-      }
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-        var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret_1) == null) {
-          return null;
-        }
-      }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createNodeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!isNode(props[propName])) {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      for (var key in shapeTypes) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createStrictShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      // We need to check all keys in case some are required but missing from
-      // props.
-      var allKeys = objectAssign({}, props[propName], shapeTypes);
-      for (var key in allKeys) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          return new PropTypeError(
-            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
-            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
-          );
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-
-    return createChainableTypeChecker(validate);
-  }
-
-  function isNode(propValue) {
-    switch (typeof propValue) {
-      case 'number':
-      case 'string':
-      case 'undefined':
-        return true;
-      case 'boolean':
-        return !propValue;
-      case 'object':
-        if (Array.isArray(propValue)) {
-          return propValue.every(isNode);
-        }
-        if (propValue === null || isValidElement(propValue)) {
-          return true;
-        }
-
-        var iteratorFn = getIteratorFn(propValue);
-        if (iteratorFn) {
-          var iterator = iteratorFn.call(propValue);
-          var step;
-          if (iteratorFn !== propValue.entries) {
-            while (!(step = iterator.next()).done) {
-              if (!isNode(step.value)) {
-                return false;
-              }
-            }
-          } else {
-            // Iterator will provide entry [k,v] tuples rather than values.
-            while (!(step = iterator.next()).done) {
-              var entry = step.value;
-              if (entry) {
-                if (!isNode(entry[1])) {
-                  return false;
-                }
-              }
-            }
-          }
-        } else {
-          return false;
-        }
-
-        return true;
-      default:
-        return false;
-    }
-  }
-
-  function isSymbol(propType, propValue) {
-    // Native Symbol.
-    if (propType === 'symbol') {
-      return true;
-    }
-
-    // falsy value can't be a Symbol
-    if (!propValue) {
-      return false;
-    }
-
-    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-    if (propValue['@@toStringTag'] === 'Symbol') {
-      return true;
-    }
-
-    // Fallback for non-spec compliant Symbols which are polyfilled.
-    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-      return true;
-    }
-
-    return false;
-  }
-
-  // Equivalent of `typeof` but with special handling for array and regexp.
-  function getPropType(propValue) {
-    var propType = typeof propValue;
-    if (Array.isArray(propValue)) {
-      return 'array';
-    }
-    if (propValue instanceof RegExp) {
-      // Old webkits (at least until Android 4.0) return 'function' rather than
-      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-      // passes PropTypes.object.
-      return 'object';
-    }
-    if (isSymbol(propType, propValue)) {
-      return 'symbol';
-    }
-    return propType;
-  }
-
-  // This handles more types than `getPropType`. Only used for error messages.
-  // See `createPrimitiveTypeChecker`.
-  function getPreciseType(propValue) {
-    if (typeof propValue === 'undefined' || propValue === null) {
-      return '' + propValue;
-    }
-    var propType = getPropType(propValue);
-    if (propType === 'object') {
-      if (propValue instanceof Date) {
-        return 'date';
-      } else if (propValue instanceof RegExp) {
-        return 'regexp';
-      }
-    }
-    return propType;
-  }
-
-  // Returns a string that is postfixed to a warning about an invalid type.
-  // For example, "undefined" or "of type array"
-  function getPostfixForTypeWarning(value) {
-    var type = getPreciseType(value);
-    switch (type) {
-      case 'array':
-      case 'object':
-        return 'an ' + type;
-      case 'boolean':
-      case 'date':
-      case 'regexp':
-        return 'a ' + type;
-      default:
-        return type;
-    }
-  }
-
-  // Returns class name of the object, if any.
-  function getClassName(propValue) {
-    if (!propValue.constructor || !propValue.constructor.name) {
-      return ANONYMOUS;
-    }
-    return propValue.constructor.name;
-  }
-
-  ReactPropTypes.checkPropTypes = checkPropTypes_1;
-  ReactPropTypes.resetWarningCache = checkPropTypes_1.resetWarningCache;
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-function emptyFunction() {}
-function emptyFunctionWithReset() {}
-emptyFunctionWithReset.resetWarningCache = emptyFunction;
-
-var factoryWithThrowingShims = function() {
-  function shim(props, propName, componentName, location, propFullName, secret) {
-    if (secret === ReactPropTypesSecret_1) {
-      // It is still safe when called from React.
-      return;
-    }
-    var err = new Error(
-      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-      'Use PropTypes.checkPropTypes() to call them. ' +
-      'Read more at http://fb.me/use-check-prop-types'
-    );
-    err.name = 'Invariant Violation';
-    throw err;
-  }  shim.isRequired = shim;
-  function getShim() {
-    return shim;
-  }  // Important!
-  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-  var ReactPropTypes = {
-    array: shim,
-    bool: shim,
-    func: shim,
-    number: shim,
-    object: shim,
-    string: shim,
-    symbol: shim,
-
-    any: shim,
-    arrayOf: getShim,
-    element: shim,
-    elementType: shim,
-    instanceOf: getShim,
-    node: shim,
-    objectOf: getShim,
-    oneOf: getShim,
-    oneOfType: getShim,
-    shape: getShim,
-    exact: getShim,
-
-    checkPropTypes: emptyFunctionWithReset,
-    resetWarningCache: emptyFunction
-  };
-
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-var propTypes = createCommonjsModule(function (module) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (true) {
-  var ReactIs = reactIs;
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
-} else {}
-});
-
-function getSize(size) {
-  var sizeKb = 1024;
-  var sizeMb = sizeKb * sizeKb;
-  var sizeGb = sizeMb * sizeKb;
-  var sizeTerra = sizeGb * sizeKb;
-
-  if (size < sizeMb) {
-    var calculatedSizeMb = (size / sizeKb).toFixed(0);
-    if (calculatedSizeMb <= 0) return size + ' B';
-    return calculatedSizeMb + ' KB';
-  } else if (size < sizeGb) {
-    return (size / sizeMb).toFixed(0) + ' MB';
-  } else if (size < sizeTerra) {
-    return (size / sizeGb).toFixed(0) + ' GB';
-  }
-
-  return '';
-}
-
-var styles = {
-  dropArea: {
-    border: '2px dashed #ccc',
-    borderRadius: 20,
-    height: '100%',
-    padding: 20,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  inputFile: {
-    display: 'none'
-  },
-  highlight: {
-    borderColor: 'purple'
-  },
-  unhighlight: {
-    borderColor: '#ccc'
-  },
-  dropFile: {
-    borderRadius: 20,
-    background: 'linear-gradient(to bottom, #eee, #ddd)',
-    width: 100,
-    height: 120,
-    position: 'relative',
-    display: 'block',
-    zIndex: 10,
-    paddingLeft: 10,
-    paddingRight: 10
-  },
-  column: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  },
-  progressBar: {
-    width: '80%',
-    borderRadius: 3,
-    boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, .2)',
-    position: 'absolute',
-    bottom: 14
-  },
-  progressBarFill: {
-    height: 10,
-    backgroundColor: '#659cef',
-    borderRadius: 3,
-    transition: 'width 500ms ease-in-out'
-  },
-  fileSizeInfo: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    padding: '0 0.4em',
-    borderRadius: 3,
-    lineHeight: 1,
-    marginBottom: '0.5em'
-  },
-  fileNameInfo: {
-    fontSize: 14,
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    padding: '0 0.4em',
-    borderRadius: 3,
-    lineHeight: 1
-  },
-  defaultCursor: {
-    cursor: 'default'
-  },
-  pointerCursor: {
-    cursor: 'pointer'
-  }
-};
-
-var CSVReaderRewrite = /*#__PURE__*/function (_Component) {
-  _inherits(CSVReaderRewrite, _Component);
-
-  var _super = _createSuper(CSVReaderRewrite);
-
-  function CSVReaderRewrite() {
-    var _this;
-
-    _classCallCheck(this, CSVReaderRewrite);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "inputFileRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "dropAreaRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "fileSizeInfoRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "fileNameInfoRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "progressBarFillRef", react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef());
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      dropAreaStyle: styles.dropArea,
-      hasFiles: false,
-      progressBar: 0,
-      displayProgressBarStatus: 'none',
-      file: '',
-      timeout: null
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      var currentDropAreaRef = _this.dropAreaRef.current;
-      var fourDragsEvent = ['dragenter', 'dragover', 'dragleave', 'drop'];
-      fourDragsEvent.forEach(function (item) {
-        currentDropAreaRef.addEventListener(item, _this.preventDefaults, false);
-      });
-
-      if (!_this.props.noDrag) {
-        var highlightDragsEvent = ['dragenter', 'dragover'];
-        highlightDragsEvent.forEach(function (item) {
-          currentDropAreaRef.addEventListener(item, _this.highlight, false);
-        });
-        currentDropAreaRef.addEventListener('dragleave', _this.unhighlight, false);
-        currentDropAreaRef.addEventListener('drop', _this.unhighlight, false);
-        currentDropAreaRef.addEventListener('drop', _this.visibleProgressBar, false);
-        currentDropAreaRef.addEventListener('drop', _this.handleDrop, false);
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "preventDefaults", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "highlight", function (e) {
-      _this.setState({
-        dropAreaStyle: Object.assign({}, styles.dropArea, styles.highlight)
-      });
-
-      _this.initializeProgress();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "unhighlight", function (e) {
-      _this.setState({
-        dropAreaStyle: Object.assign({}, styles.dropArea, styles.unhighlight)
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "visibleProgressBar", function () {
-      _this.setState({
-        displayProgressBarStatus: 'block'
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleDrop", function (e) {
-      var files = {};
-
-      if (e.files === undefined) {
-        var dt = e.dataTransfer;
-        files = dt.files;
-      } else {
-        files = e.files;
-      }
-
-      _this.setState({
-        hasFiles: true
-      }, function () {
-        _this.handleFiles(files);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleFiles", function (files) {
-      _this.setState({
-        progressBar: 0
-      });
-
-      files = _toConsumableArray(files);
-      files.forEach(_this.uploadFile);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "updateProgress", function (percent) {
-      _this.setState({
-        progressBar: percent
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "disableProgressBar", function () {
-      _this.setState({
-        displayProgressBarStatus: 'none'
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "uploadFile", function (file, index) {
-      _this.displayFileInfo(file);
-
-      _this.setState({
-        file: file
-      });
-
-      var _this$props = _this.props,
-          onDrop = _this$props.onDrop,
-          onFileLoad = _this$props.onFileLoad,
-          onError = _this$props.onError,
-          _this$props$config = _this$props.config,
-          config = _this$props$config === void 0 ? {} : _this$props$config;
-      var reader = new window.FileReader();
-      var options = {};
-
-      if (config.error) {
-        delete config.error;
-      }
-
-      if (config.step) {
-        delete config.step;
-      }
-
-      if (config.complete) {
-        delete config.complete;
-      }
-
-      var size = file.size;
-      var data = [];
-      var percent = 0;
-
-      if (onDrop || onFileLoad) {
-        var self = _assertThisInitialized(_this);
-
-        options = Object.assign({
-          complete: function complete() {
-            if (!onDrop) {
-              onFileLoad(data);
-            } else {
-              onDrop(data);
-            }
-          },
-          step: function step(row, parser) {
-            data.push(row);
-            var progress = row.meta.cursor;
-            var newPercent = Math.round(progress / size * 100);
-            if (newPercent === percent) return;
-            percent = newPercent;
-            self.updateProgress(percent);
-          }
-        }, options);
-      }
-
-      if (onError) {
-        options = Object.assign({
-          error: onError
-        }, options);
-      }
-
-      if (config) {
-        options = Object.assign(config, options);
-      }
-
-      reader.onload = function (e) {
-        papaparse.parse(e.target.result, options);
-      };
-
-      reader.onloadend = function (e) {
-        clearTimeout(_this.state.timeout);
-
-        _this.setState({
-          timeout: setTimeout(function () {
-            _this.disableProgressBar();
-          }, 2000)
-        });
-      };
-
-      reader.readAsText(file, config.encoding || 'utf-8');
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "displayFileInfo", function (file) {
-      if (!_this.childrenIsFunction()) {
-        _this.fileSizeInfoRef.current.innerHTML = getSize(file.size);
-        _this.fileNameInfoRef.current.innerHTML = file.name;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleInputFileChange", function (e) {
-      var target = e.target;
-
-      _this.setState({
-        displayProgressBarStatus: 'block'
-      }, function () {
-        _this.handleDrop(target);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "initializeProgress", function () {
-      _this.setState({
-        progressBar: 0
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "open", function (e) {
-      if (e) {
-        e.stopPropagation();
-
-        _this.inputFileRef.current.click();
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "renderChildren", function () {
-      return _this.childrenIsFunction() ? _this.props.children({
-        file: _this.state.file
-      }) : _this.props.children;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "childrenIsFunction", function () {
-      return typeof _this.props.children === 'function';
-    });
-
-    return _this;
-  }
-
-  _createClass(CSVReaderRewrite, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props2 = this.props,
-          style = _this$props2.style,
-          noClick = _this$props2.noClick,
-          children = _this$props2.children,
-          progressBarColor = _this$props2.progressBarColor;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-        type: "file",
-        accept: "text/csv",
-        ref: this.inputFileRef,
-        style: styles.inputFile,
-        onChange: function onChange(e) {
-          return _this2.handleInputFileChange(e);
-        }
-      }), !this.childrenIsFunction() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        ref: this.dropAreaRef,
-        style: Object.assign({}, style, this.state.dropAreaStyle, noClick ? styles.defaultCursor : styles.pointerCursor),
-        onClick: noClick ? function () {} : this.open
-      }, this.state.hasFiles ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        style: Object.assign({}, styles.dropFile, styles.column)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        style: styles.column
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        style: styles.fileSizeInfo,
-        ref: this.fileSizeInfoRef
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        style: styles.fileNameInfo,
-        ref: this.fileNameInfoRef
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        style: styles.progressBar
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        style: Object.assign({}, styles.progressBarFill, {
-          width: "".concat(this.state.progressBar, "%"),
-          display: this.state.displayProgressBarStatus
-        }),
-        ref: this.progressBarFillRef
-      }))) : children) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        ref: this.dropAreaRef
-      }, this.renderChildren(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        style: Object.assign({}, styles.progressBar, {
-          position: 'inherit',
-          width: '100%'
-        })
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        style: Object.assign({}, styles.progressBarFill, {
-          backgroundColor: progressBarColor || '#659cef'
-        }, {
-          width: "".concat(this.state.progressBar, "%"),
-          display: this.state.displayProgressBarStatus
-        }),
-        ref: this.progressBarFillRef
-      }))));
-    }
-  }]);
-
-  return CSVReaderRewrite;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
-_defineProperty(CSVReaderRewrite, "propTypes", {
-  children: propTypes.any.isRequired,
-  onDrop: propTypes.func,
-  onFileLoad: propTypes.func,
-  onError: propTypes.func,
-  config: propTypes.object,
-  style: propTypes.object,
-  noClick: propTypes.bool,
-  noDrag: propTypes.bool,
-  progressBarColor: propTypes.string
-});
-
-function readString(str) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return papaparse.parse(str, options);
-}
-
-function readRemoteFile(url) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  papaparse.parse(url, Object.assign({}, {
-    download: true
-  }, options));
-}
-
-function jsonToCSV(json) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  return papaparse.unparse(json, options);
-}
-
-var BAD_DELIMITERS = papaparse.BAD_DELIMITERS;
-var RECORD_SEP = papaparse.RECORD_SEP;
-var UNIT_SEP = papaparse.UNIT_SEP;
-var WORKERS_SUPPORTED = papaparse.WORKERS_SUPPORTED;
-var LocalChunkSize = papaparse.LocalChunkSize;
-var DefaultDelimiter = papaparse.DefaultDelimiter;
-
-
+ */()}function p(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}var h="function"==typeof Symbol&&Symbol.for,y=h?Symbol.for("react.element"):60103,m=h?Symbol.for("react.portal"):60106,g=h?Symbol.for("react.fragment"):60107,v=h?Symbol.for("react.strict_mode"):60108,b=h?Symbol.for("react.profiler"):60114,_=h?Symbol.for("react.provider"):60109,S=h?Symbol.for("react.context"):60110,E=h?Symbol.for("react.async_mode"):60111,w=h?Symbol.for("react.concurrent_mode"):60111,O=h?Symbol.for("react.forward_ref"):60112,C=h?Symbol.for("react.suspense"):60113,k=h?Symbol.for("react.suspense_list"):60120,R=h?Symbol.for("react.memo"):60115,x=h?Symbol.for("react.lazy"):60116,T=h?Symbol.for("react.block"):60121,I=h?Symbol.for("react.fundamental"):60117,j=h?Symbol.for("react.responder"):60118,P=h?Symbol.for("react.scope"):60119;function A(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case y:switch(e=e.type){case E:case w:case g:case b:case v:case C:return e;default:switch(e=e&&e.$$typeof){case S:case O:case x:case R:case _:return e;default:return t}}case m:return t}}}function D(e){return A(e)===w}var F={AsyncMode:E,ConcurrentMode:w,ContextConsumer:S,ContextProvider:_,Element:y,ForwardRef:O,Fragment:g,Lazy:x,Memo:R,Portal:m,Profiler:b,StrictMode:v,Suspense:C,isAsyncMode:function(e){return D(e)||A(e)===E},isConcurrentMode:D,isContextConsumer:function(e){return A(e)===S},isContextProvider:function(e){return A(e)===_},isElement:function(e){return"object"==typeof e&&null!==e&&e.$$typeof===y},isForwardRef:function(e){return A(e)===O},isFragment:function(e){return A(e)===g},isLazy:function(e){return A(e)===x},isMemo:function(e){return A(e)===R},isPortal:function(e){return A(e)===m},isProfiler:function(e){return A(e)===b},isStrictMode:function(e){return A(e)===v},isSuspense:function(e){return A(e)===C},isValidElementType:function(e){return"string"==typeof e||"function"==typeof e||e===g||e===w||e===b||e===v||e===C||e===k||"object"==typeof e&&null!==e&&(e.$$typeof===x||e.$$typeof===R||e.$$typeof===_||e.$$typeof===S||e.$$typeof===O||e.$$typeof===I||e.$$typeof===j||e.$$typeof===P||e.$$typeof===T)},typeOf:A},M=r((function(e,t){ true&&function(){var e="function"==typeof Symbol&&Symbol.for,r=e?Symbol.for("react.element"):60103,n=e?Symbol.for("react.portal"):60106,i=e?Symbol.for("react.fragment"):60107,o=e?Symbol.for("react.strict_mode"):60108,s=e?Symbol.for("react.profiler"):60114,a=e?Symbol.for("react.provider"):60109,u=e?Symbol.for("react.context"):60110,c=e?Symbol.for("react.async_mode"):60111,f=e?Symbol.for("react.concurrent_mode"):60111,l=e?Symbol.for("react.forward_ref"):60112,d=e?Symbol.for("react.suspense"):60113,p=e?Symbol.for("react.suspense_list"):60120,h=e?Symbol.for("react.memo"):60115,y=e?Symbol.for("react.lazy"):60116,m=e?Symbol.for("react.block"):60121,g=e?Symbol.for("react.fundamental"):60117,v=e?Symbol.for("react.responder"):60118,b=e?Symbol.for("react.scope"):60119;function _(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case r:var p=e.type;switch(p){case c:case f:case i:case s:case o:case d:return p;default:var m=p&&p.$$typeof;switch(m){case u:case l:case y:case h:case a:return m;default:return t}}case n:return t}}}var S=c,E=f,w=u,O=a,C=r,k=l,R=i,x=y,T=h,I=n,j=s,P=o,A=d,D=!1;function F(e){return _(e)===f}t.AsyncMode=S,t.ConcurrentMode=E,t.ContextConsumer=w,t.ContextProvider=O,t.Element=C,t.ForwardRef=k,t.Fragment=R,t.Lazy=x,t.Memo=T,t.Portal=I,t.Profiler=j,t.StrictMode=P,t.Suspense=A,t.isAsyncMode=function(e){return D||(D=!0,console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")),F(e)||_(e)===c},t.isConcurrentMode=F,t.isContextConsumer=function(e){return _(e)===u},t.isContextProvider=function(e){return _(e)===a},t.isElement=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===r},t.isForwardRef=function(e){return _(e)===l},t.isFragment=function(e){return _(e)===i},t.isLazy=function(e){return _(e)===y},t.isMemo=function(e){return _(e)===h},t.isPortal=function(e){return _(e)===n},t.isProfiler=function(e){return _(e)===s},t.isStrictMode=function(e){return _(e)===o},t.isSuspense=function(e){return _(e)===d},t.isValidElementType=function(e){return"string"==typeof e||"function"==typeof e||e===i||e===f||e===s||e===o||e===d||e===p||"object"==typeof e&&null!==e&&(e.$$typeof===y||e.$$typeof===h||e.$$typeof===a||e.$$typeof===u||e.$$typeof===l||e.$$typeof===g||e.$$typeof===v||e.$$typeof===b||e.$$typeof===m)},t.typeOf=_}()})),L=(M.AsyncMode,M.ConcurrentMode,M.ContextConsumer,M.ContextProvider,M.Element,M.ForwardRef,M.Fragment,M.Lazy,M.Memo,M.Portal,M.Profiler,M.StrictMode,M.Suspense,M.isAsyncMode,M.isConcurrentMode,M.isContextConsumer,M.isContextProvider,M.isElement,M.isForwardRef,M.isFragment,M.isLazy,M.isMemo,M.isPortal,M.isProfiler,M.isStrictMode,M.isSuspense,M.isValidElementType,M.typeOf,r((function(e){ false?undefined:e.exports=M}))),N=Object.getOwnPropertySymbols,B=Object.prototype.hasOwnProperty,$=Object.prototype.propertyIsEnumerable;function z(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}var q=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},r=0;r<10;r++)t["_"+String.fromCharCode(r)]=r;if("0123456789"!==Object.getOwnPropertyNames(t).map((function(e){return t[e]})).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach((function(e){n[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(e){return!1}}()?Object.assign:function(e,t){for(var r,n,i=z(e),o=1;o<arguments.length;o++){for(var s in r=Object(arguments[o]))B.call(r,s)&&(i[s]=r[s]);if(N){n=N(r);for(var a=0;a<n.length;a++)$.call(r,n[a])&&(i[n[a]]=r[n[a]])}}return i},U="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",W=function(){};if(true){var V=U,H={},K=Function.call.bind(Object.prototype.hasOwnProperty);W=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}}}function Q(e,t,r,n,i){if(true)for(var o in e)if(K(e,o)){var s;try{if("function"!=typeof e[o]){var a=Error((n||"React class")+": "+r+" type `"+o+"` is invalid; it must be a function, usually from the `prop-types` package, but received `"+typeof e[o]+"`.");throw a.name="Invariant Violation",a}s=e[o](t,o,n,r,null,V)}catch(e){s=e}if(!s||s instanceof Error||W((n||"React class")+": type specification of "+r+" `"+o+"` is invalid; the type checker function must return `null` or an `Error` but returned a "+typeof s+". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."),s instanceof Error&&!(s.message in H)){H[s.message]=!0;var u=i?i():"";W("Failed "+r+" type: "+s.message+(null!=u?u:""))}}}Q.resetWarningCache=function(){ true&&(H={})};var J=Q,Y=Function.call.bind(Object.prototype.hasOwnProperty),X=function(){};function G(){return null} true&&(X=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}});var Z=function(e,t){var r="function"==typeof Symbol&&Symbol.iterator;var n={array:a("array"),bool:a("boolean"),func:a("function"),number:a("number"),object:a("object"),string:a("string"),symbol:a("symbol"),any:s(G),arrayOf:function(e){return s((function(t,r,n,i,s){if("function"!=typeof e)return new o("Property `"+s+"` of component `"+n+"` has invalid PropType notation inside arrayOf.");var a=t[r];if(!Array.isArray(a))return new o("Invalid "+i+" `"+s+"` of type `"+c(a)+"` supplied to `"+n+"`, expected an array.");for(var u=0;u<a.length;u++){var f=e(a,u,n,i,s+"["+u+"]",U);if(f instanceof Error)return f}return null}))},element:s((function(t,r,n,i,s){var a=t[r];return e(a)?null:new o("Invalid "+i+" `"+s+"` of type `"+c(a)+"` supplied to `"+n+"`, expected a single ReactElement.")})),elementType:s((function(e,t,r,n,i){var s=e[t];return L.isValidElementType(s)?null:new o("Invalid "+n+" `"+i+"` of type `"+c(s)+"` supplied to `"+r+"`, expected a single ReactElement type.")})),instanceOf:function(e){return s((function(t,r,n,i,s){if(!(t[r]instanceof e)){var a=e.name||"<<anonymous>>";return new o("Invalid "+i+" `"+s+"` of type `"+function(e){if(!e.constructor||!e.constructor.name)return"<<anonymous>>";return e.constructor.name}(t[r])+"` supplied to `"+n+"`, expected instance of `"+a+"`.")}return null}))},node:s((function(e,t,r,n,i){return u(e[t])?null:new o("Invalid "+n+" `"+i+"` supplied to `"+r+"`, expected a ReactNode.")})),objectOf:function(e){return s((function(t,r,n,i,s){if("function"!=typeof e)return new o("Property `"+s+"` of component `"+n+"` has invalid PropType notation inside objectOf.");var a=t[r],u=c(a);if("object"!==u)return new o("Invalid "+i+" `"+s+"` of type `"+u+"` supplied to `"+n+"`, expected an object.");for(var f in a)if(Y(a,f)){var l=e(a,f,n,i,s+"."+f,U);if(l instanceof Error)return l}return null}))},oneOf:function(e){if(!Array.isArray(e))return true&&(arguments.length>1?X("Invalid arguments supplied to oneOf, expected an array, got "+arguments.length+" arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."):X("Invalid argument supplied to oneOf, expected an array.")),G;function t(t,r,n,s,a){for(var u=t[r],c=0;c<e.length;c++)if(i(u,e[c]))return null;var l=JSON.stringify(e,(function(e,t){return"symbol"===f(t)?String(t):t}));return new o("Invalid "+s+" `"+a+"` of value `"+String(u)+"` supplied to `"+n+"`, expected one of "+l+".")}return s(t)},oneOfType:function(e){if(!Array.isArray(e))return true&&X("Invalid argument supplied to oneOfType, expected an instance of array."),G;for(var t=0;t<e.length;t++){var r=e[t];if("function"!=typeof r)return X("Invalid argument supplied to oneOfType. Expected an array of check functions, but received "+l(r)+" at index "+t+"."),G}return s((function(t,r,n,i,s){for(var a=0;a<e.length;a++){if(null==(0,e[a])(t,r,n,i,s,U))return null}return new o("Invalid "+i+" `"+s+"` supplied to `"+n+"`.")}))},shape:function(e){return s((function(t,r,n,i,s){var a=t[r],u=c(a);if("object"!==u)return new o("Invalid "+i+" `"+s+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");for(var f in e){var l=e[f];if(l){var d=l(a,f,n,i,s+"."+f,U);if(d)return d}}return null}))},exact:function(e){return s((function(t,r,n,i,s){var a=t[r],u=c(a);if("object"!==u)return new o("Invalid "+i+" `"+s+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");var f=q({},t[r],e);for(var l in f){var d=e[l];if(!d)return new o("Invalid "+i+" `"+s+"` key `"+l+"` supplied to `"+n+"`.\nBad object: "+JSON.stringify(t[r],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var p=d(a,l,n,i,s+"."+l,U);if(p)return p}return null}))}};function i(e,t){return e===t?0!==e||1/e==1/t:e!=e&&t!=t}function o(e){this.message=e,this.stack=""}function s(e){if(true)var r={},n=0;function i(i,s,a,u,c,f,l){if(u=u||"<<anonymous>>",f=f||a,l!==U){if(t){var d=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");throw d.name="Invariant Violation",d}if( true&&"undefined"!=typeof console){var p=u+":"+a;!r[p]&&n<3&&(X("You are manually calling a React.PropTypes validation function for the `"+f+"` prop on `"+u+"`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."),r[p]=!0,n++)}}return null==s[a]?i?null===s[a]?new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `null`."):new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `undefined`."):null:e(s,a,u,c,f)}var s=i.bind(null,!1);return s.isRequired=i.bind(null,!0),s}function a(e){return s((function(t,r,n,i,s,a){var u=t[r];return c(u)!==e?new o("Invalid "+i+" `"+s+"` of type `"+f(u)+"` supplied to `"+n+"`, expected `"+e+"`."):null}))}function u(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(u);if(null===t||e(t))return!0;var n=function(e){var t=e&&(r&&e[r]||e["@@iterator"]);if("function"==typeof t)return t}(t);if(!n)return!1;var i,o=n.call(t);if(n!==t.entries){for(;!(i=o.next()).done;)if(!u(i.value))return!1}else for(;!(i=o.next()).done;){var s=i.value;if(s&&!u(s[1]))return!1}return!0;default:return!1}}function c(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":function(e,t){return"symbol"===e||!!t&&("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}(t,e)?"symbol":t}function f(e){if(null==e)return""+e;var t=c(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function l(e){var t=f(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}return o.prototype=Error.prototype,n.checkPropTypes=J,n.resetWarningCache=J.resetWarningCache,n.PropTypes=n,n};function ee(){}function te(){}te.resetWarningCache=ee;var re=r((function(e){if(true){var t=L;e.exports=Z(t.isElement,!0)}else {}}));function ne(e){if(e<1048576){var t=(e/1024).toFixed(0);return t<=0?e+" B":t+" KB"}return e<1073741824?(e/1048576).toFixed(0)+" MB":e<1099511627776?(e/1073741824).toFixed(0)+" GB":""}var ie={dropArea:{borderWidth:2,borderStyle:"dashed",borderColor:"#ccc",borderRadius:20,height:"100%",padding:20,display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"},inputFile:{display:"none"},highlight:{borderColor:"purple"},unhighlight:{borderColor:"#ccc"},dropFile:{background:"linear-gradient(to bottom, #eee, #ddd)",borderRadius:20,width:100,height:120,position:"relative",display:"block",zIndex:10,paddingLeft:10,paddingRight:10},column:{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"},progressBar:{boxShadow:"inset 0 1px 3px rgba(0, 0, 0, .2)",width:"80%",borderRadius:3,position:"absolute",bottom:14},progressBarFill:{transition:"width 500ms ease-in-out",height:10,backgroundColor:"#659cef",borderRadius:3},fileSizeInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",padding:"0 0.4em",borderRadius:3,lineHeight:1,marginBottom:"0.5em"},fileNameInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",fontSize:14,padding:"0 0.4em",borderRadius:3,lineHeight:1},defaultCursor:{cursor:"default"},pointerCursor:{cursor:"pointer"}},oe=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&u(e,t)}(g,react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);var r,p,h,y,m=(r=g,function(){var e,t=a(r);if(c()){var n=a(this).constructor;e=Reflect.construct(t,arguments,n)}else e=t.apply(this,arguments);return l(this,e)});function g(){var e;i(this,g);for(var r=arguments.length,o=new Array(r),a=0;a<r;a++)o[a]=arguments[a];return s(f(e=m.call.apply(m,[this].concat(o))),"inputFileRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(f(e),"dropAreaRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(f(e),"fileSizeInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(f(e),"fileNameInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(f(e),"progressBarFillRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(f(e),"state",{dropAreaStyle:ie.dropArea,hasFiles:!1,progressBar:0,displayProgressBarStatus:"none",file:"",timeout:null}),s(f(e),"componentDidMount",(function(){var t=e.dropAreaRef.current;if(["dragenter","dragover","dragleave","drop"].forEach((function(r){t.addEventListener(r,e.preventDefaults,!1)})),!e.props.noDrag){["dragenter","dragover"].forEach((function(r){t.addEventListener(r,e.highlight,!1)})),t.addEventListener("dragleave",e.unhighlight,!1),t.addEventListener("drop",e.unhighlight,!1),t.addEventListener("drop",e.visibleProgressBar,!1),t.addEventListener("drop",e.handleDrop,!1)}})),s(f(e),"preventDefaults",(function(e){e.preventDefault(),e.stopPropagation()})),s(f(e),"highlight",(function(){e.setState({dropAreaStyle:Object.assign({},ie.dropArea,ie.highlight)}),e.initializeProgress()})),s(f(e),"initializeProgress",(function(){e.setState({progressBar:0})})),s(f(e),"unhighlight",(function(){e.setState({dropAreaStyle:Object.assign({},ie.dropArea,ie.unhighlight)})})),s(f(e),"visibleProgressBar",(function(){e.setState({displayProgressBarStatus:"block"})})),s(f(e),"handleDrop",(function(t){var r={};if(void 0===t.files){var n=t.dataTransfer;r=n.files}else r=t.files;e.setState({hasFiles:!0},(function(){e.handleFiles(r)}))})),s(f(e),"handleFiles",(function(t){e.setState({progressBar:0}),(t=d(t)).forEach(e.uploadFile)})),s(f(e),"uploadFile",(function(t,r){e.displayFileInfo(t),e.setState({file:t});var i=e.props,o=i.onDrop,s=i.onFileLoad,a=i.onError,u=i.config,c=void 0===u?{}:u,l=new window.FileReader,d={};c.error&&delete c.error,c.step&&delete c.step,c.complete&&delete c.complete;var p=t.size,h=[],y=0;if(o||s){var m=f(e);d=Object.assign({complete:function(){o?o(h):s(h)},step:function(e,t){h.push(e);var r=e.meta.cursor,n=Math.round(r/p*100);n!==y&&(y=n,m.updateProgress(y))}},d)}a&&(d=Object.assign({error:a},d)),c&&(d=Object.assign(c,d)),l.onload=function(e){n.parse(e.target.result,d)},l.onloadend=function(t){clearTimeout(e.state.timeout),e.setState({timeout:setTimeout((function(){e.disableProgressBar()}),2e3)})},l.readAsText(t,c.encoding||"utf-8")})),s(f(e),"displayFileInfo",(function(t){e.childrenIsFunction()||(e.fileSizeInfoRef.current.innerHTML=ne(t.size),e.fileNameInfoRef.current.innerHTML=t.name)})),s(f(e),"updateProgress",(function(t){e.setState({progressBar:t})})),s(f(e),"disableProgressBar",(function(){e.setState({displayProgressBarStatus:"none"})})),s(f(e),"childrenIsFunction",(function(){return"function"==typeof e.props.children})),s(f(e),"handleInputFileChange",(function(t){var r=t.target;e.setState({displayProgressBarStatus:"block"},(function(){e.handleDrop(r)}))})),s(f(e),"open",(function(t){t&&(t.stopPropagation(),e.inputFileRef.current.click())})),s(f(e),"renderChildren",(function(){return e.childrenIsFunction()?e.props.children({file:e.state.file}):e.props.children})),e}return p=g,(h=[{key:"render",value:function(){var e=this,r=this.props,n=r.style,i=r.noClick,o=r.children,s=r.progressBarColor;return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment,null,react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input",{type:"file",accept:"text/csv",ref:this.inputFileRef,style:ie.inputFile,onChange:function(t){return e.handleInputFileChange(t)}}),this.childrenIsFunction()?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef},this.renderChildren(),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},ie.progressBar,{position:"inherit",width:"100%"})},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:Object.assign({},ie.progressBarFill,{backgroundColor:s||"#659cef"},{width:"".concat(this.state.progressBar,"%"),display:this.state.displayProgressBarStatus}),ref:this.progressBarFillRef}))):react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef,style:Object.assign({},n,this.state.dropAreaStyle,i?ie.defaultCursor:ie.pointerCursor),onClick:i?function(){}:this.open},this.state.hasFiles?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},ie.dropFile,ie.column)},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:ie.column},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:ie.fileSizeInfo,ref:this.fileSizeInfoRef}),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:ie.fileNameInfo,ref:this.fileNameInfoRef})),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:ie.progressBar},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:Object.assign({},ie.progressBarFill,{width:"".concat(this.state.progressBar,"%"),display:this.state.displayProgressBarStatus}),ref:this.progressBarFillRef}))):o))}}])&&o(p.prototype,h),y&&o(p,y),g}();function se(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.parse(e,t)}function ae(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};n.parse(e,Object.assign({},{download:!0},t))}function ue(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.unparse(e,t)}s(oe,"propTypes",{children:re.any.isRequired,onDrop:re.func,onFileLoad:re.func,onError:re.func,config:re.object,style:re.object,noClick:re.bool,noDrag:re.bool,progressBarColor:re.string});var ce=n.BAD_DELIMITERS,fe=n.RECORD_SEP,le=n.UNIT_SEP,de=n.WORKERS_SUPPORTED,pe=n.LocalChunkSize,he=n.DefaultDelimiter;
 //# sourceMappingURL=index.es.js.map
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
@@ -11719,8 +8137,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_papaparse__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-papaparse */ "./node_modules/react-papaparse/dist/index.es.js");
-/* harmony import */ var react_tabs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-tabs */ "./node_modules/react-tabs/esm/index.js");
+/* harmony import */ var react_tabs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-tabs */ "./node_modules/react-tabs/esm/index.js");
+/* harmony import */ var react_papaparse__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-papaparse */ "./node_modules/react-papaparse/dist/index.es.js");
 
 
 
@@ -11756,7 +8174,7 @@ var Demo = /*#__PURE__*/function (_Component) {
       var index = _this.state.tabIndex;
 
       if (index === 0) {
-        var results = Object(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["readString"])(_this.state.str);
+        var results = Object(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["readString"])(_this.state.str);
         console.log('---------------------------');
         console.log('Parse complete!');
         console.log('Row count: ', results.data.length);
@@ -11784,7 +8202,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         }
 
         console.log('Running!');
-        Object(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["readRemoteFile"])(_this.state.url, {
+        Object(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["readRemoteFile"])(_this.state.url, {
           complete: function complete(results) {
             console.log('---------------------------');
             console.log('Parse complete!');
@@ -11796,7 +8214,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         });
       } else {
         try {
-          var _results2 = Object(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["jsonToCSV"])(_this.state.jsonData);
+          var _results2 = Object(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["jsonToCSV"])(_this.state.jsonData);
 
           console.log('---------------------------');
           console.log(_results2);
@@ -11874,14 +8292,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153,
+          lineNumber: 152,
           columnNumber: 9
         }
       }, __jsx("header", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154,
+          lineNumber: 153,
           columnNumber: 11
         }
       }, __jsx("div", {
@@ -11889,7 +8307,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155,
+          lineNumber: 154,
           columnNumber: 13
         }
       }, __jsx("div", {
@@ -11897,7 +8315,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156,
+          lineNumber: 155,
           columnNumber: 15
         }
       }, __jsx("div", {
@@ -11905,7 +8323,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157,
+          lineNumber: 156,
           columnNumber: 17
         }
       }, __jsx("a", {
@@ -11913,7 +8331,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158,
+          lineNumber: 157,
           columnNumber: 19
         }
       }, __jsx("i", {
@@ -11921,7 +8339,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 159,
+          lineNumber: 158,
           columnNumber: 21
         }
       }), " Home"), __jsx("a", {
@@ -11929,7 +8347,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161,
+          lineNumber: 160,
           columnNumber: 19
         }
       }, __jsx("i", {
@@ -11937,7 +8355,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162,
+          lineNumber: 161,
           columnNumber: 21
         }
       }), " Demo"), __jsx("a", {
@@ -11945,7 +8363,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164,
+          lineNumber: 163,
           columnNumber: 19
         }
       }, __jsx("i", {
@@ -11953,7 +8371,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165,
+          lineNumber: 164,
           columnNumber: 21
         }
       }), " Docs"))), __jsx("div", {
@@ -11961,7 +8379,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169,
+          lineNumber: 168,
           columnNumber: 15
         }
       }, __jsx("a", {
@@ -11970,7 +8388,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 170,
+          lineNumber: 169,
           columnNumber: 17
         }
       }, "react-papaparse 3")), __jsx("div", {
@@ -11978,7 +8396,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172,
+          lineNumber: 171,
           columnNumber: 15
         }
       }, __jsx("div", {
@@ -11986,7 +8404,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173,
+          lineNumber: 172,
           columnNumber: 17
         }
       }, __jsx("a", {
@@ -11994,7 +8412,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174,
+          lineNumber: 173,
           columnNumber: 19
         }
       }, __jsx("i", {
@@ -12002,14 +8420,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175,
+          lineNumber: 174,
           columnNumber: 21
         }
       }), " GitHub"))))), __jsx("h1", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 182,
+          lineNumber: 181,
           columnNumber: 11
         }
       }, "Choose a Demo"), __jsx("div", {
@@ -12017,7 +8435,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 184,
+          lineNumber: 183,
           columnNumber: 11
         }
       }, __jsx("div", {
@@ -12025,59 +8443,59 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185,
+          lineNumber: 184,
           columnNumber: 13
         }
-      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["Tabs"], {
+      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["Tabs"], {
         onSelect: function onSelect(index) {
           return _this2.setTabIndex(index);
         },
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 186,
+          lineNumber: 185,
           columnNumber: 15
         }
-      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["TabList"], {
+      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["TabList"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 186,
+          columnNumber: 17
+        }
+      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 187,
-          columnNumber: 17
+          columnNumber: 19
         }
-      }, __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "String"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 188,
           columnNumber: 19
         }
-      }, "String"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "Local File(s)"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 189,
           columnNumber: 19
         }
-      }, "Local File(s)"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "Remote File"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["Tab"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 190,
           columnNumber: 19
         }
-      }, "Remote File"), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["Tab"], {
+      }, "JSON to CSV")), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["TabPanel"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 191,
-          columnNumber: 19
-        }
-      }, "JSON to CSV")), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 193,
+          lineNumber: 192,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -12086,7 +8504,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 194,
+          lineNumber: 193,
           columnNumber: 19
         }
       }, __jsx("div", {
@@ -12097,7 +8515,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195,
+          lineNumber: 194,
           columnNumber: 21
         }
       }, __jsx("a", {
@@ -12105,7 +8523,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 196,
+          lineNumber: 195,
           columnNumber: 23
         }
       }, "Source code")), __jsx("textarea", {
@@ -12116,14 +8534,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 198,
+          lineNumber: 197,
           columnNumber: 21
         }
-      }))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
+      }))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["TabPanel"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 201,
+          lineNumber: 200,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -12132,14 +8550,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 202,
+          lineNumber: 201,
           columnNumber: 19
         }
       }, __jsx("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 203,
+          lineNumber: 202,
           columnNumber: 21
         }
       }, __jsx("div", {
@@ -12147,7 +8565,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204,
+          lineNumber: 203,
           columnNumber: 23
         }
       }, "Choose one or more delimited text files for react-papaparse to parse."), __jsx("div", {
@@ -12158,14 +8576,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 208,
+          lineNumber: 207,
           columnNumber: 23
         }
       }, __jsx("h5", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 209,
+          lineNumber: 208,
           columnNumber: 25
         }
       }, "Basic Upload"), __jsx("div", {
@@ -12176,7 +8594,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 210,
+          lineNumber: 209,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12184,10 +8602,10 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211,
+          lineNumber: 210,
           columnNumber: 27
         }
-      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["CSVReader"], {
+      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["CSVReader"], {
         ref: buttonRef,
         onFileLoad: this.handleOnDrop,
         onError: this.handleOnError,
@@ -12196,7 +8614,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 213,
+          lineNumber: 212,
           columnNumber: 25
         }
       }, function (_ref) {
@@ -12210,7 +8628,7 @@ var Demo = /*#__PURE__*/function (_Component) {
           __self: _this2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221,
+            lineNumber: 220,
             columnNumber: 29
           }
         }, __jsx("button", {
@@ -12227,7 +8645,7 @@ var Demo = /*#__PURE__*/function (_Component) {
           __self: _this2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 222,
+            lineNumber: 221,
             columnNumber: 31
           }
         }, "Browe file"), __jsx("div", {
@@ -12241,12 +8659,12 @@ var Demo = /*#__PURE__*/function (_Component) {
             marginBottom: 5,
             paddingLeft: 13,
             paddingTop: 3,
-            lineHeight: 2.2
+            lineHeight: 2.5
           },
           __self: _this2,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 236,
+            lineNumber: 235,
             columnNumber: 31
           }
         }, file.name));
@@ -12258,14 +8676,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 257,
+          lineNumber: 256,
           columnNumber: 23
         }
       }, __jsx("h5", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 258,
+          lineNumber: 257,
           columnNumber: 25
         }
       }, "Click and Drag Upload"), __jsx("div", {
@@ -12276,7 +8694,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 259,
+          lineNumber: 258,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12284,23 +8702,23 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 260,
+          lineNumber: 259,
           columnNumber: 27
         }
-      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["CSVReader"], {
+      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["CSVReader"], {
         onDrop: this.handleOnDrop,
         onError: this.handleOnError,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 262,
+          lineNumber: 261,
           columnNumber: 25
         }
       }, __jsx("span", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 266,
+          lineNumber: 265,
           columnNumber: 27
         }
       }, "Drop CSV file here or click to upload."))), __jsx("div", {
@@ -12311,14 +8729,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 270,
+          lineNumber: 269,
           columnNumber: 23
         }
       }, __jsx("h5", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 271,
+          lineNumber: 270,
           columnNumber: 25
         }
       }, "Drag ( No Click ) Upload"), __jsx("div", {
@@ -12329,7 +8747,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 272,
+          lineNumber: 271,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12337,24 +8755,24 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 273,
+          lineNumber: 272,
           columnNumber: 27
         }
-      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["CSVReader"], {
+      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["CSVReader"], {
         onDrop: this.handleOnDrop,
         onError: this.handleOnError,
         noClick: true,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 275,
+          lineNumber: 274,
           columnNumber: 25
         }
       }, __jsx("span", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 280,
+          lineNumber: 279,
           columnNumber: 27
         }
       }, "Drop CSV file here to upload."))), __jsx("div", {
@@ -12365,14 +8783,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 284,
+          lineNumber: 283,
           columnNumber: 23
         }
       }, __jsx("h5", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 285,
+          lineNumber: 284,
           columnNumber: 25
         }
       }, "Click ( No Drag ) Upload"), __jsx("div", {
@@ -12383,7 +8801,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 286,
+          lineNumber: 285,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12391,38 +8809,38 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 287,
+          lineNumber: 286,
           columnNumber: 27
         }
-      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_8__["CSVReader"], {
+      }, "Source code")), __jsx(react_papaparse__WEBPACK_IMPORTED_MODULE_9__["CSVReader"], {
         onDrop: this.handleOnDrop,
         onError: this.handleOnError,
         noDrag: true,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 289,
+          lineNumber: 288,
           columnNumber: 25
         }
       }, __jsx("span", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 294,
+          lineNumber: 293,
           columnNumber: 27
         }
       }, "Click to upload."))), "Sample files:", __jsx("ul", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 300,
+          lineNumber: 299,
           columnNumber: 23
         }
       }, __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 301,
+          lineNumber: 300,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12431,14 +8849,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 302,
+          lineNumber: 301,
           columnNumber: 27
         }
       }, "Normal file")), __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 304,
+          lineNumber: 303,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12447,14 +8865,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 305,
+          lineNumber: 304,
           columnNumber: 27
         }
       }, "Large file")), __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 307,
+          lineNumber: 306,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12463,14 +8881,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 308,
+          lineNumber: 307,
           columnNumber: 27
         }
-      }, "Malformed file")))))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
+      }, "Malformed file")))))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["TabPanel"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 314,
+          lineNumber: 313,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -12479,7 +8897,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 315,
+          lineNumber: 314,
           columnNumber: 19
         }
       }, __jsx("div", {
@@ -12490,7 +8908,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 316,
+          lineNumber: 315,
           columnNumber: 21
         }
       }, __jsx("a", {
@@ -12498,14 +8916,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 317,
+          lineNumber: 316,
           columnNumber: 23
         }
       }, "Source code")), __jsx("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 319,
+          lineNumber: 318,
           columnNumber: 21
         }
       }, __jsx("div", {
@@ -12513,21 +8931,21 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 320,
+          lineNumber: 319,
           columnNumber: 23
         }
       }, "Type the URL of the file to be downloaded and parsed.", __jsx("br", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 322,
+          lineNumber: 321,
           columnNumber: 25
         }
       }), __jsx("small", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 323,
+          lineNumber: 322,
           columnNumber: 25
         }
       }, "(cross-origin requests require Access-Control-Allow-Origin header)")), __jsx("input", {
@@ -12539,21 +8957,21 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 325,
+          lineNumber: 324,
           columnNumber: 23
         }
       }), "Sample remote files:", __jsx("ul", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 327,
+          lineNumber: 326,
           columnNumber: 23
         }
       }, __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 328,
+          lineNumber: 327,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12567,14 +8985,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 329,
+          lineNumber: 328,
           columnNumber: 27
         }
       }, "Normal file")), __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 331,
+          lineNumber: 330,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12588,14 +9006,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 332,
+          lineNumber: 331,
           columnNumber: 27
         }
       }, "Large file")), __jsx("li", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 334,
+          lineNumber: 333,
           columnNumber: 25
         }
       }, __jsx("a", {
@@ -12609,14 +9027,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 335,
+          lineNumber: 334,
           columnNumber: 27
         }
-      }, "Malformed file")))))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
+      }, "Malformed file")))))), __jsx(react_tabs__WEBPACK_IMPORTED_MODULE_8__["TabPanel"], {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 341,
+          lineNumber: 340,
           columnNumber: 17
         }
       }, __jsx("div", {
@@ -12625,7 +9043,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 342,
+          lineNumber: 341,
           columnNumber: 19
         }
       }, __jsx("div", {
@@ -12636,7 +9054,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 343,
+          lineNumber: 342,
           columnNumber: 21
         }
       }, __jsx("a", {
@@ -12644,14 +9062,14 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 344,
+          lineNumber: 343,
           columnNumber: 23
         }
       }, "Source code")), __jsx("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 346,
+          lineNumber: 345,
           columnNumber: 21
         }
       }, __jsx("textarea", {
@@ -12662,7 +9080,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 347,
+          lineNumber: 346,
           columnNumber: 23
         }
       }))))), __jsx("div", {
@@ -12670,7 +9088,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 353,
+          lineNumber: 352,
           columnNumber: 15
         }
       }, __jsx("div", {
@@ -12678,7 +9096,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 354,
+          lineNumber: 353,
           columnNumber: 17
         }
       }, "Results will appear in the console of your browser's inspector tools"), __jsx("button", {
@@ -12688,7 +9106,7 @@ var Demo = /*#__PURE__*/function (_Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 357,
+          lineNumber: 356,
           columnNumber: 17
         }
       }, "Parse"))))));
