@@ -2737,28 +2737,24 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
-    if (superCtor) {
-      ctor.super_ = superCtor
-      ctor.prototype = Object.create(superCtor.prototype, {
-        constructor: {
-          value: ctor,
-          enumerable: false,
-          writable: true,
-          configurable: true
-        }
-      })
-    }
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
   };
 } else {
   // old school shim for old browsers
   module.exports = function inherits(ctor, superCtor) {
-    if (superCtor) {
-      ctor.super_ = superCtor
-      var TempCtor = function () {}
-      TempCtor.prototype = superCtor.prototype
-      ctor.prototype = new TempCtor()
-      ctor.prototype.constructor = ctor
-    }
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
   }
 }
 
@@ -3073,7 +3069,7 @@ module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 var assign = __webpack_require__(/*! object-assign */ "./node_modules/next/dist/build/polyfills/object-assign.js");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
@@ -3674,7 +3670,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
+  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -3696,15 +3692,15 @@ module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0
 
 /***/ }),
 
-/***/ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
-  \***********************************************************************************/
+/***/ "./node_modules/react-is/cjs/react-is.development.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/** @license React v16.13.1
+/** @license React v16.8.6
  * react-is.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -3721,39 +3717,88 @@ if (true) {
   (function() {
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
 var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+
 var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
 var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
 var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
 var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
 var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
 var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
 var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
 var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
 var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
 var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
 var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
 var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
 
 function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+  return typeof type === 'string' || typeof type === 'function' ||
+  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
 }
+
+/**
+ * Forked from fbjs/warning:
+ * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+ *
+ * Only change is we use console.warn instead of console.error,
+ * and do nothing when 'console' is not supported.
+ * This really simplifies the code.
+ * ---
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var lowPriorityWarning = function () {};
+
+{
+  var printWarning = function (format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.warn(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  lowPriorityWarning = function (condition, format) {
+    if (format === undefined) {
+      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+var lowPriorityWarning$1 = lowPriorityWarning;
 
 function typeOf(object) {
   if (typeof object === 'object' && object !== null) {
     var $$typeof = object.$$typeof;
-
     switch ($$typeof) {
       case REACT_ELEMENT_TYPE:
         var type = object.type;
@@ -3766,32 +3811,29 @@ function typeOf(object) {
           case REACT_STRICT_MODE_TYPE:
           case REACT_SUSPENSE_TYPE:
             return type;
-
           default:
             var $$typeofType = type && type.$$typeof;
 
             switch ($$typeofType) {
               case REACT_CONTEXT_TYPE:
               case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
               case REACT_PROVIDER_TYPE:
                 return $$typeofType;
-
               default:
                 return $$typeof;
             }
-
         }
-
+      case REACT_LAZY_TYPE:
+      case REACT_MEMO_TYPE:
       case REACT_PORTAL_TYPE:
         return $$typeof;
     }
   }
 
   return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
+}
 
+// AsyncMode is deprecated along with isAsyncMode
 var AsyncMode = REACT_ASYNC_MODE_TYPE;
 var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
 var ContextConsumer = REACT_CONTEXT_TYPE;
@@ -3805,17 +3847,17 @@ var Portal = REACT_PORTAL_TYPE;
 var Profiler = REACT_PROFILER_TYPE;
 var StrictMode = REACT_STRICT_MODE_TYPE;
 var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
 
+var hasWarnedAboutDeprecatedIsAsyncMode = false;
+
+// AsyncMode should be deprecated
 function isAsyncMode(object) {
   {
     if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+      hasWarnedAboutDeprecatedIsAsyncMode = true;
+      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
     }
   }
-
   return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
 }
 function isConcurrentMode(object) {
@@ -3855,6 +3897,7 @@ function isSuspense(object) {
   return typeOf(object) === REACT_SUSPENSE_TYPE;
 }
 
+exports.typeOf = typeOf;
 exports.AsyncMode = AsyncMode;
 exports.ConcurrentMode = ConcurrentMode;
 exports.ContextConsumer = ContextConsumer;
@@ -3868,6 +3911,7 @@ exports.Portal = Portal;
 exports.Profiler = Profiler;
 exports.StrictMode = StrictMode;
 exports.Suspense = Suspense;
+exports.isValidElementType = isValidElementType;
 exports.isAsyncMode = isAsyncMode;
 exports.isConcurrentMode = isConcurrentMode;
 exports.isContextConsumer = isContextConsumer;
@@ -3881,18 +3925,16 @@ exports.isPortal = isPortal;
 exports.isProfiler = isProfiler;
 exports.isStrictMode = isStrictMode;
 exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
   })();
 }
 
 
 /***/ }),
 
-/***/ "./node_modules/prop-types/node_modules/react-is/index.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
-  \****************************************************************/
+/***/ "./node_modules/react-is/index.js":
+/*!****************************************!*\
+  !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3900,7 +3942,7 @@ exports.typeOf = typeOf;
 
 
 if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
 }
 
 
@@ -3944,7 +3986,7 @@ t.exports=function t(){var r="undefined"!=typeof self?self:"undefined"!=typeof w
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */()}function m(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}var g="function"==typeof Symbol&&Symbol.for,v=g?Symbol.for("react.element"):60103,b=g?Symbol.for("react.portal"):60106,_=g?Symbol.for("react.fragment"):60107,S=g?Symbol.for("react.strict_mode"):60108,E=g?Symbol.for("react.profiler"):60114,w=g?Symbol.for("react.provider"):60109,C=g?Symbol.for("react.context"):60110,O=g?Symbol.for("react.async_mode"):60111,R=g?Symbol.for("react.concurrent_mode"):60111,k=g?Symbol.for("react.forward_ref"):60112,x=g?Symbol.for("react.suspense"):60113,I=g?Symbol.for("react.suspense_list"):60120,T=g?Symbol.for("react.memo"):60115,P=g?Symbol.for("react.lazy"):60116,j=g?Symbol.for("react.block"):60121,A=g?Symbol.for("react.fundamental"):60117,D=g?Symbol.for("react.responder"):60118,F=g?Symbol.for("react.scope"):60119;function B(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case v:switch(e=e.type){case O:case R:case _:case E:case S:case x:return e;default:switch(e=e&&e.$$typeof){case C:case k:case P:case T:case w:return e;default:return t}}case b:return t}}}function M(e){return B(e)===R}var L={AsyncMode:O,ConcurrentMode:R,ContextConsumer:C,ContextProvider:w,Element:v,ForwardRef:k,Fragment:_,Lazy:P,Memo:T,Portal:b,Profiler:E,StrictMode:S,Suspense:x,isAsyncMode:function(e){return M(e)||B(e)===O},isConcurrentMode:M,isContextConsumer:function(e){return B(e)===C},isContextProvider:function(e){return B(e)===w},isElement:function(e){return"object"==typeof e&&null!==e&&e.$$typeof===v},isForwardRef:function(e){return B(e)===k},isFragment:function(e){return B(e)===_},isLazy:function(e){return B(e)===P},isMemo:function(e){return B(e)===T},isPortal:function(e){return B(e)===b},isProfiler:function(e){return B(e)===E},isStrictMode:function(e){return B(e)===S},isSuspense:function(e){return B(e)===x},isValidElementType:function(e){return"string"==typeof e||"function"==typeof e||e===_||e===R||e===E||e===S||e===x||e===I||"object"==typeof e&&null!==e&&(e.$$typeof===P||e.$$typeof===T||e.$$typeof===w||e.$$typeof===C||e.$$typeof===k||e.$$typeof===A||e.$$typeof===D||e.$$typeof===F||e.$$typeof===j)},typeOf:B},N=r((function(e,t){ true&&function(){var e="function"==typeof Symbol&&Symbol.for,r=e?Symbol.for("react.element"):60103,n=e?Symbol.for("react.portal"):60106,i=e?Symbol.for("react.fragment"):60107,o=e?Symbol.for("react.strict_mode"):60108,a=e?Symbol.for("react.profiler"):60114,s=e?Symbol.for("react.provider"):60109,u=e?Symbol.for("react.context"):60110,c=e?Symbol.for("react.async_mode"):60111,f=e?Symbol.for("react.concurrent_mode"):60111,l=e?Symbol.for("react.forward_ref"):60112,d=e?Symbol.for("react.suspense"):60113,p=e?Symbol.for("react.suspense_list"):60120,h=e?Symbol.for("react.memo"):60115,y=e?Symbol.for("react.lazy"):60116,m=e?Symbol.for("react.block"):60121,g=e?Symbol.for("react.fundamental"):60117,v=e?Symbol.for("react.responder"):60118,b=e?Symbol.for("react.scope"):60119;function _(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case r:var p=e.type;switch(p){case c:case f:case i:case a:case o:case d:return p;default:var m=p&&p.$$typeof;switch(m){case u:case l:case y:case h:case s:return m;default:return t}}case n:return t}}}var S=c,E=f,w=u,C=s,O=r,R=l,k=i,x=y,I=h,T=n,P=a,j=o,A=d,D=!1;function F(e){return _(e)===f}t.AsyncMode=S,t.ConcurrentMode=E,t.ContextConsumer=w,t.ContextProvider=C,t.Element=O,t.ForwardRef=R,t.Fragment=k,t.Lazy=x,t.Memo=I,t.Portal=T,t.Profiler=P,t.StrictMode=j,t.Suspense=A,t.isAsyncMode=function(e){return D||(D=!0,console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")),F(e)||_(e)===c},t.isConcurrentMode=F,t.isContextConsumer=function(e){return _(e)===u},t.isContextProvider=function(e){return _(e)===s},t.isElement=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===r},t.isForwardRef=function(e){return _(e)===l},t.isFragment=function(e){return _(e)===i},t.isLazy=function(e){return _(e)===y},t.isMemo=function(e){return _(e)===h},t.isPortal=function(e){return _(e)===n},t.isProfiler=function(e){return _(e)===a},t.isStrictMode=function(e){return _(e)===o},t.isSuspense=function(e){return _(e)===d},t.isValidElementType=function(e){return"string"==typeof e||"function"==typeof e||e===i||e===f||e===a||e===o||e===d||e===p||"object"==typeof e&&null!==e&&(e.$$typeof===y||e.$$typeof===h||e.$$typeof===s||e.$$typeof===u||e.$$typeof===l||e.$$typeof===g||e.$$typeof===v||e.$$typeof===b||e.$$typeof===m)},t.typeOf=_}()})),$=(N.AsyncMode,N.ConcurrentMode,N.ContextConsumer,N.ContextProvider,N.Element,N.ForwardRef,N.Fragment,N.Lazy,N.Memo,N.Portal,N.Profiler,N.StrictMode,N.Suspense,N.isAsyncMode,N.isConcurrentMode,N.isContextConsumer,N.isContextProvider,N.isElement,N.isForwardRef,N.isFragment,N.isLazy,N.isMemo,N.isPortal,N.isProfiler,N.isStrictMode,N.isSuspense,N.isValidElementType,N.typeOf,r((function(e){ false?undefined:e.exports=N}))),z=Object.getOwnPropertySymbols,q=Object.prototype.hasOwnProperty,U=Object.prototype.propertyIsEnumerable;function W(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}var V=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},r=0;r<10;r++)t["_"+String.fromCharCode(r)]=r;if("0123456789"!==Object.getOwnPropertyNames(t).map((function(e){return t[e]})).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach((function(e){n[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(e){return!1}}()?Object.assign:function(e,t){for(var r,n,i=W(e),o=1;o<arguments.length;o++){for(var a in r=Object(arguments[o]))q.call(r,a)&&(i[a]=r[a]);if(z){n=z(r);for(var s=0;s<n.length;s++)U.call(r,n[s])&&(i[n[s]]=r[n[s]])}}return i},H="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",K=function(){};if(true){var Q=H,J={},Y=Function.call.bind(Object.prototype.hasOwnProperty);K=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}}}function X(e,t,r,n,i){if(true)for(var o in e)if(Y(e,o)){var a;try{if("function"!=typeof e[o]){var s=Error((n||"React class")+": "+r+" type `"+o+"` is invalid; it must be a function, usually from the `prop-types` package, but received `"+typeof e[o]+"`.");throw s.name="Invariant Violation",s}a=e[o](t,o,n,r,null,Q)}catch(e){a=e}if(!a||a instanceof Error||K((n||"React class")+": type specification of "+r+" `"+o+"` is invalid; the type checker function must return `null` or an `Error` but returned a "+typeof a+". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."),a instanceof Error&&!(a.message in J)){J[a.message]=!0;var u=i?i():"";K("Failed "+r+" type: "+a.message+(null!=u?u:""))}}}X.resetWarningCache=function(){ true&&(J={})};var G=X,Z=Function.call.bind(Object.prototype.hasOwnProperty),ee=function(){};function te(){return null} true&&(ee=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}});var re=function(e,t){var r="function"==typeof Symbol&&Symbol.iterator;var n={array:s("array"),bool:s("boolean"),func:s("function"),number:s("number"),object:s("object"),string:s("string"),symbol:s("symbol"),any:a(te),arrayOf:function(e){return a((function(t,r,n,i,a){if("function"!=typeof e)return new o("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside arrayOf.");var s=t[r];if(!Array.isArray(s))return new o("Invalid "+i+" `"+a+"` of type `"+c(s)+"` supplied to `"+n+"`, expected an array.");for(var u=0;u<s.length;u++){var f=e(s,u,n,i,a+"["+u+"]",H);if(f instanceof Error)return f}return null}))},element:a((function(t,r,n,i,a){var s=t[r];return e(s)?null:new o("Invalid "+i+" `"+a+"` of type `"+c(s)+"` supplied to `"+n+"`, expected a single ReactElement.")})),elementType:a((function(e,t,r,n,i){var a=e[t];return $.isValidElementType(a)?null:new o("Invalid "+n+" `"+i+"` of type `"+c(a)+"` supplied to `"+r+"`, expected a single ReactElement type.")})),instanceOf:function(e){return a((function(t,r,n,i,a){if(!(t[r]instanceof e)){var s=e.name||"<<anonymous>>";return new o("Invalid "+i+" `"+a+"` of type `"+function(e){if(!e.constructor||!e.constructor.name)return"<<anonymous>>";return e.constructor.name}(t[r])+"` supplied to `"+n+"`, expected instance of `"+s+"`.")}return null}))},node:a((function(e,t,r,n,i){return u(e[t])?null:new o("Invalid "+n+" `"+i+"` supplied to `"+r+"`, expected a ReactNode.")})),objectOf:function(e){return a((function(t,r,n,i,a){if("function"!=typeof e)return new o("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside objectOf.");var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected an object.");for(var f in s)if(Z(s,f)){var l=e(s,f,n,i,a+"."+f,H);if(l instanceof Error)return l}return null}))},oneOf:function(e){if(!Array.isArray(e))return true&&(arguments.length>1?ee("Invalid arguments supplied to oneOf, expected an array, got "+arguments.length+" arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."):ee("Invalid argument supplied to oneOf, expected an array.")),te;function t(t,r,n,a,s){for(var u=t[r],c=0;c<e.length;c++)if(i(u,e[c]))return null;var l=JSON.stringify(e,(function(e,t){return"symbol"===f(t)?String(t):t}));return new o("Invalid "+a+" `"+s+"` of value `"+String(u)+"` supplied to `"+n+"`, expected one of "+l+".")}return a(t)},oneOfType:function(e){if(!Array.isArray(e))return true&&ee("Invalid argument supplied to oneOfType, expected an instance of array."),te;for(var t=0;t<e.length;t++){var r=e[t];if("function"!=typeof r)return ee("Invalid argument supplied to oneOfType. Expected an array of check functions, but received "+l(r)+" at index "+t+"."),te}return a((function(t,r,n,i,a){for(var s=0;s<e.length;s++){if(null==(0,e[s])(t,r,n,i,a,H))return null}return new o("Invalid "+i+" `"+a+"` supplied to `"+n+"`.")}))},shape:function(e){return a((function(t,r,n,i,a){var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");for(var f in e){var l=e[f];if(l){var d=l(s,f,n,i,a+"."+f,H);if(d)return d}}return null}))},exact:function(e){return a((function(t,r,n,i,a){var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");var f=V({},t[r],e);for(var l in f){var d=e[l];if(!d)return new o("Invalid "+i+" `"+a+"` key `"+l+"` supplied to `"+n+"`.\nBad object: "+JSON.stringify(t[r],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var p=d(s,l,n,i,a+"."+l,H);if(p)return p}return null}))}};function i(e,t){return e===t?0!==e||1/e==1/t:e!=e&&t!=t}function o(e){this.message=e,this.stack=""}function a(e){if(true)var r={},n=0;function i(i,a,s,u,c,f,l){if(u=u||"<<anonymous>>",f=f||s,l!==H){if(t){var d=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");throw d.name="Invariant Violation",d}if( true&&"undefined"!=typeof console){var p=u+":"+s;!r[p]&&n<3&&(ee("You are manually calling a React.PropTypes validation function for the `"+f+"` prop on `"+u+"`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."),r[p]=!0,n++)}}return null==a[s]?i?null===a[s]?new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `null`."):new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `undefined`."):null:e(a,s,u,c,f)}var a=i.bind(null,!1);return a.isRequired=i.bind(null,!0),a}function s(e){return a((function(t,r,n,i,a,s){var u=t[r];return c(u)!==e?new o("Invalid "+i+" `"+a+"` of type `"+f(u)+"` supplied to `"+n+"`, expected `"+e+"`."):null}))}function u(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(u);if(null===t||e(t))return!0;var n=function(e){var t=e&&(r&&e[r]||e["@@iterator"]);if("function"==typeof t)return t}(t);if(!n)return!1;var i,o=n.call(t);if(n!==t.entries){for(;!(i=o.next()).done;)if(!u(i.value))return!1}else for(;!(i=o.next()).done;){var a=i.value;if(a&&!u(a[1]))return!1}return!0;default:return!1}}function c(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":function(e,t){return"symbol"===e||!!t&&("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}(t,e)?"symbol":t}function f(e){if(null==e)return""+e;var t=c(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function l(e){var t=f(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}return o.prototype=Error.prototype,n.checkPropTypes=G,n.resetWarningCache=G.resetWarningCache,n.PropTypes=n,n};function ne(){}function ie(){}ie.resetWarningCache=ne;var oe=r((function(e){if(true){var t=$;e.exports=re(t.isElement,!0)}else {}}));function ae(e){if(e<1048576){var t=(e/1024).toFixed(0);return t<=0?e+" B":t+" KB"}return e<1073741824?(e/1048576).toFixed(0)+" MB":e<1099511627776?(e/1073741824).toFixed(0)+" GB":""}function se(e){return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"23",height:"23",viewBox:"0 0 512 512"},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("path",{fill:e.color,d:"M504.1 256C504.1 119 393 7.9 256 7.9S7.9 119 7.9 256 119 504.1 256 504.1 504.1 393 504.1 256z"}),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("path",{fill:"#FFF",d:"M285 256l72.5-84.2c7.9-9.2 6.9-23-2.3-31-9.2-7.9-23-6.9-30.9 2.3L256 222.4l-68.2-79.2c-7.9-9.2-21.8-10.2-31-2.3-9.2 7.9-10.2 21.8-2.3 31L227 256l-72.5 84.2c-7.9 9.2-6.9 23 2.3 31 4.1 3.6 9.2 5.3 14.3 5.3 6.2 0 12.3-2.6 16.6-7.6l68.2-79.2 68.2 79.2c4.3 5 10.5 7.6 16.6 7.6 5.1 0 10.2-1.7 14.3-5.3 9.2-7.9 10.2-21.8 2.3-31L285 256z"}))}var ue={progressBar:{borderRadius:3,boxShadow:"inset 0 1px 3px rgba(0, 0, 0, .2)",bottom:14,position:"absolute",width:"80%"},buttonProgressBar:{position:"inherit",width:"100%"},progressBarFill:{backgroundColor:"#659cef",borderRadius:3,height:10,transition:"width 500ms ease-in-out"}},ce=function(e){u(n,react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);var r=h(n);function n(){return i(this,n),r.apply(this,arguments)}return a(n,[{key:"render",value:function(){var e=this.props,r=e.progressBarColor,n=e.progressBar,i=e.displayProgressBarStatus,o=e.isButtonProgressBar;return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},ue.progressBar,o&&ue.buttonProgressBar)},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:Object.assign({},ue.progressBarFill,{backgroundColor:r||"#659cef"},{width:"".concat(n,"%"),display:i})}))}}]),n}(),fe="#A01919",le={dropArea:{alignItems:"center",borderColor:"#ccc",borderStyle:"dashed",borderWidth:2,borderRadius:20,display:"flex",flexDirection:"column",height:"100%",justifyContent:"center",padding:20},inputFile:{display:"none"},highlight:{borderColor:"purple"},unhighlight:{borderColor:"#ccc"},dropFile:{background:"linear-gradient(to bottom, #eee, #ddd)",borderRadius:20,display:"block",height:120,width:100,paddingLeft:10,paddingRight:10,position:"relative",zIndex:10},column:{alignItems:"center",display:"flex",flexDirection:"column",justifyContent:"center"},fileSizeInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",borderRadius:3,lineHeight:1,marginBottom:"0.5em",padding:"0 0.4em"},fileNameInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",borderRadius:3,fontSize:14,lineHeight:1,padding:"0 0.4em"},defaultCursor:{cursor:"default"},pointerCursor:{cursor:"pointer"},dropFileRemoveButton:{height:23,position:"absolute",right:6,top:6,width:23}},de=function(e){u(o,react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);var r=h(o);function o(){var e;i(this,o);for(var a=arguments.length,u=new Array(a),c=0;c<a;c++)u[c]=arguments[c];return s(d(e=r.call.apply(r,[this].concat(u))),"inputFileRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"dropAreaRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"fileSizeInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"fileNameInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"state",{dropAreaStyle:le.dropArea,progressBar:0,displayProgressBarStatus:"none",file:null,timeout:null,files:null,removeIconColor:fe,isCanceled:!1}),s(d(e),"componentDidMount",(function(){var t=e.dropAreaRef.current;if(["dragenter","dragover","dragleave","drop"].forEach((function(r){t.addEventListener(r,e.preventDefaults,!1)})),!e.props.noDrag){["dragenter","dragover"].forEach((function(r){t.addEventListener(r,e.highlight,!1)})),t.addEventListener("dragleave",e.unhighlight,!1),t.addEventListener("drop",e.unhighlight,!1),t.addEventListener("drop",e.visibleProgressBar,!1),t.addEventListener("drop",e.handleDrop,!1)}})),s(d(e),"preventDefaults",(function(e){e.preventDefault(),e.stopPropagation()})),s(d(e),"highlight",(function(){e.setState({dropAreaStyle:Object.assign({},le.dropArea,le.highlight)}),e.setState({progressBar:0})})),s(d(e),"unhighlight",(function(){e.setState({dropAreaStyle:Object.assign({},le.dropArea,le.unhighlight)})})),s(d(e),"visibleProgressBar",(function(){e.setState({displayProgressBarStatus:"block"})})),s(d(e),"handleDrop",(function(t){var r={},n=!1;void 0===t.files?r=t.dataTransfer.files:r=t.files;0===r.length&&(r=e.state.files,n=!0),e.setState({files:r,isCanceled:n},(function(){e.handleFiles()}))})),s(d(e),"handleFiles",(function(){e.setState({progressBar:0});y(e.state.files).forEach(e.uploadFile)})),s(d(e),"uploadFile",(function(t,r){e.displayFileInfo(t),e.setState({file:t});var i=e.props,o=i.onDrop,a=i.onFileLoad,s=i.onError,u=i.config,c=void 0===u?{}:u,f=new window.FileReader,l={};c.error&&delete c.error,c.step&&delete c.step,c.complete&&delete c.complete;var p=t.size,h=[],y=0;if(o||a){var m=d(e);l=Object.assign({complete:function(){o?o(h):a(h)},step:function(e,t){h.push(e);var r=e.meta.cursor,n=Math.round(r/p*100);n!==y&&(y=n,m.setState({progressBar:y}))}},l)}s&&(l=Object.assign({error:s},l)),c&&(l=Object.assign(c,l)),f.onload=function(e){n.parse(e.target.result,l)},f.onloadend=function(t){clearTimeout(e.state.timeout),e.setState({timeout:setTimeout((function(){e.disableProgressBar()}),2e3)})},f.readAsText(t,c.encoding||"utf-8")})),s(d(e),"displayFileInfo",(function(t){e.childrenIsFunction()||(e.fileSizeInfoRef.current.innerHTML=ae(t.size),e.fileNameInfoRef.current.innerHTML=t.name)})),s(d(e),"disableProgressBar",(function(){e.setState({displayProgressBarStatus:"none"})})),s(d(e),"childrenIsFunction",(function(){return"function"==typeof e.props.children})),s(d(e),"fileChange",(function(t){var r=t.target;e.setState({displayProgressBarStatus:"block"},(function(){e.handleDrop(r)}))})),s(d(e),"open",(function(t){var r=e.state.displayProgressBarStatus;t&&"none"===r&&(t.preventDefault(),t.stopPropagation(),e.inputFileRef.current.value=null,e.inputFileRef.current.click())})),s(d(e),"renderChildren",(function(){return e.childrenIsFunction()?e.props.children({file:e.state.file}):e.props.children})),s(d(e),"removeFile",(function(t){if(t){t.stopPropagation(),e.setState({files:null,file:null});var r=e.props.onRemoveFile;r&&r(null),e.inputFileRef.current.value=null}})),s(d(e),"changeRemoveIconColor",(function(t){t&&e.setState({removeIconColor:t})})),s(d(e),"renderDropFileRemoveButton",(function(){var r=e.props.addRemoveButton,n=e.state,i=n.removeIconColor,o=n.displayProgressBarStatus;return r&&"none"===o?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.dropFileRemoveButton,onClick:function(t){return e.removeFile(t)},onMouseOver:function(){return e.changeRemoveIconColor("#DD2222")},onMouseOut:function(){return e.changeRemoveIconColor(fe)}},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(se,{color:i})):r?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.dropFileRemoveButton},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(se,{color:fe})):void 0})),e}return a(o,[{key:"render",value:function(){var e=this,r=this.props,n=r.style,i=r.noClick,o=r.children,a=r.progressBarColor,s=this.state,u=s.dropAreaStyle,c=s.files,f=s.isCanceled,l=s.progressBar,d=s.displayProgressBarStatus;return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment,null,react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input",{type:"file",accept:"text/csv",ref:this.inputFileRef,style:le.inputFile,onChange:function(t){return e.fileChange(t)}}),this.childrenIsFunction()?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef},this.renderChildren(),c&&c.length>0&&!f&&react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ce,{progressBarColor:a,progressBar:l,displayProgressBarStatus:d,isButtonProgressBar:!0})):react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef,style:Object.assign({},n,u,void 0!==i||"block"===d?le.defaultCursor:le.pointerCursor),onClick:function(t){i||e.open(t)}},c&&c.length>0?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},le.dropFile,le.column)},this.renderDropFileRemoveButton(),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.column},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:le.fileSizeInfo,ref:this.fileSizeInfoRef}),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:le.fileNameInfo,ref:this.fileNameInfoRef})),c&&c.length>0&&!f&&react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ce,{progressBarColor:a,progressBar:l,displayProgressBarStatus:d})):o))}}]),o}();function pe(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.parse(e,t)}function he(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};n.parse(e,Object.assign({},{download:!0},t))}function ye(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.unparse(e,t)}s(de,"propTypes",{children:oe.any.isRequired,onDrop:oe.func,onFileLoad:oe.func,onError:oe.func,config:oe.object,style:oe.object,noClick:oe.bool,noDrag:oe.bool,progressBarColor:oe.string,addRemoveButton:oe.bool,onRemoveFile:oe.func});var me=n.BAD_DELIMITERS,ge=n.RECORD_SEP,ve=n.UNIT_SEP,be=n.WORKERS_SUPPORTED,_e=n.LocalChunkSize,Se=n.DefaultDelimiter;
+ */()}function m(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}var g="function"==typeof Symbol&&Symbol.for,v=g?Symbol.for("react.element"):60103,b=g?Symbol.for("react.portal"):60106,_=g?Symbol.for("react.fragment"):60107,S=g?Symbol.for("react.strict_mode"):60108,E=g?Symbol.for("react.profiler"):60114,w=g?Symbol.for("react.provider"):60109,C=g?Symbol.for("react.context"):60110,O=g?Symbol.for("react.async_mode"):60111,R=g?Symbol.for("react.concurrent_mode"):60111,k=g?Symbol.for("react.forward_ref"):60112,x=g?Symbol.for("react.suspense"):60113,I=g?Symbol.for("react.suspense_list"):60120,T=g?Symbol.for("react.memo"):60115,P=g?Symbol.for("react.lazy"):60116,j=g?Symbol.for("react.block"):60121,A=g?Symbol.for("react.fundamental"):60117,D=g?Symbol.for("react.responder"):60118,F=g?Symbol.for("react.scope"):60119;function B(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case v:switch(e=e.type){case O:case R:case _:case E:case S:case x:return e;default:switch(e=e&&e.$$typeof){case C:case k:case P:case T:case w:return e;default:return t}}case b:return t}}}function M(e){return B(e)===R}var L={AsyncMode:O,ConcurrentMode:R,ContextConsumer:C,ContextProvider:w,Element:v,ForwardRef:k,Fragment:_,Lazy:P,Memo:T,Portal:b,Profiler:E,StrictMode:S,Suspense:x,isAsyncMode:function(e){return M(e)||B(e)===O},isConcurrentMode:M,isContextConsumer:function(e){return B(e)===C},isContextProvider:function(e){return B(e)===w},isElement:function(e){return"object"==typeof e&&null!==e&&e.$$typeof===v},isForwardRef:function(e){return B(e)===k},isFragment:function(e){return B(e)===_},isLazy:function(e){return B(e)===P},isMemo:function(e){return B(e)===T},isPortal:function(e){return B(e)===b},isProfiler:function(e){return B(e)===E},isStrictMode:function(e){return B(e)===S},isSuspense:function(e){return B(e)===x},isValidElementType:function(e){return"string"==typeof e||"function"==typeof e||e===_||e===R||e===E||e===S||e===x||e===I||"object"==typeof e&&null!==e&&(e.$$typeof===P||e.$$typeof===T||e.$$typeof===w||e.$$typeof===C||e.$$typeof===k||e.$$typeof===A||e.$$typeof===D||e.$$typeof===F||e.$$typeof===j)},typeOf:B},N=r((function(e,t){ true&&function(){var e="function"==typeof Symbol&&Symbol.for,r=e?Symbol.for("react.element"):60103,n=e?Symbol.for("react.portal"):60106,i=e?Symbol.for("react.fragment"):60107,o=e?Symbol.for("react.strict_mode"):60108,a=e?Symbol.for("react.profiler"):60114,s=e?Symbol.for("react.provider"):60109,u=e?Symbol.for("react.context"):60110,c=e?Symbol.for("react.async_mode"):60111,f=e?Symbol.for("react.concurrent_mode"):60111,l=e?Symbol.for("react.forward_ref"):60112,d=e?Symbol.for("react.suspense"):60113,p=e?Symbol.for("react.suspense_list"):60120,h=e?Symbol.for("react.memo"):60115,y=e?Symbol.for("react.lazy"):60116,m=e?Symbol.for("react.block"):60121,g=e?Symbol.for("react.fundamental"):60117,v=e?Symbol.for("react.responder"):60118,b=e?Symbol.for("react.scope"):60119;function _(e){if("object"==typeof e&&null!==e){var t=e.$$typeof;switch(t){case r:var p=e.type;switch(p){case c:case f:case i:case a:case o:case d:return p;default:var m=p&&p.$$typeof;switch(m){case u:case l:case y:case h:case s:return m;default:return t}}case n:return t}}}var S=c,E=f,w=u,C=s,O=r,R=l,k=i,x=y,I=h,T=n,P=a,j=o,A=d,D=!1;function F(e){return _(e)===f}t.AsyncMode=S,t.ConcurrentMode=E,t.ContextConsumer=w,t.ContextProvider=C,t.Element=O,t.ForwardRef=R,t.Fragment=k,t.Lazy=x,t.Memo=I,t.Portal=T,t.Profiler=P,t.StrictMode=j,t.Suspense=A,t.isAsyncMode=function(e){return D||(D=!0,console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")),F(e)||_(e)===c},t.isConcurrentMode=F,t.isContextConsumer=function(e){return _(e)===u},t.isContextProvider=function(e){return _(e)===s},t.isElement=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===r},t.isForwardRef=function(e){return _(e)===l},t.isFragment=function(e){return _(e)===i},t.isLazy=function(e){return _(e)===y},t.isMemo=function(e){return _(e)===h},t.isPortal=function(e){return _(e)===n},t.isProfiler=function(e){return _(e)===a},t.isStrictMode=function(e){return _(e)===o},t.isSuspense=function(e){return _(e)===d},t.isValidElementType=function(e){return"string"==typeof e||"function"==typeof e||e===i||e===f||e===a||e===o||e===d||e===p||"object"==typeof e&&null!==e&&(e.$$typeof===y||e.$$typeof===h||e.$$typeof===s||e.$$typeof===u||e.$$typeof===l||e.$$typeof===g||e.$$typeof===v||e.$$typeof===b||e.$$typeof===m)},t.typeOf=_}()})),$=(N.AsyncMode,N.ConcurrentMode,N.ContextConsumer,N.ContextProvider,N.Element,N.ForwardRef,N.Fragment,N.Lazy,N.Memo,N.Portal,N.Profiler,N.StrictMode,N.Suspense,N.isAsyncMode,N.isConcurrentMode,N.isContextConsumer,N.isContextProvider,N.isElement,N.isForwardRef,N.isFragment,N.isLazy,N.isMemo,N.isPortal,N.isProfiler,N.isStrictMode,N.isSuspense,N.isValidElementType,N.typeOf,r((function(e){ false?undefined:e.exports=N}))),z=Object.getOwnPropertySymbols,q=Object.prototype.hasOwnProperty,U=Object.prototype.propertyIsEnumerable;function W(e){if(null==e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}var V=function(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},r=0;r<10;r++)t["_"+String.fromCharCode(r)]=r;if("0123456789"!==Object.getOwnPropertyNames(t).map((function(e){return t[e]})).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach((function(e){n[e]=e})),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(e){return!1}}()?Object.assign:function(e,t){for(var r,n,i=W(e),o=1;o<arguments.length;o++){for(var a in r=Object(arguments[o]))q.call(r,a)&&(i[a]=r[a]);if(z){n=z(r);for(var s=0;s<n.length;s++)U.call(r,n[s])&&(i[n[s]]=r[n[s]])}}return i},H="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",K=function(){};if(true){var Q=H,J={},Y=Function.call.bind(Object.prototype.hasOwnProperty);K=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}}}function X(e,t,r,n,i){if(true)for(var o in e)if(Y(e,o)){var a;try{if("function"!=typeof e[o]){var s=Error((n||"React class")+": "+r+" type `"+o+"` is invalid; it must be a function, usually from the `prop-types` package, but received `"+typeof e[o]+"`.");throw s.name="Invariant Violation",s}a=e[o](t,o,n,r,null,Q)}catch(e){a=e}if(!a||a instanceof Error||K((n||"React class")+": type specification of "+r+" `"+o+"` is invalid; the type checker function must return `null` or an `Error` but returned a "+typeof a+". You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument)."),a instanceof Error&&!(a.message in J)){J[a.message]=!0;var u=i?i():"";K("Failed "+r+" type: "+a.message+(null!=u?u:""))}}}X.resetWarningCache=function(){ true&&(J={})};var G=X,Z=Function.call.bind(Object.prototype.hasOwnProperty),ee=function(){};function te(){return null} true&&(ee=function(e){var t="Warning: "+e;"undefined"!=typeof console&&console.error(t);try{throw new Error(t)}catch(e){}});var re=function(e,t){var r="function"==typeof Symbol&&Symbol.iterator;var n={array:s("array"),bool:s("boolean"),func:s("function"),number:s("number"),object:s("object"),string:s("string"),symbol:s("symbol"),any:a(te),arrayOf:function(e){return a((function(t,r,n,i,a){if("function"!=typeof e)return new o("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside arrayOf.");var s=t[r];if(!Array.isArray(s))return new o("Invalid "+i+" `"+a+"` of type `"+c(s)+"` supplied to `"+n+"`, expected an array.");for(var u=0;u<s.length;u++){var f=e(s,u,n,i,a+"["+u+"]",H);if(f instanceof Error)return f}return null}))},element:a((function(t,r,n,i,a){var s=t[r];return e(s)?null:new o("Invalid "+i+" `"+a+"` of type `"+c(s)+"` supplied to `"+n+"`, expected a single ReactElement.")})),elementType:a((function(e,t,r,n,i){var a=e[t];return $.isValidElementType(a)?null:new o("Invalid "+n+" `"+i+"` of type `"+c(a)+"` supplied to `"+r+"`, expected a single ReactElement type.")})),instanceOf:function(e){return a((function(t,r,n,i,a){if(!(t[r]instanceof e)){var s=e.name||"<<anonymous>>";return new o("Invalid "+i+" `"+a+"` of type `"+function(e){if(!e.constructor||!e.constructor.name)return"<<anonymous>>";return e.constructor.name}(t[r])+"` supplied to `"+n+"`, expected instance of `"+s+"`.")}return null}))},node:a((function(e,t,r,n,i){return u(e[t])?null:new o("Invalid "+n+" `"+i+"` supplied to `"+r+"`, expected a ReactNode.")})),objectOf:function(e){return a((function(t,r,n,i,a){if("function"!=typeof e)return new o("Property `"+a+"` of component `"+n+"` has invalid PropType notation inside objectOf.");var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected an object.");for(var f in s)if(Z(s,f)){var l=e(s,f,n,i,a+"."+f,H);if(l instanceof Error)return l}return null}))},oneOf:function(e){if(!Array.isArray(e))return true&&(arguments.length>1?ee("Invalid arguments supplied to oneOf, expected an array, got "+arguments.length+" arguments. A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z])."):ee("Invalid argument supplied to oneOf, expected an array.")),te;function t(t,r,n,a,s){for(var u=t[r],c=0;c<e.length;c++)if(i(u,e[c]))return null;var l=JSON.stringify(e,(function(e,t){return"symbol"===f(t)?String(t):t}));return new o("Invalid "+a+" `"+s+"` of value `"+String(u)+"` supplied to `"+n+"`, expected one of "+l+".")}return a(t)},oneOfType:function(e){if(!Array.isArray(e))return true&&ee("Invalid argument supplied to oneOfType, expected an instance of array."),te;for(var t=0;t<e.length;t++){var r=e[t];if("function"!=typeof r)return ee("Invalid argument supplied to oneOfType. Expected an array of check functions, but received "+l(r)+" at index "+t+"."),te}return a((function(t,r,n,i,a){for(var s=0;s<e.length;s++){if(null==(0,e[s])(t,r,n,i,a,H))return null}return new o("Invalid "+i+" `"+a+"` supplied to `"+n+"`.")}))},shape:function(e){return a((function(t,r,n,i,a){var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");for(var f in e){var l=e[f];if(l){var d=l(s,f,n,i,a+"."+f,H);if(d)return d}}return null}))},exact:function(e){return a((function(t,r,n,i,a){var s=t[r],u=c(s);if("object"!==u)return new o("Invalid "+i+" `"+a+"` of type `"+u+"` supplied to `"+n+"`, expected `object`.");var f=V({},t[r],e);for(var l in f){var d=e[l];if(!d)return new o("Invalid "+i+" `"+a+"` key `"+l+"` supplied to `"+n+"`.\nBad object: "+JSON.stringify(t[r],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var p=d(s,l,n,i,a+"."+l,H);if(p)return p}return null}))}};function i(e,t){return e===t?0!==e||1/e==1/t:e!=e&&t!=t}function o(e){this.message=e,this.stack=""}function a(e){if(true)var r={},n=0;function i(i,a,s,u,c,f,l){if(u=u||"<<anonymous>>",f=f||s,l!==H){if(t){var d=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");throw d.name="Invariant Violation",d}if( true&&"undefined"!=typeof console){var p=u+":"+s;!r[p]&&n<3&&(ee("You are manually calling a React.PropTypes validation function for the `"+f+"` prop on `"+u+"`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details."),r[p]=!0,n++)}}return null==a[s]?i?null===a[s]?new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `null`."):new o("The "+c+" `"+f+"` is marked as required in `"+u+"`, but its value is `undefined`."):null:e(a,s,u,c,f)}var a=i.bind(null,!1);return a.isRequired=i.bind(null,!0),a}function s(e){return a((function(t,r,n,i,a,s){var u=t[r];return c(u)!==e?new o("Invalid "+i+" `"+a+"` of type `"+f(u)+"` supplied to `"+n+"`, expected `"+e+"`."):null}))}function u(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(u);if(null===t||e(t))return!0;var n=function(e){var t=e&&(r&&e[r]||e["@@iterator"]);if("function"==typeof t)return t}(t);if(!n)return!1;var i,o=n.call(t);if(n!==t.entries){for(;!(i=o.next()).done;)if(!u(i.value))return!1}else for(;!(i=o.next()).done;){var a=i.value;if(a&&!u(a[1]))return!1}return!0;default:return!1}}function c(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":function(e,t){return"symbol"===e||!!t&&("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}(t,e)?"symbol":t}function f(e){if(null==e)return""+e;var t=c(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function l(e){var t=f(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}return o.prototype=Error.prototype,n.checkPropTypes=G,n.resetWarningCache=G.resetWarningCache,n.PropTypes=n,n};function ne(){}function ie(){}ie.resetWarningCache=ne;var oe=r((function(e){if(true){var t=$;e.exports=re(t.isElement,!0)}else {}}));function ae(e){if(e<1048576){var t=(e/1024).toFixed(0);return t<=0?e+" B":t+" KB"}return e<1073741824?(e/1048576).toFixed(0)+" MB":e<1099511627776?(e/1073741824).toFixed(0)+" GB":""}function se(e){return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("svg",{xmlns:"http://www.w3.org/2000/svg",width:"23",height:"23",viewBox:"0 0 512 512"},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("path",{fill:e.color,d:"M504.1 256C504.1 119 393 7.9 256 7.9S7.9 119 7.9 256 119 504.1 256 504.1 504.1 393 504.1 256z"}),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("path",{fill:"#FFF",d:"M285 256l72.5-84.2c7.9-9.2 6.9-23-2.3-31-9.2-7.9-23-6.9-30.9 2.3L256 222.4l-68.2-79.2c-7.9-9.2-21.8-10.2-31-2.3-9.2 7.9-10.2 21.8-2.3 31L227 256l-72.5 84.2c-7.9 9.2-6.9 23 2.3 31 4.1 3.6 9.2 5.3 14.3 5.3 6.2 0 12.3-2.6 16.6-7.6l68.2-79.2 68.2 79.2c4.3 5 10.5 7.6 16.6 7.6 5.1 0 10.2-1.7 14.3-5.3 9.2-7.9 10.2-21.8 2.3-31L285 256z"}))}var ue={progressBar:{borderRadius:3,boxShadow:"inset 0 1px 3px rgba(0, 0, 0, .2)",bottom:14,position:"absolute",width:"80%"},buttonProgressBar:{position:"inherit",width:"100%"},progressBarFill:{backgroundColor:"#659cef",borderRadius:3,height:10,transition:"width 500ms ease-in-out"}},ce=function(e){u(n,react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);var r=h(n);function n(){return i(this,n),r.apply(this,arguments)}return a(n,[{key:"render",value:function(){var e=this.props,r=e.progressBarColor,n=e.progressBar,i=e.displayProgressBarStatus,o=e.isButtonProgressBar;return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},ue.progressBar,o&&ue.buttonProgressBar)},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:Object.assign({},ue.progressBarFill,{backgroundColor:r||"#659cef"},{width:"".concat(n,"%"),display:i})}))}}]),n}(),fe="#A01919",le={dropArea:{alignItems:"center",borderColor:"#ccc",borderStyle:"dashed",borderWidth:2,borderRadius:20,display:"flex",flexDirection:"column",height:"100%",justifyContent:"center",padding:20},inputFile:{display:"none"},highlight:{borderColor:"purple"},unhighlight:{borderColor:"#ccc"},dropFile:{background:"linear-gradient(to bottom, #eee, #ddd)",borderRadius:20,display:"block",height:120,width:100,paddingLeft:10,paddingRight:10,position:"relative",zIndex:10},column:{alignItems:"center",display:"flex",flexDirection:"column",justifyContent:"center"},fileSizeInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",borderRadius:3,lineHeight:1,marginBottom:"0.5em",padding:"0 0.4em"},fileNameInfo:{backgroundColor:"rgba(255, 255, 255, 0.4)",borderRadius:3,fontSize:14,lineHeight:1,padding:"0 0.4em"},defaultCursor:{cursor:"default"},pointerCursor:{cursor:"pointer"},dropFileRemoveButton:{height:23,position:"absolute",right:6,top:6,width:23}},de=function(e){u(o,react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);var r=h(o);function o(){var e;i(this,o);for(var a=arguments.length,u=new Array(a),c=0;c<a;c++)u[c]=arguments[c];return s(d(e=r.call.apply(r,[this].concat(u))),"inputFileRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"dropAreaRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"fileSizeInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"fileNameInfoRef",react__WEBPACK_IMPORTED_MODULE_1___default.a.createRef()),s(d(e),"state",{dropAreaStyle:le.dropArea,progressBar:0,displayProgressBarStatus:"none",file:null,timeout:null,files:null,removeIconColor:fe,isCanceled:!1}),s(d(e),"componentDidMount",(function(){var t=e.dropAreaRef.current;if(["dragenter","dragover","dragleave","drop"].forEach((function(r){t.addEventListener(r,e.preventDefaults,!1)})),!e.props.noDrag){["dragenter","dragover"].forEach((function(r){t.addEventListener(r,e.highlight,!1)})),t.addEventListener("dragleave",e.unhighlight,!1),t.addEventListener("drop",e.unhighlight,!1),t.addEventListener("drop",e.visibleProgressBar,!1),t.addEventListener("drop",e.handleDrop,!1)}})),s(d(e),"preventDefaults",(function(e){e.preventDefault(),e.stopPropagation()})),s(d(e),"highlight",(function(){e.setState({dropAreaStyle:Object.assign({},le.dropArea,le.highlight)}),e.setState({progressBar:0})})),s(d(e),"unhighlight",(function(){e.setState({dropAreaStyle:Object.assign({},le.dropArea,le.unhighlight)})})),s(d(e),"visibleProgressBar",(function(){e.setState({displayProgressBarStatus:"block"})})),s(d(e),"handleDrop",(function(t){var r={},n=!1;void 0===t.files?r=t.dataTransfer.files:r=t.files;0===r.length&&(r=e.state.files,n=!0),e.setState({files:r,isCanceled:n},(function(){e.handleFiles()}))})),s(d(e),"handleFiles",(function(){e.setState({progressBar:0});y(e.state.files).forEach(e.uploadFile)})),s(d(e),"uploadFile",(function(t,r){e.displayFileInfo(t),e.setState({file:t});var i=e.props,o=i.onDrop,a=i.onFileLoad,s=i.onError,u=i.config,c=void 0===u?{}:u,f=new window.FileReader,l={};c.error&&delete c.error,c.step&&delete c.step,c.complete&&delete c.complete;var p=t.size,h=[],y=0;if(o||a){var m=d(e);l=Object.assign({complete:function(){o?o(h,t):a(h,t)},step:function(e,t){h.push(e);var r=e.meta.cursor,n=Math.round(r/p*100);n!==y&&(y=n,m.setState({progressBar:y}))}},l)}s&&(l=Object.assign({error:s},l)),c&&(l=Object.assign(c,l)),f.onload=function(e){n.parse(e.target.result,l)},f.onloadend=function(t){clearTimeout(e.state.timeout),e.setState({timeout:setTimeout((function(){e.disableProgressBar()}),2e3)})},f.readAsText(t,c.encoding||"utf-8")})),s(d(e),"displayFileInfo",(function(t){e.childrenIsFunction()||(e.fileSizeInfoRef.current.innerHTML=ae(t.size),e.fileNameInfoRef.current.innerHTML=t.name)})),s(d(e),"disableProgressBar",(function(){e.setState({displayProgressBarStatus:"none"})})),s(d(e),"childrenIsFunction",(function(){return"function"==typeof e.props.children})),s(d(e),"fileChange",(function(t){var r=t.target;e.setState({displayProgressBarStatus:"block"},(function(){e.handleDrop(r)}))})),s(d(e),"open",(function(t){var r=e.state.displayProgressBarStatus;t&&"none"===r&&(t.preventDefault(),t.stopPropagation(),e.inputFileRef.current.value=null,e.inputFileRef.current.click())})),s(d(e),"renderChildren",(function(){return e.childrenIsFunction()?e.props.children({file:e.state.file}):e.props.children})),s(d(e),"removeFile",(function(t){if(t){t.stopPropagation(),e.setState({files:null,file:null});var r=e.props.onRemoveFile;r&&r(null),e.inputFileRef.current.value=null}})),s(d(e),"changeRemoveIconColor",(function(t){t&&e.setState({removeIconColor:t})})),s(d(e),"renderDropFileRemoveButton",(function(){var r=e.props.addRemoveButton,n=e.state,i=n.removeIconColor,o=n.displayProgressBarStatus;return r&&"none"===o?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.dropFileRemoveButton,onClick:function(t){return e.removeFile(t)},onMouseOver:function(){return e.changeRemoveIconColor("#DD2222")},onMouseOut:function(){return e.changeRemoveIconColor(fe)}},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(se,{color:i})):r?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.dropFileRemoveButton},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(se,{color:fe})):void 0})),e}return a(o,[{key:"render",value:function(){var e=this,r=this.props,n=r.style,i=r.noClick,o=r.children,a=r.progressBarColor,s=this.state,u=s.dropAreaStyle,c=s.files,f=s.isCanceled,l=s.progressBar,d=s.displayProgressBarStatus;return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment,null,react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input",{type:"file",accept:"text/csv",ref:this.inputFileRef,style:le.inputFile,onChange:function(t){return e.fileChange(t)}}),this.childrenIsFunction()?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef},this.renderChildren(),c&&c.length>0&&!f&&react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ce,{progressBarColor:a,progressBar:l,displayProgressBarStatus:d,isButtonProgressBar:!0})):react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{ref:this.dropAreaRef,style:Object.assign({},n,u,void 0!==i||"block"===d?le.defaultCursor:le.pointerCursor),onClick:function(t){i||e.open(t)}},c&&c.length>0?react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:Object.assign({},le.dropFile,le.column)},this.renderDropFileRemoveButton(),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div",{style:le.column},react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:le.fileSizeInfo,ref:this.fileSizeInfoRef}),react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span",{style:le.fileNameInfo,ref:this.fileNameInfoRef})),c&&c.length>0&&!f&&react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(ce,{progressBarColor:a,progressBar:l,displayProgressBarStatus:d})):o))}}]),o}();function pe(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.parse(e,t)}function he(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};n.parse(e,Object.assign({},{download:!0},t))}function ye(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return n.unparse(e,t)}s(de,"propTypes",{children:oe.any.isRequired,onDrop:oe.func,onFileLoad:oe.func,onError:oe.func,config:oe.object,style:oe.object,noClick:oe.bool,noDrag:oe.bool,progressBarColor:oe.string,addRemoveButton:oe.bool,onRemoveFile:oe.func});var me=n.BAD_DELIMITERS,ge=n.RECORD_SEP,ve=n.UNIT_SEP,be=n.WORKERS_SUPPORTED,_e=n.LocalChunkSize,Se=n.DefaultDelimiter;
 //# sourceMappingURL=index.es.js.map
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
@@ -5102,7 +5144,7 @@ module.exports = Duplex;
 
 /*<replacement>*/
 var util = Object.create(__webpack_require__(/*! core-util-is */ "./node_modules/core-util-is/lib/util.js"));
-util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+util.inherits = __webpack_require__(/*! inherits */ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js");
 /*</replacement>*/
 
 var Readable = __webpack_require__(/*! ./_stream_readable */ "./node_modules/readable-stream/lib/_stream_readable.js");
@@ -5231,7 +5273,7 @@ var Transform = __webpack_require__(/*! ./_stream_transform */ "./node_modules/r
 
 /*<replacement>*/
 var util = Object.create(__webpack_require__(/*! core-util-is */ "./node_modules/core-util-is/lib/util.js"));
-util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+util.inherits = __webpack_require__(/*! inherits */ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js");
 /*</replacement>*/
 
 util.inherits(PassThrough, Transform);
@@ -5310,7 +5352,7 @@ var Stream = __webpack_require__(/*! ./internal/streams/stream */ "./node_module
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
+var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -5323,7 +5365,7 @@ function _isUint8Array(obj) {
 
 /*<replacement>*/
 var util = Object.create(__webpack_require__(/*! core-util-is */ "./node_modules/core-util-is/lib/util.js"));
-util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+util.inherits = __webpack_require__(/*! inherits */ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js");
 /*</replacement>*/
 
 /*<replacement>*/
@@ -6358,7 +6400,7 @@ var Duplex = __webpack_require__(/*! ./_stream_duplex */ "./node_modules/readabl
 
 /*<replacement>*/
 var util = Object.create(__webpack_require__(/*! core-util-is */ "./node_modules/core-util-is/lib/util.js"));
-util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+util.inherits = __webpack_require__(/*! inherits */ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js");
 /*</replacement>*/
 
 util.inherits(Transform, Duplex);
@@ -6579,7 +6621,7 @@ Writable.WritableState = WritableState;
 
 /*<replacement>*/
 var util = Object.create(__webpack_require__(/*! core-util-is */ "./node_modules/core-util-is/lib/util.js"));
-util.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+util.inherits = __webpack_require__(/*! inherits */ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js");
 /*</replacement>*/
 
 /*<replacement>*/
@@ -6594,7 +6636,7 @@ var Stream = __webpack_require__(/*! ./internal/streams/stream */ "./node_module
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
+var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -7215,7 +7257,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/readable-stream/node_modules/safe-buffer/index.js").Buffer;
+var Buffer = __webpack_require__(/*! safe-buffer */ "./node_modules/safe-buffer/index.js").Buffer;
 var util = __webpack_require__(/*! util */ 3);
 
 function copyBuffer(src, target, offset) {
@@ -7390,74 +7432,39 @@ module.exports = __webpack_require__(/*! events */ "./node_modules/events/events
 
 /***/ }),
 
-/***/ "./node_modules/readable-stream/node_modules/safe-buffer/index.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/readable-stream/node_modules/safe-buffer/index.js ***!
-  \************************************************************************/
+/***/ "./node_modules/readable-stream/node_modules/inherits/inherits_browser.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/readable-stream/node_modules/inherits/inherits_browser.js ***!
+  \********************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-/* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(/*! buffer */ "./node_modules/buffer/index.js")
-var Buffer = buffer.Buffer
-
-// alternative to using Object.keys for old browsers
-function copyProps (src, dst) {
-  for (var key in src) {
-    dst[key] = src[key]
-  }
-}
-if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) {
-  module.exports = buffer
-} else {
-  // Copy properties from require('buffer')
-  copyProps(buffer, exports)
-  exports.Buffer = SafeBuffer
-}
-
-function SafeBuffer (arg, encodingOrOffset, length) {
-  return Buffer(arg, encodingOrOffset, length)
-}
-
-// Copy static methods from Buffer
-copyProps(Buffer, SafeBuffer)
-
-SafeBuffer.from = function (arg, encodingOrOffset, length) {
-  if (typeof arg === 'number') {
-    throw new TypeError('Argument must not be a number')
-  }
-  return Buffer(arg, encodingOrOffset, length)
-}
-
-SafeBuffer.alloc = function (size, fill, encoding) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  var buf = Buffer(size)
-  if (fill !== undefined) {
-    if (typeof encoding === 'string') {
-      buf.fill(fill, encoding)
-    } else {
-      buf.fill(fill)
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      })
     }
-  } else {
-    buf.fill(0)
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      var TempCtor = function () {}
+      TempCtor.prototype = superCtor.prototype
+      ctor.prototype = new TempCtor()
+      ctor.prototype.constructor = ctor
+    }
   }
-  return buf
-}
-
-SafeBuffer.allocUnsafe = function (size) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  return Buffer(size)
-}
-
-SafeBuffer.allocUnsafeSlow = function (size) {
-  if (typeof size !== 'number') {
-    throw new TypeError('Argument must be a number')
-  }
-  return buffer.SlowBuffer(size)
 }
 
 
@@ -7545,8 +7552,6 @@ if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow)
 function SafeBuffer (arg, encodingOrOffset, length) {
   return Buffer(arg, encodingOrOffset, length)
 }
-
-SafeBuffer.prototype = Object.create(Buffer.prototype)
 
 // Copy static methods from Buffer
 copyProps(Buffer, SafeBuffer)

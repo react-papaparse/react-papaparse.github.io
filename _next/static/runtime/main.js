@@ -3455,7 +3455,7 @@ var relPrefetch = hasRel('preload') && !hasRel('prefetch') ? // https://caniuse.
 'preload' : // https://caniuse.com/#feat=link-rel-prefetch
 // IE 11, Edge 12+, nearly all evergreen
 'prefetch';
-var hasNoModule = 'noModule' in document.createElement('script');
+var hasNoModule = ('noModule' in document.createElement('script'));
 /** @param {string} route */
 
 function normalizeRoute(route) {
