@@ -1,63 +1,234 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><title> Documentation - Powerful CSV Parser for React</title><link rel="shortcut icon" type="image/x-icon" href=""/><meta name="theme-color" content="#ffffff"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="apple-mobile-web-app-title" content="react-papaparse"/><link rel="apple-touch-icon" href=""/><link rel="shortcut icon" type="image/x-icon" href=""/><meta name="description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta name="keywords" content="React Papaparse, CSVReader, CSVDownloader, readString, readRemoteFile , jsonToCSV, React CSV, Papaparse, CSV, React Native CSV"/><meta name="author" content="Bunlong Van"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arvo|Source+Sans+Pro:400,400italic,700|Lato:300,400"/><link rel="stylesheet" href="/static/css/unsemantic.css"/><link rel="stylesheet" href="/static/css/common.css"/><link rel="stylesheet" href="/static/css/prism.css"/><meta property="og:url" content="https://react-papaparse.github.io"/><meta property="og:type" content="website"/><meta property="og:title" content="react-papaparse"/><meta property="og:description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta property="og:image" content="/static/images/react-papaparse.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@bunlongvan"/><meta name="twitter:creator" content="@bunlongvan"/><meta name="twitter:title" content="react-papaparse"/><meta name="twitter:description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta name="twitter:image" content="https://react-papaparse.github.io/static/images/react-papaparse.png"/><link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/><link rel="icon" href="/static/favicon-32.png" sizes="32x32" type="image/png"/><link rel="apple-touch-icon-precomposed" href="/static/favicon-152.png" type="image/png" sizes="152x152"/><link rel="apple-touch-icon-precomposed" href="/static/favicon-120.png" type="image/png" sizes="120x120"/><link rel="icon" href="/static/favicon-96.png" sizes="96x96" type="image/png"/><meta name="next-head-count" content="34"/><link rel="preload" href="/_next/static/css/27175f2b038d3b1dd39d.css" as="style"/><link rel="stylesheet" href="/_next/static/css/27175f2b038d3b1dd39d.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-14918e827766d5d4858f.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.8572055b4a1222f1b4b3.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.f5b644c0c8d92005bc3f.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-54f090621c6d0af600d6.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-b918557b9b670ab902a7.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs-665e35df28db341f8c22.js" as="script"/></head><body><div id="__next"><div><div><main><header><div class="grid-container"><div class="grid-40 mobile-grid-50"><div class="links"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a><a href="/demo"><i class="fa fa-magic fa-lg"></i> Demo</a><a href="/docs"><i class="fa fa-book fa-lg"></i> Docs</a></div></div><div class="grid-20 hide-on-mobile text-center"><a href="/" class="text-logo">react-papaparse 3</a></div><div class="grid-40 mobile-grid-50 text-right"><div class="links"><a href="https://github.com/Bunlong/react-papaparse"><i class="fa fa-github fa-lg"></i> GitHub</a></div></div></div></header><h1>Documentation</h1><div class="grid-container"><div class="prefix-33 grid-33 suffix-33"><ol><li><a href="#csv-to-json">Convert CSV to JSON</a><ul><li><a href="#strings">readString</a></li><li><a href="#local-files">Parse local file</a></li><li><a href="#remote-files">readRemoteFile</a></li></ul></li><li><a href="#json-to-csv">Convert JSON to CSV</a></li><li><a href="#config">Config</a></li><li><a href="#results">Results</a><ul><li><a href="#data">Data</a></li><li><a href="#errors">Errors</a></li><li><a href="#meta">Meta</a></li></ul></li><li><a href="#extras">Extras</a></li><li><a href="#csv-downloader">CSVDownloader</a></li></ol></div></div><main><section><div class="grid-container"><div class="grid-100"><h4 id="csv-to-json">Convert CSV to JSON</h4><p>Delimited data can be parsed out of strings or files. Files that are parsed can be local. Local files are used with CSVReader component.</p></div><div class="grid-100"><h5 id="strings">Parse string</h5></div><div class="grid-50"><pre><code class="language-javascript">readString(csvString<i>[, <a href="#config">config</a>]</i>)</code></pre></div><div class="grid-50"><ul><li><code>csvString</code> is a string of delimited text to be parsed.</li><li><code>config</code> is an optional<!-- --> <a href="#config">config object</a>.</li><li>Returns a <a href="#results">parse results</a> object (if not streaming or using worker).</li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="local-files">Parse local files</h5></div><div class="grid-100"><p id="basic-upload" style="font-size:20px">Basic Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
-  ref={buttonRef}
-  onFileLoad={this.handleOnDrop}
-  onError={this.handleOnError}
-  noClick
-  noDrag
-  config={{}}
-  style={{}}
-  onRemoveFile={this.handleOnRemoveFile}
-  &gt;
-  {({ file }) =&gt; (
-    &lt;aside&gt;
-      &lt;button
-        type=&#x27;button&#x27;
-        onClick={this.handleOpenDialog}
-      &gt;
-          Browe file
-      &lt;/button&gt;
-      &lt;div&gt;
-        {file &amp;&amp; file.name}
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><title> Documentation - Powerful CSV Parser for React</title><link rel="shortcut icon" type="image/x-icon" href=""/><meta name="theme-color" content="#ffffff"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta name="apple-mobile-web-app-title" content="react-papaparse"/><link rel="apple-touch-icon" href=""/><link rel="shortcut icon" type="image/x-icon" href=""/><meta name="description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta name="keywords" content="React Papaparse, CSVReader, CSVDownloader, readString, readRemoteFile , jsonToCSV, React CSV, Papaparse, CSV, React Native CSV"/><meta name="author" content="Bunlong Van"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arvo|Source+Sans+Pro:400,400italic,700|Lato:300,400"/><link rel="stylesheet" href="/static/css/unsemantic.css"/><link rel="stylesheet" href="/static/css/common.css"/><link rel="stylesheet" href="/static/css/prism.css"/><meta property="og:url" content="https://react-papaparse.github.io"/><meta property="og:type" content="website"/><meta property="og:title" content="react-papaparse"/><meta property="og:description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta property="og:image" content="/static/images/react-papaparse.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@bunlongvan"/><meta name="twitter:creator" content="@bunlongvan"/><meta name="twitter:title" content="react-papaparse"/><meta name="twitter:description" content="The fastest in-browser CSV (or delimited text) parser for React."/><meta name="twitter:image" content="https://react-papaparse.github.io/static/images/react-papaparse.png"/><link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon"/><link rel="icon" href="/static/favicon-32.png" sizes="32x32" type="image/png"/><link rel="apple-touch-icon-precomposed" href="/static/favicon-152.png" type="image/png" sizes="152x152"/><link rel="apple-touch-icon-precomposed" href="/static/favicon-120.png" type="image/png" sizes="120x120"/><link rel="icon" href="/static/favicon-96.png" sizes="96x96" type="image/png"/><meta name="next-head-count" content="34"/><link rel="preload" href="/_next/static/css/878b3b9a9ee9ae4cceae.css" as="style"/><link rel="stylesheet" href="/_next/static/css/878b3b9a9ee9ae4cceae.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-696365fe1868f1396cb5.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.0021446505933bd5cafd.js" as="script"/><link rel="preload" href="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.ce4b2266325182fccb55.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-e5e2382b8230932699ea.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-9098a42135564a570814.js" as="script"/><link rel="preload" href="/_next/static/chunks/ba43c0059f31913f28e53f615645a3f91dbaab7b.514315c3e2ec78cf0c99.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/docs-5f07d91bfab371e73391.js" as="script"/></head><body><div id="__next"><div><div><main><header><div class="grid-container"><div class="grid-40 mobile-grid-50"><div class="links"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a><a href="/demo"><i class="fa fa-magic fa-lg"></i> Demo</a><a href="/docs"><i class="fa fa-book fa-lg"></i> Docs</a></div></div><div class="grid-20 hide-on-mobile text-center"><a href="/" class="text-logo">react-papaparse 3</a></div><div class="grid-40 mobile-grid-50 text-right"><div class="links"><a href="https://github.com/Bunlong/react-papaparse"><i class="fa fa-github fa-lg"></i> GitHub</a></div></div></div></header><h1>Documentation</h1><div class="grid-container"><div class="prefix-33 grid-33 suffix-33"><ol><li><a href="#csv-to-json">Convert CSV to JSON</a><ul><li><a href="#strings">readString</a></li><li><a href="#local-files">Parse local file</a></li><li><a href="#remote-files">readRemoteFile</a></li></ul></li><li><a href="#json-to-csv">Convert JSON to CSV</a></li><li><a href="#config">Config</a></li><li><a href="#results">Results</a><ul><li><a href="#data">Data</a></li><li><a href="#errors">Errors</a></li><li><a href="#meta">Meta</a></li></ul></li><li><a href="#extras">Extras</a></li><li><a href="#csv-downloader">CSVDownloader</a></li></ol></div></div><main><section><div class="grid-container"><div class="grid-100"><h4 id="csv-to-json">Convert CSV to JSON</h4><p>Delimited data can be parsed out of strings or files. Files that are parsed can be local. Local files are used with CSVReader component.</p></div><div class="grid-100"><h5 id="strings">Parse string</h5></div><div class="grid-50"><pre><code class="language-javascript">readString(csvString<i>[, <a href="#config">config</a>]</i>)</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/readString.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>csvString</code> is a string of delimited text to be parsed.</li><li><code>config</code> is an <a href="#config">config object</a>.</li><li>Returns a <a href="#results">parse results</a> object in<!-- --> <code>complete</code> of config object (if not streaming or using worker).</li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="local-files">Parse local files</h5></div><div class="grid-100"><p id="basic-upload" style="font-size:20px">Basic Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
+  onUploadAccepted={(results: any) =&gt; {
+    console.log(&#x27;---------------------------&#x27;);
+    console.log(results);
+    console.log(&#x27;---------------------------&#x27;);
+  }}
+&gt;
+  {({
+    getRootProps,
+    acceptedFile,
+    ProgressBar,
+    getRemoveFileProps,
+  }: any) =&gt; (
+    &lt;&gt;
+      &lt;div style={styles.csvReader}&gt;
+        &lt;button type=&#x27;button&#x27; {...getRootProps()} style={styles.browseFile}&gt;
+          Browse file
+        &lt;/button&gt;
+        &lt;div style={styles.acceptedFile}&gt;
+          {acceptedFile &amp;&amp; acceptedFile.name}
+        &lt;/div&gt;
+        &lt;button {...getRemoveFileProps()} style={styles.remove}&gt;
+          Remove
+        &lt;/button&gt;
       &lt;/div&gt;
-      &lt;button onClick={this.handleRemoveFile}&gt;Remove&lt;/button&gt;
-    &lt;/aside&gt;
+      &lt;ProgressBar style={styles.progressBarBackgroundColor} /&gt;
+    &lt;/&gt;
   )}
-&lt;/CSVReader&gt;
-</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/master/demo/CSVReader1.js">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code><a href="https://reactjs.org/docs/refs-and-the-dom.html" target="_blank">ref</a></code> <!-- -->is a way to access/get files from<!-- --> <code>&lt;input type=&quot;file&quot;&gt;</code> element.</li><li><code>onFileLoad</code> is the function to be called passing loaded results.</li><li><code>onError</code> is error handling function.</li><li><code>isReset</code> If true, reset CSVReader.</li><li><code>noClick</code> If true, disables click to open the native file selection dialog.</li><li><code>noDrag</code> If true, disables drag &#x27;n&#x27; drop.</li><li><code>noProgressBar</code> If true, disables progress bar.</li><li><code>progressBarColor</code> is a property to be used to set the color of progress bar (for example,<!-- --> <code>progressBarColor=&#x27;#659cef&#x27;</code>).</li><li><code>style</code> is some styles to be applied to the<!-- --> <code>&lt;input&gt;</code> element.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li></ul></div><div class="clear"></div><div class="grid-100"><p id="click-and-drag-upload" style="font-size:20px;margin-top:50px">Click and Drag Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
-  onDrop={this.handleOnDrop}
-  onError={this.handleOnError}
-  style={{}}
-  config={{}}
-  addRemoveButton
-  onRemoveFile={this.handleOnRemoveFile}
+&lt;/CSVReader&gt;</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/CSVReaderBasicUpload.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onUploadAccepted</code> is the function to be called passing uploaded results.</li><li><code>noClick</code> If true, disables click to open the native file selection dialog.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="clear"></div><div class="grid-100"><p id="click-and-drag-upload" style="font-size:20px;margin-top:50px">Click and Drag Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
+  onUploadAccepted={(results: any) =&gt; {
+    console.log(&#x27;---------------------------&#x27;);
+    console.log(results);
+    console.log(&#x27;---------------------------&#x27;);
+    setZoneHover(false);
+  }}
+  onDragOver={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(true);
+  }}
+  onDragLeave={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(false);
+  }}
 &gt;
-  &lt;span&gt;Drop CSV file here or click to upload.&lt;/span&gt;
-&lt;/CSVReader&gt;
-</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/master/demo/CSVReader2.js">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onDrop</code> is the function to be called passing loaded results.</li><li><code>onError</code> is error handling function.</li><li><code>isReset</code> If true, reset CSVReader.</li><li><code>noProgressBar</code> If true, disables progress bar.</li><li><code>progressBarColor</code> is a property to be used to set the color of progress bar (for example,<!-- --> <code>progressBarColor=&#x27;#659cef&#x27;</code>).</li><li><code>style</code> is some styles to be applied to the<!-- --> <code>&lt;input&gt;</code> element.</li><li><code>addRemoveButton</code> If true, this will add a button to remove or cancel (if already uploading) the file.</li><li><code>removeButtonColor</code> is a property to be used to set the color of remove button (for example,<!-- --> <code>removeButtonColor=&#x27;#659cef&#x27;</code>).</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li><li><a href="https://github.com/Bunlong/react-papaparse/wiki/CSVReader-(Drag-to-Upload)-Style" target="_blank">How to customize CSVReader (Drag to upload) style?</a></li></ul></div><div class="clear"></div><div class="grid-100"><p id="drag-no-click-upload" style="font-size:20px;margin-top:50px">Drag ( No Click ) Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
-  onDrop={this.handleOnDrop}
-  onError={this.handleOnError}
+  {({
+    getRootProps,
+    acceptedFile,
+    ProgressBar,
+    getRemoveFileProps,
+    Remove,
+  }: any) =&gt; (
+    &lt;&gt;
+      &lt;div
+        {...getRootProps()}
+        style={Object.assign(
+          {},
+          styles.zone,
+          zoneHover &amp;&amp; styles.zoneHover
+        )}
+      &gt;
+        {acceptedFile ? (
+          &lt;&gt;
+            &lt;div style={styles.file}&gt;
+              &lt;div style={styles.info}&gt;
+                &lt;span style={styles.size}&gt;
+                  {formatFileSize(acceptedFile.size)}
+                &lt;/span&gt;
+                &lt;span style={styles.name}&gt;{acceptedFile.name}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div style={styles.progressBar}&gt;
+                &lt;ProgressBar /&gt;
+              &lt;/div&gt;
+              &lt;div
+                {...getRemoveFileProps()}
+                style={styles.remove}
+                onMouseOver={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(REMOVE_HOVER_COLOR_LIGHT);
+                }}
+                onMouseOut={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(DEFAULT_REMOVE_HOVER_COLOR);
+                }}
+              &gt;
+                &lt;Remove color={removeHoverColor} /&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/&gt;
+        ) : (
+          &#x27;Drop CSV file here or click to upload&#x27;
+        )}
+      &lt;/div&gt;
+    &lt;/&gt;
+  )}
+&lt;/CSVReader&gt;</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/CSVReaderClickAndDragUpload.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onUploadAccepted</code> is the function to be called passing uploaded results.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="clear"></div><div class="grid-100"><p id="drag-no-click-upload" style="font-size:20px;margin-top:50px">Drag ( No Click ) Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
+  onUploadAccepted={(results: any) =&gt; {
+    console.log(&#x27;---------------------------&#x27;);
+    console.log(results);
+    console.log(&#x27;---------------------------&#x27;);
+    setZoneHover(false);
+  }}
+  onDragOver={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(true);
+  }}
+  onDragLeave={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(false);
+  }}
   noClick
-  style={{}}
-  config={{}}
-  addRemoveButton
-  onRemoveFile={this.handleOnRemoveFile}
 &gt;
-  &lt;span&gt;Drop CSV file here to upload.&lt;/span&gt;
-&lt;/CSVReader&gt;
-</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/master/demo/CSVReader3.js">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onDrop</code> is the function to be called passing loaded results.</li><li><code>onError</code> is error handling function.</li><li><code>isReset</code> If true, reset CSVReader.</li><li><code>noClick</code> If true, disables click to open the native file selection dialog.</li><li><code>noProgressBar</code> If true, disables progress bar.</li><li><code>progressBarColor</code> is a property to be used to set the color of progress bar (for example,<!-- --> <code>progressBarColor=&#x27;#659cef&#x27;</code>).</li><li><code>style</code> is some styles to be applied to the<!-- --> <code>&lt;input&gt;</code> element.</li><li><code>addRemoveButton</code> If true, this will add a button to remove or cancel (if already uploading) the file.</li><li><code>removeButtonColor</code> is a property to be used to set the color of remove button (for example,<!-- --> <code>removeButtonColor=&#x27;#659cef&#x27;</code>).</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li><li><a href="https://github.com/Bunlong/react-papaparse/wiki/CSVReader-(Drag-to-Upload)-Style" target="_blank">How to customize CSVReader (Drag to upload) style?</a></li></ul></div><div class="clear"></div><div class="grid-100"><p id="click-no-drag-upload" style="font-size:20px;margin-top:50px">Click ( No Drag ) Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader 
-  onDrop={this.handleOnDrop}
-  onError={this.handleOnError}
+  {({
+    getRootProps,
+    acceptedFile,
+    ProgressBar,
+    getRemoveFileProps,
+    Remove,
+  }: any) =&gt; (
+    &lt;&gt;
+      &lt;div
+        {...getRootProps()}
+        style={Object.assign(
+          {},
+          styles.zone,
+          zoneHover &amp;&amp; styles.zoneHover
+        )}
+      &gt;
+        {acceptedFile ? (
+          &lt;&gt;
+            &lt;div style={styles.file}&gt;
+              &lt;div style={styles.info}&gt;
+                &lt;span style={styles.size}&gt;
+                  {formatFileSize(acceptedFile.size)}
+                &lt;/span&gt;
+                &lt;span style={styles.name}&gt;{acceptedFile.name}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div style={styles.progressBar}&gt;
+                &lt;ProgressBar /&gt;
+              &lt;/div&gt;
+              &lt;div
+                {...getRemoveFileProps()}
+                style={styles.remove}
+                onMouseOver={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(REMOVE_HOVER_COLOR_LIGHT);
+                }}
+                onMouseOut={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(DEFAULT_REMOVE_HOVER_COLOR);
+                }}
+              &gt;
+                &lt;Remove color={removeHoverColor} /&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/&gt;
+        ) : (
+          &#x27;Drop CSV file here to upload&#x27;
+        )}
+      &lt;/div&gt;
+    &lt;/&gt;
+  )}
+&lt;/CSVReader&gt;</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/CSVReaderDragNoClickUpload.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onUploadAccepted</code> is the function to be called passing uploaded results.</li><li><code>noClick</code> If true, disables click to open the native file selection dialog.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="clear"></div><div class="grid-100"><p id="click-no-drag-upload" style="font-size:20px;margin-top:50px">Click ( No Drag ) Upload</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVReader
+  onUploadAccepted={(results: any) =&gt; {
+    console.log(&#x27;---------------------------&#x27;);
+    console.log(results);
+    console.log(&#x27;---------------------------&#x27;);
+    setZoneHover(false);
+  }}
+  onDragOver={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(true);
+  }}
+  onDragLeave={(event: DragEvent) =&gt; {
+    event.preventDefault();
+    setZoneHover(false);
+  }}
   noDrag
-  style={{}}
-  config={{}}
-  addRemoveButton
-  onRemoveFile={this.handleOnRemoveFile}
 &gt;
-  &lt;span&gt;Click to upload.&lt;/span&gt;
-&lt;/CSVReader&gt;
-</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/master/demo/CSVReader4.js">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onDrop</code> is the function to be called passing loaded results.</li><li><code>onError</code> is error handling function.</li><li><code>isReset</code> If true, reset CSVReader.</li><li><code>noDrag</code> If true, disables drag &#x27;n&#x27; drop.</li><li><code>noProgressBar</code> If true, disables progress bar.</li><li><code>progressBarColor</code> is a property to be used to set the color of progress bar (for example,<!-- --> <code>progressBarColor=&#x27;#659cef&#x27;</code>).</li><li><code>style</code> is some styles to be applied to the<!-- --> <code>&lt;input&gt;</code> element.</li><li><code>addRemoveButton</code> If true, this will add a button to remove or cancel (if already uploading) the file.</li><li><code>removeButtonColor</code> is a property to be used to set the color of remove button (for example,<!-- --> <code>removeButtonColor=&#x27;#659cef&#x27;</code>).</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li><li><a href="https://github.com/Bunlong/react-papaparse/wiki/CSVReader-(Drag-to-Upload)-Style" target="_blank">How to customize CSVReader (Drag to upload) style?</a></li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="remote-files">Parse remote file</h5></div><div class="grid-50"><pre><code class="language-javascript">readRemoteFile(url, {
+  {({
+    getRootProps,
+    acceptedFile,
+    ProgressBar,
+    getRemoveFileProps,
+    Remove,
+  }: any) =&gt; (
+    &lt;&gt;
+      &lt;div
+        {...getRootProps()}
+        style={Object.assign(
+          {},
+          styles.zone,
+          zoneHover &amp;&amp; styles.zoneHover
+        )}
+      &gt;
+        {acceptedFile ? (
+          &lt;&gt;
+            &lt;div style={styles.file}&gt;
+              &lt;div style={styles.info}&gt;
+                &lt;span style={styles.size}&gt;
+                  {formatFileSize(acceptedFile.size)}
+                &lt;/span&gt;
+                &lt;span style={styles.name}&gt;{acceptedFile.name}&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div style={styles.progressBar}&gt;
+                &lt;ProgressBar /&gt;
+              &lt;/div&gt;
+              &lt;div
+                {...getRemoveFileProps()}
+                style={styles.remove}
+                onMouseOver={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(REMOVE_HOVER_COLOR_LIGHT);
+                }}
+                onMouseOut={(event: Event) =&gt; {
+                  event.preventDefault();
+                  setRemoveHoverColor(DEFAULT_REMOVE_HOVER_COLOR);
+                }}
+              &gt;
+                &lt;Remove color={removeHoverColor} /&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/&gt;
+        ) : (
+          &#x27;Click to upload&#x27;
+        )}
+      &lt;/div&gt;
+    &lt;/&gt;
+  )}
+&lt;/CSVReader&gt;</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/CSVReaderClickNoDragUpload.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>accept</code>is a property to be used to set MIME type for CSV. Default is<!-- --> <code>&#x27;text/csv, .csv, application/vnd.ms-excel&#x27;</code>.</li><li><code>onUploadAccepted</code> is the function to be called passing uploaded results.</li><li><code>noDrag</code> If true, disables drag &#x27;n&#x27; drop.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="remote-files">Parse remote file</h5></div><div class="grid-50"><pre><code class="language-javascript">readRemoteFile(url, {
   // rest of config ...
-})</code></pre></div><div class="grid-50"><ul><li><code>url</code> is the path or URL to the file to download.</li><li>The second argument is a <a href="#config">config object</a>.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li></ul></div></div></section><section><div class="grid-container"><div class="grid-100"><h4 id="json-to-csv">Convert JSON to CSV</h4><p>react-papaparse <code>unparse</code> utility writes out correct delimited text strings given an array of arrays or an array of objects using <code>jsonToCSV()</code> function.</p></div><div class="grid-50"><pre><code class="language-javascript">jsonToCSV(jsonData<i>[, <a href="#unparse-config-default">config</a>]</i>)</code></pre></div><div class="grid-50"><ul><li>Returns the resulting delimited text as a string.</li><li><code>data</code> can be one of:<ul><li>An array of arrays</li><li>An array of objects</li><li>An object explicitly defining <code>fields</code> and<!-- --> <code>data</code></li></ul></li><li><code>config</code> is an optional<!-- --> <a href="#unparse-config-default">config object</a></li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="unparse-config-default">Default Unparse Config with all options</h5></div><div class="prefix-25 grid-50 suffix-25"><pre><code class="language-javascript">
+})</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/readRemoteFile.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>url</code> is the path or URL to the file to download.</li><li>The second argument is a <a href="#config">config object</a>.</li><li>Doesn&#x27;t return anything. Results are provided asynchronously to a callback function.</li></ul></div></div></section><section><div class="grid-container"><div class="grid-100"><h4 id="json-to-csv">Convert JSON to CSV</h4><p>react-papaparse <code>unparse</code> utility writes out correct delimited text strings given an array of arrays or an array of objects using <code>jsonToCSV()</code> function.</p></div><div class="grid-50"><pre><code class="language-javascript">jsonToCSV(jsonData<i>[, <a href="#unparse-config-default">config</a>]</i>)</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/jsonToCSV.tsx">Source code</a></span></div><div class="grid-50"><ul><li>Returns the resulting delimited text as a string.</li><li><code>data</code> can be one of:<ul><li>An array of arrays</li><li>An array of objects</li><li>An object explicitly defining <code>fields</code> and<!-- --> <code>data</code></li></ul></li><li><code>config</code> is an optional<!-- --> <a href="#unparse-config-default">config object</a></li></ul></div><div class="clear"></div><div class="grid-100"><h5 id="unparse-config-default">Default Unparse Config with all options</h5></div><div class="prefix-25 grid-50 suffix-25"><pre><code class="language-javascript">
 {
   quotes: false, //or array of booleans
   quoteChar: &#x27;&quot;&#x27;,
@@ -154,6 +325,14 @@ const csv = jsonToCSV({
   fields:    // Array of field names
   truncated: // Whether preview consumed all input
 }</code></pre></div><div class="grid-50"><ul><li>Not all meta properties will always be available. For instance,<!-- --> <code>fields</code> is only given when header row is enabled.</li></ul></div><div class="clear"></div></div></section><section><div class="grid-container"><div class="grid-100"><h4 id="extras">Extras</h4><p>There&#x27;s a few other things that react-papaparse exposes to you that weren&#x27;t explained above.</p></div><div class="grid-100"><h5 id="readonly">Read-Only</h5></div><div class="grid-100"><table><thead><tr><th>Read-Only Property</th><th>Explanation</th></tr></thead><tbody><tr><td><code>BAD_DELIMITERS</code></td><td>An array of characters that are not allowed as delimiters.</td></tr><tr><td><code>RECORD_SEP</code></td><td>The true delimiter. Invisible. ASCII code 30. Should be doing the job we strangely rely upon commas and tabs for.</td></tr><tr><td><code>UNIT_SEP</code></td><td>Also sometimes used as a delimiting character. ASCII code 31.</td></tr><tr><td><code>WORKERS_SUPPORTED</code></td><td>Whether or not the browser supports HTML5 Web Workers. If false, <code>worker: true</code> will have no effect.</td></tr></tbody></table></div><div class="grid-100"><h5 id="configurable">Configurable</h5></div><div class="grid-100"><table><thead><tr><th>Configurable Property</th><th>Explanation</th></tr></thead><tbody><tr><td><code>LocalChunkSize</code></td><td>The size in bytes of each file chunk. Used when streaming files obtained from the DOM that exist on the local computer. Default 10 MB.</td></tr><tr><td><code>DefaultDelimiter</code></td><td>The delimiter used when it is left unspecified and cannot be detected automatically. Default is comma.</td></tr></tbody></table></div></div></section><section style="border-bottom:0;padding-bottom:0"><div class="grid-container"><div class="clear"></div><div class="grid-100"><h4 id="csv-downloader">CSVDownloader</h4><p>Allow to download CSV file from js object.</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVDownloader
+  type={Type.Button}
+  filename={&#x27;filename&#x27;}
+  bom={true}
+  config={
+    {
+      delimiter: &#x27;;&#x27;,
+    }
+  }
   data={[
     {
       &quot;Column 1&quot;: &quot;1-1&quot;,
@@ -162,14 +341,10 @@ const csv = jsonToCSV({
       &quot;Column 4&quot;: &quot;1-4&quot;,
     },
   ]}
-  type=&quot;button&quot;
-  filename={&#x27;filename&#x27;}
-  bom={true}
-  config={{}}
 &gt;
   Download
 &lt;/CSVDownloader&gt;
-</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/master/demo/CSVDownloader1.js">Source code</a></span></div><div class="grid-50"><ul><li><code>bom</code> is used to indicate Unicode encoding of a text file. If true, indicate Unicode encoding of a text file.</li><li><code>type</code> If &quot;button&quot;, render button.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="grid-100"><p><code>data=</code> can be a function that returns a data object.</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVDownloader
+</code></pre><span style="float:right;margin-bottom:14px;text-align-last:end"><a href="https://github.com/Bunlong/react-papaparse/blob/v4.0.0/examples/CSVDownloader.tsx">Source code</a></span></div><div class="grid-50"><ul><li><code>bom</code> is used to indicate Unicode encoding of a text file. If true, indicate Unicode encoding of a text file.</li><li><code>type</code> If &quot;button&quot;, render button.</li><li><code>config</code> is a <a href="#config">config object</a> which contains a callback.</li></ul></div><div class="grid-100"><p><code>data=</code> can be a function that returns a data object.</p></div><div class="grid-50"><pre><code class="language-javascript">&lt;CSVDownloader
   filename={&#x27;filename&#x27;}
   data={() =&gt; {
     return [
@@ -184,4 +359,4 @@ const csv = jsonToCSV({
 &gt;
   Download
 &lt;/CSVDownloader&gt;
-</code></pre></div></div></section></main></main></div><footer><div class="footer-main"><div class="grid-container"><div class="grid-40 text-center"><div class="logo"></div><br/><br/>react-papaparse by<!-- --> <a href="https://github.com/bunlong">Bunlong</a><br/>© 2018-2021</div><div class="grid-15 mobile-grid-50 links"><h5>Learn</h5><a href="/demo">Demo</a><a href="/docs">Documentation</a></div><div class="grid-15 mobile-grid-50 links"><h5>Project</h5><a href="https://github.com/Bunlong/next-share" target="_blank">next-share</a></div></div></div></footer><script type="text/javascript" src="/static/js/prism.js"></script></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/docs","query":{},"buildId":"4L7TEayFwJ7p38Uifp3I7","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-fa6895e93b53826501e5.js"></script><script src="/_next/static/chunks/webpack-14918e827766d5d4858f.js" async=""></script><script src="/_next/static/chunks/framework.8572055b4a1222f1b4b3.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.f5b644c0c8d92005bc3f.js" async=""></script><script src="/_next/static/chunks/main-54f090621c6d0af600d6.js" async=""></script><script src="/_next/static/chunks/pages/_app-b918557b9b670ab902a7.js" async=""></script><script src="/_next/static/chunks/pages/docs-665e35df28db341f8c22.js" async=""></script><script src="/_next/static/4L7TEayFwJ7p38Uifp3I7/_buildManifest.js" async=""></script><script src="/_next/static/4L7TEayFwJ7p38Uifp3I7/_ssgManifest.js" async=""></script></body></html>
+</code></pre></div></div></section></main></main></div><footer><div class="footer-main"><div class="grid-container"><div class="grid-40 text-center"><div class="logo"></div><br/><br/>react-papaparse by<!-- --> <a href="https://github.com/bunlong">Bunlong</a><br/>© 2018-2022</div><div class="grid-15 mobile-grid-50 links"><h5>Learn</h5><a href="/demo">Demo</a><a href="/docs">Documentation</a></div><div class="grid-15 mobile-grid-50 links"><h5>Project</h5><a href="https://github.com/Bunlong/next-share" target="_blank">next-share</a></div></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/docs","query":{},"buildId":"qNvw92ZttvRVl442XqG6W","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/chunks/polyfills-8a9ca68ce2f6a778e0e3.js"></script><script src="/_next/static/chunks/webpack-696365fe1868f1396cb5.js" async=""></script><script src="/_next/static/chunks/framework.0021446505933bd5cafd.js" async=""></script><script src="/_next/static/chunks/f6078781a05fe1bcb0902d23dbbb2662c8d200b3.ce4b2266325182fccb55.js" async=""></script><script src="/_next/static/chunks/main-e5e2382b8230932699ea.js" async=""></script><script src="/_next/static/chunks/pages/_app-9098a42135564a570814.js" async=""></script><script src="/_next/static/chunks/ba43c0059f31913f28e53f615645a3f91dbaab7b.514315c3e2ec78cf0c99.js" async=""></script><script src="/_next/static/chunks/pages/docs-5f07d91bfab371e73391.js" async=""></script><script src="/_next/static/qNvw92ZttvRVl442XqG6W/_buildManifest.js" async=""></script><script src="/_next/static/qNvw92ZttvRVl442XqG6W/_ssgManifest.js" async=""></script></body></html>
